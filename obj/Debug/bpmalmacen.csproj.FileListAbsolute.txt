@@ -1,0 +1,42 @@
+C:\BPMALMACEN\bpmalmacen\bin\Debug\bpmalmacen.exe.config
+C:\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.csprojResolveAssemblyReference.cache
+C:\bpmalmacen\bpmalmacen\obj\Debug\Interop.CRAXDDT.dll
+C:\bpmalmacen\bpmalmacen\obj\Debug\Interop.CRPEAuto.dll
+C:\bpmalmacen\bpmalmacen\obj\Debug\Interop.Crystal.dll
+C:\bpmalmacen\bpmalmacen\obj\Debug\Interop.CrystalDataObject.dll
+C:\bpmalmacen\bpmalmacen\obj\Debug\Interop.CSELEXPTLib.dll
+C:\bpmalmacen\bpmalmacen\obj\Debug\Interop.DAO.dll
+C:\bpmalmacen\bpmalmacen\obj\Debug\Interop.MSDataReportLib.dll
+C:\bpmalmacen\bpmalmacen\obj\Debug\Interop.MSDATASRC.dll
+C:\bpmalmacen\bpmalmacen\obj\Debug\Interop.XQVIEWERLib.dll
+C:\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.csproj.ResolveComReference.cache
+C:\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.entrada.resources
+C:\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.Properties.Resources.resources
+C:\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.csproj.GenerateResource.Cache
+C:\bpmalmacen\bpmalmacen\bin\Debug\bpmalmacen.exe
+C:\bpmalmacen\bpmalmacen\bin\Debug\bpmalmacen.pdb
+C:\bpmalmacen\bpmalmacen\bin\Debug\itextsharp.dll
+C:\bpmalmacen\bpmalmacen\bin\Debug\itextsharp.xtra.dll
+C:\bpmalmacen\bpmalmacen\bin\Debug\Microsoft.Office.Tools.Excel.v4.0.Utilities.dll
+C:\bpmalmacen\bpmalmacen\bin\Debug\MySql.Data.dll
+C:\bpmalmacen\bpmalmacen\bin\Debug\Microsoft.Office.Tools.Excel.v4.0.Utilities.xml
+C:\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.exe
+C:\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.pdb
+C:\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.almacen.resources
+C:\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.principal.resources
+C:\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.catpartidas.resources
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\bin\Debug\bpmalmacen.exe.config
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\bin\Debug\bpmalmacen.exe
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\bin\Debug\bpmalmacen.pdb
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\bin\Debug\Microsoft.Office.Tools.Excel.v4.0.Utilities.xml
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\obj\Debug\Interop.MSDATASRC.dll
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.csproj.ResolveComReference.cache
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.catpartidas.resources
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.entrada.resources
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.almacen.resources
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.principal.resources
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.Properties.Resources.resources
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.exe
+\\vmware-host\Shared Folders\Documentos\CODIGOS\BPMPUNTUAL-VB\bpmalmacen\bpmalmacen\obj\Debug\bpmalmacen.pdb
