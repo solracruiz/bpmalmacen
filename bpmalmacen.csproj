@@ -71,31 +71,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="catalmacenes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="catalmacenes.Designer.cs">
-      <DependentUpon>catalmacenes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="catareas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="catareas.Designer.cs">
-      <DependentUpon>catareas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="catpartidas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="catpartidas.Designer.cs">
-      <DependentUpon>catpartidas.cs</DependentUpon>
-    </Compile>
     <Compile Include="conexion.cs" />
-    <Compile Include="dbcom.cs" />
     <Compile Include="entrada.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="entrada.Designer.cs">
       <DependentUpon>entrada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventarios.Designer.cs">
+      <DependentUpon>Inventarios.cs</DependentUpon>
     </Compile>
     <Compile Include="menualmacen.cs">
       <SubType>Form</SubType>
@@ -112,17 +99,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="catalmacenes.resx">
-      <DependentUpon>catalmacenes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="catareas.resx">
-      <DependentUpon>catareas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="catpartidas.resx">
-      <DependentUpon>catpartidas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="entrada.resx">
       <DependentUpon>entrada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventarios.resx">
+      <DependentUpon>Inventarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menualmacen.resx">
       <DependentUpon>menualmacen.cs</DependentUpon>

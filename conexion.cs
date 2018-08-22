@@ -114,20 +114,10 @@ namespace bpmalmacen
                 //MysqlConexion.AbrirBD();
                 Command.Connection = MysqlConexion;
                 Command.CommandText = consulta;
-                Data.Clear();
-                Adapter = new MySqlDataAdapter(Command); //'se crea instancia del adaptador del objeto                           //'se crea instancia del dataset del objeto
-                Adapter.Fill(Data);                  //'se llena el adaptador del objeto
-                Table.Clear();
-                if (Data.Tables[0].Rows.Count != 0)
-                { //'valida registros                 
+                //Adapter = new MySqlDataAdapter(Command); //'se crea instancia del adaptador del objeto                           //'se crea instancia del dataset del objeto                
                     return Command.ExecuteReader();  //      'se inicializa el MysqlDataReader del objeto
                    
-                }// 'Retorna DataTable del Objeto    
-                else
-                {
-                    //    MysqlConexion.Close();  //                               'Cierra base de datos en caso de que no cumpla con la validacion
-                    return null;         //                                  'Retorna Nulo    
-                }
+             
             }
             catch (Exception ex)
             {

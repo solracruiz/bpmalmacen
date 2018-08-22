@@ -26,8 +26,8 @@ namespace bpmalmacen
 
         private void partidasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            catpartidas frm = new catpartidas();
-            frm.Show();
+            //catpartidas frm = new catpartidas();
+            //frm.Show();
         }
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)

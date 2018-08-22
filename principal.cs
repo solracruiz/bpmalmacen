@@ -31,8 +31,9 @@ namespace bpmalmacen
 
         private void principal_Load(object sender, EventArgs e)
         {
-            foto.Image = Image.FromFile(entrada.fotousuarioruta);
+            foto.Image = Image.FromFile(entrada.rutadefotos + "foto.jpg");
             usuario1.Text = " " + entrada.nombreusario;
         }
+
     }
 }
