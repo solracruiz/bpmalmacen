@@ -69,6 +69,7 @@ namespace bpmalmacen
             this.txtid.Size = new System.Drawing.Size(73, 20);
             this.txtid.TabIndex = 1;
             this.txtid.TextChanged += new System.EventHandler(this.txtid_TextChanged);
+            this.txtid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtid_KeyDown);
             this.txtid.Leave += new System.EventHandler(this.txtid_Leave);
             // 
             // txtnombre
@@ -203,7 +204,7 @@ namespace bpmalmacen
             // Grid_Articulos
             // 
             this.Grid_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grid_Articulos.Location = new System.Drawing.Point(102, 113);
+            this.Grid_Articulos.Location = new System.Drawing.Point(102, 91);
             this.Grid_Articulos.Name = "Grid_Articulos";
             this.Grid_Articulos.Size = new System.Drawing.Size(654, 190);
             this.Grid_Articulos.TabIndex = 14;
