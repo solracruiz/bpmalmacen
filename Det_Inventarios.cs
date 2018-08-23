@@ -24,7 +24,7 @@ namespace bpmalmacen
         {
             if (validar() == 0)
             { return; }
-            data_det_inv.Rows.Insert(r + 1, txtid.Text, txtnombre.Text, txtcantidad.Text, txtestado.Text, txtlote.Text);
+            data_det_inv.Rows.Insert(r,r+1, txtid.Text, txtnombre.Text, txtcantidad.Text, txtestado.Text, txtlote.Text);
             r = r + 1;
             limpiar();
         }
@@ -48,12 +48,12 @@ namespace bpmalmacen
             }
         }
 
-        private void Inventarios_Load(object sender, EventArgs e)
+        private void Det_Inventarios_Load(object sender, EventArgs e)
         {
             conn.AbrirBD();
         }
 
-        private void Inventarios_FormClosing(object sender, FormClosingEventArgs e)
+        private void Det_Inventarios_FormClosing(object sender, FormClosingEventArgs e)
         {
             conn.cerrarBd();
         }

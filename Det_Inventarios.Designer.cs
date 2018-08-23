@@ -326,8 +326,8 @@ namespace bpmalmacen
             this.Controls.Add(this.label1);
             this.Name = "Det_Inventarios";
             this.Text = "Det_Inventarios";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Inventarios_FormClosing);
-            this.Load += new System.EventHandler(this.Inventarios_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Det_Inventarios_FormClosing);
+            this.Load += new System.EventHandler(this.Det_Inventarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.data_det_inv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Articulos)).EndInit();
             this.ResumeLayout(false);
