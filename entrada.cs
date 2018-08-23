@@ -74,7 +74,7 @@ namespace bpmalmacen
                     menualmacen frm = new menualmacen();
                     frm.Show();
                     conn.cerrarBd();
-                    this.Hide();
+                    this.Close();
                 }
                 else
                 {
