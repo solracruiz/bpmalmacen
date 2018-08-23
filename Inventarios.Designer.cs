@@ -49,6 +49,15 @@ namespace bpmalmacen
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.Grid_Articulos = new System.Windows.Forms.DataGridView();
+            this.txtinventario = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txttipo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtfecha = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtalmacen = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.data_det_inv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Articulos)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +65,7 @@ namespace bpmalmacen
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 286);
+            this.label1.Location = new System.Drawing.Point(28, 330);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 1;
@@ -64,7 +73,7 @@ namespace bpmalmacen
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(102, 282);
+            this.txtid.Location = new System.Drawing.Point(100, 326);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(73, 20);
             this.txtid.TabIndex = 1;
@@ -74,7 +83,7 @@ namespace bpmalmacen
             // 
             // txtnombre
             // 
-            this.txtnombre.Location = new System.Drawing.Point(102, 308);
+            this.txtnombre.Location = new System.Drawing.Point(100, 352);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(539, 20);
             this.txtnombre.TabIndex = 10;
@@ -83,7 +92,7 @@ namespace bpmalmacen
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(192, 285);
+            this.label2.Location = new System.Drawing.Point(190, 329);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 4;
@@ -91,7 +100,7 @@ namespace bpmalmacen
             // 
             // txtcantidad
             // 
-            this.txtcantidad.Location = new System.Drawing.Point(245, 283);
+            this.txtcantidad.Location = new System.Drawing.Point(243, 327);
             this.txtcantidad.Name = "txtcantidad";
             this.txtcantidad.Size = new System.Drawing.Size(82, 20);
             this.txtcantidad.TabIndex = 2;
@@ -99,7 +108,7 @@ namespace bpmalmacen
             // 
             // bt_agregar
             // 
-            this.bt_agregar.Location = new System.Drawing.Point(652, 305);
+            this.bt_agregar.Location = new System.Drawing.Point(650, 349);
             this.bt_agregar.Name = "bt_agregar";
             this.bt_agregar.Size = new System.Drawing.Size(83, 23);
             this.bt_agregar.TabIndex = 5;
@@ -109,7 +118,7 @@ namespace bpmalmacen
             // 
             // txtestado
             // 
-            this.txtestado.Location = new System.Drawing.Point(405, 282);
+            this.txtestado.Location = new System.Drawing.Point(403, 326);
             this.txtestado.Name = "txtestado";
             this.txtestado.Size = new System.Drawing.Size(82, 20);
             this.txtestado.TabIndex = 3;
@@ -117,7 +126,7 @@ namespace bpmalmacen
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(348, 284);
+            this.label3.Location = new System.Drawing.Point(346, 328);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 7;
@@ -125,7 +134,7 @@ namespace bpmalmacen
             // 
             // txtlote
             // 
-            this.txtlote.Location = new System.Drawing.Point(559, 282);
+            this.txtlote.Location = new System.Drawing.Point(557, 326);
             this.txtlote.Name = "txtlote";
             this.txtlote.Size = new System.Drawing.Size(82, 20);
             this.txtlote.TabIndex = 4;
@@ -133,7 +142,7 @@ namespace bpmalmacen
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(501, 285);
+            this.label4.Location = new System.Drawing.Point(499, 329);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 9;
@@ -149,7 +158,7 @@ namespace bpmalmacen
             this.lote,
             this.cantidad,
             this.estado});
-            this.data_det_inv.Location = new System.Drawing.Point(33, 42);
+            this.data_det_inv.Location = new System.Drawing.Point(31, 86);
             this.data_det_inv.Name = "data_det_inv";
             this.data_det_inv.Size = new System.Drawing.Size(702, 222);
             this.data_det_inv.TabIndex = 11;
@@ -195,7 +204,7 @@ namespace bpmalmacen
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 315);
+            this.label5.Location = new System.Drawing.Point(28, 359);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 13);
             this.label5.TabIndex = 13;
@@ -204,18 +213,104 @@ namespace bpmalmacen
             // Grid_Articulos
             // 
             this.Grid_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grid_Articulos.Location = new System.Drawing.Point(102, 91);
+            this.Grid_Articulos.Location = new System.Drawing.Point(100, 135);
             this.Grid_Articulos.Name = "Grid_Articulos";
             this.Grid_Articulos.Size = new System.Drawing.Size(654, 190);
             this.Grid_Articulos.TabIndex = 14;
             this.Grid_Articulos.Visible = false;
             this.Grid_Articulos.DoubleClick += new System.EventHandler(this.Grid_Articulos_DoubleClick);
             // 
+            // txtinventario
+            // 
+            this.txtinventario.Enabled = false;
+            this.txtinventario.Location = new System.Drawing.Point(31, 44);
+            this.txtinventario.Name = "txtinventario";
+            this.txtinventario.Size = new System.Drawing.Size(73, 20);
+            this.txtinventario.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(28, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "# Inventario:";
+            // 
+            // txttipo
+            // 
+            this.txttipo.Enabled = false;
+            this.txttipo.Location = new System.Drawing.Point(140, 44);
+            this.txttipo.Name = "txttipo";
+            this.txttipo.Size = new System.Drawing.Size(107, 20);
+            this.txttipo.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(137, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Tipo de Inventario:";
+            // 
+            // txtfecha
+            // 
+            this.txtfecha.Enabled = false;
+            this.txtfecha.Location = new System.Drawing.Point(276, 44);
+            this.txtfecha.Name = "txtfecha";
+            this.txtfecha.Size = new System.Drawing.Size(98, 20);
+            this.txtfecha.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(273, 19);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Fecha:";
+            // 
+            // txtalmacen
+            // 
+            this.txtalmacen.Enabled = false;
+            this.txtalmacen.Location = new System.Drawing.Point(403, 44);
+            this.txtalmacen.Name = "txtalmacen";
+            this.txtalmacen.Size = new System.Drawing.Size(236, 20);
+            this.txtalmacen.TabIndex = 21;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(400, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Almacen";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(650, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(83, 45);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Inventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 365);
+            this.ClientSize = new System.Drawing.Size(760, 401);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtalmacen);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtfecha);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txttipo);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtinventario);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.Grid_Articulos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.data_det_inv);
@@ -260,5 +355,14 @@ namespace bpmalmacen
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridView Grid_Articulos;
+        private System.Windows.Forms.TextBox txtinventario;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txttipo;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtfecha;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtalmacen;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button1;
     }
 }

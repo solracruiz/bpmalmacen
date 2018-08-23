@@ -123,5 +123,6 @@ namespace bpmalmacen
             { return 1; }
             return 0;
         }
+
     }
 }
