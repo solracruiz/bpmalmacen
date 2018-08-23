@@ -669,6 +669,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "menualmacen";
             this.Text = "Sistema de Gestion de Almacen (SIGAL)";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.menualmacen_FormClosed);
             this.Load += new System.EventHandler(this.menualmacen_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

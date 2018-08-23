@@ -43,5 +43,10 @@ namespace bpmalmacen
             frm.Show();
             
         }
+
+        private void menualmacen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

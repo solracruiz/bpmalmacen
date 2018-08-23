@@ -42,12 +42,15 @@ namespace bpmalmacen
             this.label4 = new System.Windows.Forms.Label();
             this.data_det_inv = new System.Windows.Forms.DataGridView();
             this.Renglon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Grid_Articulos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.data_det_inv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_Articulos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -61,20 +64,20 @@ namespace bpmalmacen
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(93, 282);
+            this.txtid.Location = new System.Drawing.Point(102, 282);
             this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(82, 20);
+            this.txtid.Size = new System.Drawing.Size(73, 20);
             this.txtid.TabIndex = 1;
             this.txtid.TextChanged += new System.EventHandler(this.txtid_TextChanged);
             this.txtid.Leave += new System.EventHandler(this.txtid_Leave);
             // 
             // txtnombre
             // 
-            this.txtnombre.Enabled = false;
-            this.txtnombre.Location = new System.Drawing.Point(93, 308);
+            this.txtnombre.Location = new System.Drawing.Point(102, 308);
             this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(548, 20);
-            this.txtnombre.TabIndex = 3;
+            this.txtnombre.Size = new System.Drawing.Size(539, 20);
+            this.txtnombre.TabIndex = 10;
+            this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
             // 
             // label2
             // 
@@ -91,6 +94,7 @@ namespace bpmalmacen
             this.txtcantidad.Name = "txtcantidad";
             this.txtcantidad.Size = new System.Drawing.Size(82, 20);
             this.txtcantidad.TabIndex = 2;
+            this.txtcantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantidad_KeyPress);
             // 
             // bt_agregar
             // 
@@ -139,7 +143,7 @@ namespace bpmalmacen
             this.data_det_inv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_det_inv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Renglon,
-            this.id,
+            this.id_p,
             this.nombre,
             this.lote,
             this.cantidad,
@@ -156,11 +160,11 @@ namespace bpmalmacen
             this.Renglon.ReadOnly = true;
             this.Renglon.Width = 60;
             // 
-            // id
+            // id_p
             // 
-            this.id.HeaderText = "Id Producto";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
+            this.id_p.HeaderText = "Id Producto";
+            this.id_p.Name = "id_p";
+            this.id_p.ReadOnly = true;
             // 
             // nombre
             // 
@@ -187,11 +191,32 @@ namespace bpmalmacen
             this.estado.Name = "estado";
             this.estado.ReadOnly = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(30, 315);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Descripcion:";
+            // 
+            // Grid_Articulos
+            // 
+            this.Grid_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid_Articulos.Location = new System.Drawing.Point(102, 113);
+            this.Grid_Articulos.Name = "Grid_Articulos";
+            this.Grid_Articulos.Size = new System.Drawing.Size(654, 190);
+            this.Grid_Articulos.TabIndex = 14;
+            this.Grid_Articulos.Visible = false;
+            this.Grid_Articulos.DoubleClick += new System.EventHandler(this.Grid_Articulos_DoubleClick);
+            // 
             // Inventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 336);
+            this.ClientSize = new System.Drawing.Size(760, 365);
+            this.Controls.Add(this.Grid_Articulos);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.data_det_inv);
             this.Controls.Add(this.txtlote);
             this.Controls.Add(this.label4);
@@ -208,6 +233,7 @@ namespace bpmalmacen
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Inventarios_FormClosing);
             this.Load += new System.EventHandler(this.Inventarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.data_det_inv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_Articulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,13 +251,13 @@ namespace bpmalmacen
         private System.Windows.Forms.TextBox txtlote;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView data_det_inv;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Renglon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_p;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn lote;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-
-    
+        private System.Windows.Forms.DataGridView Grid_Articulos;
     }
 }
