@@ -20,6 +20,25 @@ namespace bpmalmacen
         public static string fotousuarioruta, fotousuario, rutadefotos;
         public static string nombreusario, tituloventana,clave,clave2;
         public static string usuario,passwordusuario, claveusuario;
+
+        private void password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                Entrar.Focus();
+            }
+        }
+
+        private void Nombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                password.Focus();
+            }
+        }
+
+       
+
         public static string clavempleado1,localIP, mostrarfoto;
         conexion conn = new conexion();
         public entrada()

@@ -111,6 +111,7 @@
             this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(163, 20);
             this.password.TabIndex = 55;
+            this.password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.password_KeyDown);
             // 
             // Nombre
             // 
@@ -121,6 +122,7 @@
             this.Nombre.Name = "Nombre";
             this.Nombre.Size = new System.Drawing.Size(163, 20);
             this.Nombre.TabIndex = 54;
+            this.Nombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Nombre_KeyDown);
             // 
             // label3
             // 
