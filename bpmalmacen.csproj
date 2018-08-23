@@ -78,11 +78,17 @@
     <Compile Include="entrada.Designer.cs">
       <DependentUpon>entrada.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventarios.cs">
+    <Compile Include="Det_Inventarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventarios.Designer.cs">
-      <DependentUpon>Inventarios.cs</DependentUpon>
+    <Compile Include="Det_Inventarios.Designer.cs">
+      <DependentUpon>Det_Inventarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario.Designer.cs">
+      <DependentUpon>Inventario.cs</DependentUpon>
     </Compile>
     <Compile Include="menualmacen.cs">
       <SubType>Form</SubType>
@@ -108,8 +114,11 @@
     <EmbeddedResource Include="entrada.resx">
       <DependentUpon>entrada.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventarios.resx">
-      <DependentUpon>Inventarios.cs</DependentUpon>
+    <EmbeddedResource Include="Det_Inventarios.resx">
+      <DependentUpon>Det_Inventarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario.resx">
+      <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menualmacen.resx">
       <DependentUpon>menualmacen.cs</DependentUpon>

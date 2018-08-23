@@ -111,6 +111,7 @@
             this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(163, 20);
             this.password.TabIndex = 55;
+            this.password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.password_KeyDown);
             // 
             // Nombre
             // 
@@ -121,6 +122,7 @@
             this.Nombre.Name = "Nombre";
             this.Nombre.Size = new System.Drawing.Size(163, 20);
             this.Nombre.TabIndex = 54;
+            this.Nombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Nombre_KeyDown);
             // 
             // label3
             // 
@@ -189,7 +191,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 261);
+            this.ClientSize = new System.Drawing.Size(438, 261);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.password);
             this.Controls.Add(this.Nombre);

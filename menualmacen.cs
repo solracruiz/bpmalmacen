@@ -36,5 +36,17 @@ namespace bpmalmacen
             frm.Show();
             this.Hide();
         }
+
+        private void inventariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Inventario frm = new Inventario();
+            frm.Show();
+            
+        }
+
+        private void menualmacen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
