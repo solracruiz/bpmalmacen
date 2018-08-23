@@ -11,11 +11,11 @@ using MySql.Data.MySqlClient;
 
 namespace bpmalmacen
 {
-    public partial class Inventarios : Form
+    public partial class Det_Inventarios : Form
     {
         int r = 0;
         conexion conn = new conexion();
-        public Inventarios()
+        public Det_Inventarios()
         {
             InitializeComponent();
         }
@@ -24,8 +24,8 @@ namespace bpmalmacen
         {
             if (validar() == 0)
             { return; }
+            data_det_inv.Rows.Insert(r + 1, txtid.Text, txtnombre.Text, txtcantidad.Text, txtestado.Text, txtlote.Text);
             r = r + 1;
-            data_det_inv.Rows.Insert(r, r, txtid.Text, txtnombre.Text, txtcantidad.Text, txtestado.Text, txtlote.Text);
             limpiar();
         }
 

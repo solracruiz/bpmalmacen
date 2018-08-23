@@ -2,7 +2,7 @@
 
 namespace bpmalmacen
 {
-    partial class Inventarios
+    partial class Det_Inventarios
     {
         /// <summary>
         /// Required designer variable.
@@ -297,7 +297,7 @@ namespace bpmalmacen
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Inventarios
+            // Det_Inventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -324,8 +324,8 @@ namespace bpmalmacen
             this.Controls.Add(this.txtnombre);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label1);
-            this.Name = "Inventarios";
-            this.Text = "Inventarios";
+            this.Name = "Det_Inventarios";
+            this.Text = "Det_Inventarios";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Inventarios_FormClosing);
             this.Load += new System.EventHandler(this.Inventarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.data_det_inv)).EndInit();
