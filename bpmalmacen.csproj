@@ -289,6 +289,24 @@
   <ItemGroup>
     <None Include="Resources\control-01.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bpm.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClosePreviewHH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FindHH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveHH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrintHH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TaskHH.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

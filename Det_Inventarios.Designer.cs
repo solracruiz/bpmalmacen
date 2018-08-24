@@ -45,7 +45,6 @@ namespace bpmalmacen
             this.txtlote = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.bt_agregar = new System.Windows.Forms.Button();
             this.txtcantidad = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
@@ -58,6 +57,8 @@ namespace bpmalmacen
             this.cbsolicito = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.data_det_inv = new System.Windows.Forms.DataGridView();
+            this.btsalir = new System.Windows.Forms.Button();
+            this.bt_agregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Articulos)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -69,7 +70,7 @@ namespace bpmalmacen
             this.Grid_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid_Articulos.Location = new System.Drawing.Point(100, 135);
             this.Grid_Articulos.Name = "Grid_Articulos";
-            this.Grid_Articulos.Size = new System.Drawing.Size(823, 181);
+            this.Grid_Articulos.Size = new System.Drawing.Size(800, 181);
             this.Grid_Articulos.TabIndex = 14;
             this.Grid_Articulos.Visible = false;
             this.Grid_Articulos.DoubleClick += new System.EventHandler(this.Grid_Articulos_DoubleClick);
@@ -103,11 +104,15 @@ namespace bpmalmacen
             // 
             // bt_grabar
             // 
-            this.bt_grabar.Location = new System.Drawing.Point(767, 16);
+            this.bt_grabar.FlatAppearance.BorderSize = 0;
+            this.bt_grabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_grabar.Image = global::bpmalmacen.Properties.Resources.SaveHH;
+            this.bt_grabar.Location = new System.Drawing.Point(796, 3);
             this.bt_grabar.Name = "bt_grabar";
-            this.bt_grabar.Size = new System.Drawing.Size(83, 46);
+            this.bt_grabar.Size = new System.Drawing.Size(51, 66);
             this.bt_grabar.TabIndex = 4;
-            this.bt_grabar.Text = "Aceptar";
+            this.bt_grabar.Text = "Grabar";
+            this.bt_grabar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_grabar.UseVisualStyleBackColor = true;
             this.bt_grabar.Click += new System.EventHandler(this.bt_grabar_Click);
             // 
@@ -131,7 +136,7 @@ namespace bpmalmacen
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(31, 314);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(869, 59);
+            this.panel1.Size = new System.Drawing.Size(737, 59);
             this.panel1.TabIndex = 24;
             this.panel1.Visible = false;
             // 
@@ -142,23 +147,25 @@ namespace bpmalmacen
             "BUENO",
             "REGULAR",
             "MALO"});
-            this.cbestatus2.Location = new System.Drawing.Point(492, 7);
+            this.cbestatus2.Location = new System.Drawing.Point(503, 6);
             this.cbestatus2.Name = "cbestatus2";
-            this.cbestatus2.Size = new System.Drawing.Size(121, 21);
-            this.cbestatus2.TabIndex = 8;
+            this.cbestatus2.Size = new System.Drawing.Size(125, 21);
+            this.cbestatus2.TabIndex = 9;
+            this.cbestatus2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbestatus2_KeyDown);
             // 
             // cbreviso
             // 
             this.cbreviso.FormattingEnabled = true;
-            this.cbreviso.Location = new System.Drawing.Point(493, 32);
+            this.cbreviso.Location = new System.Drawing.Point(402, 32);
             this.cbreviso.Name = "cbreviso";
-            this.cbreviso.Size = new System.Drawing.Size(259, 21);
+            this.cbreviso.Size = new System.Drawing.Size(225, 21);
             this.cbreviso.TabIndex = 10;
+            this.cbreviso.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbreviso_KeyDown);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(423, 39);
+            this.label11.Location = new System.Drawing.Point(347, 35);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(43, 13);
             this.label11.TabIndex = 30;
@@ -166,15 +173,16 @@ namespace bpmalmacen
             // 
             // txtmarbete
             // 
-            this.txtmarbete.Location = new System.Drawing.Point(699, 7);
+            this.txtmarbete.Location = new System.Drawing.Point(402, 8);
             this.txtmarbete.Name = "txtmarbete";
-            this.txtmarbete.Size = new System.Drawing.Size(53, 20);
-            this.txtmarbete.TabIndex = 9;
+            this.txtmarbete.Size = new System.Drawing.Size(39, 20);
+            this.txtmarbete.TabIndex = 8;
+            this.txtmarbete.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtmarbete_KeyDown);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(644, 10);
+            this.label10.Location = new System.Drawing.Point(347, 11);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(49, 13);
             this.label10.TabIndex = 26;
@@ -191,15 +199,16 @@ namespace bpmalmacen
             // 
             // txtlote
             // 
-            this.txtlote.Location = new System.Drawing.Point(344, 7);
+            this.txtlote.Location = new System.Drawing.Point(302, 6);
             this.txtlote.Name = "txtlote";
-            this.txtlote.Size = new System.Drawing.Size(70, 20);
+            this.txtlote.Size = new System.Drawing.Size(39, 20);
             this.txtlote.TabIndex = 7;
+            this.txtlote.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtlote_KeyDown);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(303, 9);
+            this.label4.Location = new System.Drawing.Point(265, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 22;
@@ -208,34 +217,25 @@ namespace bpmalmacen
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(423, 9);
+            this.label3.Location = new System.Drawing.Point(452, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 21;
             this.label3.Text = "Estatus:";
             // 
-            // bt_agregar
-            // 
-            this.bt_agregar.Location = new System.Drawing.Point(767, 11);
-            this.bt_agregar.Name = "bt_agregar";
-            this.bt_agregar.Size = new System.Drawing.Size(83, 42);
-            this.bt_agregar.TabIndex = 11;
-            this.bt_agregar.Text = "Agregar";
-            this.bt_agregar.UseVisualStyleBackColor = true;
-            this.bt_agregar.Click += new System.EventHandler(this.bt_agregar_Click);
-            // 
             // txtcantidad
             // 
             this.txtcantidad.Location = new System.Drawing.Point(211, 7);
             this.txtcantidad.Name = "txtcantidad";
-            this.txtcantidad.Size = new System.Drawing.Size(70, 20);
+            this.txtcantidad.Size = new System.Drawing.Size(39, 20);
             this.txtcantidad.TabIndex = 6;
+            this.txtcantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcantidad_KeyDown);
             this.txtcantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantidad_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(163, 9);
+            this.label2.Location = new System.Drawing.Point(153, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 19;
@@ -245,7 +245,7 @@ namespace bpmalmacen
             // 
             this.txtnombre.Location = new System.Drawing.Point(56, 32);
             this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(358, 20);
+            this.txtnombre.Size = new System.Drawing.Size(285, 20);
             this.txtnombre.TabIndex = 12;
             this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
             // 
@@ -340,11 +340,43 @@ namespace bpmalmacen
             this.data_det_inv.TabIndex = 31;
             this.data_det_inv.DoubleClick += new System.EventHandler(this.data_det_inv_DoubleClick);
             // 
+            // btsalir
+            // 
+            this.btsalir.FlatAppearance.BorderSize = 0;
+            this.btsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btsalir.Image = global::bpmalmacen.Properties.Resources.ClosePreviewHH;
+            this.btsalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btsalir.Location = new System.Drawing.Point(849, 325);
+            this.btsalir.Name = "btsalir";
+            this.btsalir.Size = new System.Drawing.Size(51, 58);
+            this.btsalir.TabIndex = 32;
+            this.btsalir.Text = "Salir";
+            this.btsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btsalir.UseVisualStyleBackColor = true;
+            this.btsalir.Click += new System.EventHandler(this.btsalir_Click);
+            // 
+            // bt_agregar
+            // 
+            this.bt_agregar.FlatAppearance.BorderSize = 0;
+            this.bt_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_agregar.Image = global::bpmalmacen.Properties.Resources.TaskHH;
+            this.bt_agregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_agregar.Location = new System.Drawing.Point(667, -1);
+            this.bt_agregar.Name = "bt_agregar";
+            this.bt_agregar.Size = new System.Drawing.Size(54, 59);
+            this.bt_agregar.TabIndex = 11;
+            this.bt_agregar.Text = "Agregar";
+            this.bt_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_agregar.UseVisualStyleBackColor = true;
+            this.bt_agregar.Click += new System.EventHandler(this.bt_agregar_Click);
+            this.bt_agregar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.bt_agregar_KeyDown);
+            // 
             // Det_Inventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(928, 387);
+            this.Controls.Add(this.btsalir);
             this.Controls.Add(this.Grid_Articulos);
             this.Controls.Add(this.data_det_inv);
             this.Controls.Add(this.panel2);
@@ -392,5 +424,6 @@ namespace bpmalmacen
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbestatus2;
         private System.Windows.Forms.DataGridView data_det_inv;
+        private System.Windows.Forms.Button btsalir;
     }
 }

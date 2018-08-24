@@ -108,7 +108,7 @@ namespace bpmalmacen
             data_det_inv.DataSource = conn.GetTable("select d.id,d.idarticulo as Id_Articulo,a.nombre_corto as Descripcion,cantidad as Cantidad," +
                 "d.precio as Precio,totalprecio as Total,estado as Estado,d.marbete as Marbete,e.nombre as Auditor "+
                 "from det_inventarios d, empleados e, catarticulos a where d.idauditor=e.id and d.idarticulo=a.id and d.idinventario=" + 
-                ID_INV + " order by d.id ");
+                ID_INV + " order by d.id");
             if ((conn.PropertyDataSet.Tables[0].Rows.Count != 0))
             {
                 data_det_inv.Columns["id"].Visible = false;
@@ -181,7 +181,7 @@ namespace bpmalmacen
                 //grid1.DataSource = conn.GetTable("select id,nombre_corto,nombre_largo from catarticulos");
                 
                 Grid_Articulos.DataSource = conn1.GetTable("select id as Id_Producto,nombre_corto as Nombre," +
-                    " nombre_largo as Descripcion from catarticulos where nombre_corto like '%" + txtnombre.Text + "%'");
+                    " nombre_largo as Descripcion from catarticulos where nombre_corto like '%" + txtnombre.Text + "%' order by nombre_corto limit 20");
                 if (Grid_Articulos.RowCount<2)
                 {
                     Grid_Articulos.Visible = false;
@@ -202,10 +202,9 @@ namespace bpmalmacen
 
         private void txtid_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter || e.KeyCode==Keys.Down)
-            {
-                txtcantidad.Focus();
-            }
+            if (e.KeyCode == Keys.Enter)
+            {txtcantidad.Focus();}
+            else if (e.KeyCode == Keys.Down){ txtnombre.Focus(); }
         }
         int validar()
         {
@@ -262,6 +261,65 @@ namespace bpmalmacen
             }
             
         }
+
+        private void btsalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtlote_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                txtmarbete.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+                {
+                    txtcantidad.Focus();
+                }
+            
+
+        }
+
+        private void txtcantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                txtlote.Focus();
+            }
+            else if (e.KeyCode == Keys.Up )
+            {
+                txtid.Focus();
+            }
+        }
+
+        private void txtmarbete_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            { cbestatus2.Focus(); }
+            else if (e.KeyCode == Keys.Up) { txtlote.Focus(); }
+        }
+
+        private void cbestatus2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            { cbreviso.Focus(); }
+            else if (e.KeyCode == Keys.Up) { txtmarbete.Focus(); }
+        }
+
+        private void cbreviso_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            { bt_agregar.Focus(); }
+            else if (e.KeyCode == Keys.Up) { cbestatus2.Focus(); }
+        }
+
+        private void bt_agregar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            { txtid.Focus(); }
+        }
+
         void grabar_grid()
         {
             for (int fila = 0; fila < data_det_inv.Rows.Count - 1; fila++)
