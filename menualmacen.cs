@@ -40,7 +40,7 @@ namespace bpmalmacen
         private void inventariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Inventario frm = new Inventario();
-            frm.Show();
+            frm.Show(this);
             
         }
 

@@ -31,12 +31,27 @@ namespace bpmalmacen
         private void InitializeComponent()
         {
             this.data_det_inv = new System.Windows.Forms.DataGridView();
+            this.Renglon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marbete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_aud = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.auditor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Grid_Articulos = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.bt_grabar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbestatus2 = new System.Windows.Forms.ComboBox();
+            this.cbreviso = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtmarbete = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtlote = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,21 +68,6 @@ namespace bpmalmacen
             this.label6 = new System.Windows.Forms.Label();
             this.cbsolicito = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtmarbete = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cbreviso = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cbestatus2 = new System.Windows.Forms.ComboBox();
-            this.Renglon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marbete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_aud = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.auditor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.data_det_inv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Articulos)).BeginInit();
             this.panel1.SuspendLayout();
@@ -92,6 +92,70 @@ namespace bpmalmacen
             this.data_det_inv.Name = "data_det_inv";
             this.data_det_inv.Size = new System.Drawing.Size(869, 208);
             this.data_det_inv.TabIndex = 11;
+            // 
+            // Renglon
+            // 
+            this.Renglon.HeaderText = "#";
+            this.Renglon.Name = "Renglon";
+            this.Renglon.ReadOnly = true;
+            this.Renglon.Width = 30;
+            // 
+            // id_p
+            // 
+            this.id_p.HeaderText = "Id Producto";
+            this.id_p.Name = "id_p";
+            this.id_p.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Descripcion del Producto";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 200;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            this.cantidad.Width = 75;
+            // 
+            // valor
+            // 
+            this.valor.HeaderText = "Precio";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            // 
+            // lote
+            // 
+            this.lote.HeaderText = "Lote";
+            this.lote.Name = "lote";
+            this.lote.ReadOnly = true;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
+            // marbete
+            // 
+            this.marbete.HeaderText = "Marbete";
+            this.marbete.Name = "marbete";
+            this.marbete.ReadOnly = true;
+            // 
+            // id_aud
+            // 
+            this.id_aud.HeaderText = "id_aud";
+            this.id_aud.Name = "id_aud";
+            this.id_aud.ReadOnly = true;
+            this.id_aud.Visible = false;
+            // 
+            // auditor
+            // 
+            this.auditor.HeaderText = "Auditor";
+            this.auditor.Name = "auditor";
+            this.auditor.ReadOnly = true;
             // 
             // Grid_Articulos
             // 
@@ -163,6 +227,51 @@ namespace bpmalmacen
             this.panel1.Size = new System.Drawing.Size(869, 59);
             this.panel1.TabIndex = 24;
             this.panel1.Visible = false;
+            // 
+            // cbestatus2
+            // 
+            this.cbestatus2.FormattingEnabled = true;
+            this.cbestatus2.Items.AddRange(new object[] {
+            "BUENO",
+            "REGULAR",
+            "MALO"});
+            this.cbestatus2.Location = new System.Drawing.Point(492, 7);
+            this.cbestatus2.Name = "cbestatus2";
+            this.cbestatus2.Size = new System.Drawing.Size(121, 21);
+            this.cbestatus2.TabIndex = 8;
+            // 
+            // cbreviso
+            // 
+            this.cbreviso.FormattingEnabled = true;
+            this.cbreviso.Location = new System.Drawing.Point(493, 32);
+            this.cbreviso.Name = "cbreviso";
+            this.cbreviso.Size = new System.Drawing.Size(276, 21);
+            this.cbreviso.TabIndex = 10;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(423, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(43, 13);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "Reviso:";
+            // 
+            // txtmarbete
+            // 
+            this.txtmarbete.Location = new System.Drawing.Point(699, 7);
+            this.txtmarbete.Name = "txtmarbete";
+            this.txtmarbete.Size = new System.Drawing.Size(70, 20);
+            this.txtmarbete.TabIndex = 9;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(644, 10);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Marbete:";
             // 
             // label5
             // 
@@ -313,115 +422,6 @@ namespace bpmalmacen
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(770, 74);
             this.panel2.TabIndex = 30;
-            // 
-            // txtmarbete
-            // 
-            this.txtmarbete.Location = new System.Drawing.Point(699, 7);
-            this.txtmarbete.Name = "txtmarbete";
-            this.txtmarbete.Size = new System.Drawing.Size(70, 20);
-            this.txtmarbete.TabIndex = 9;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(644, 10);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Marbete:";
-            // 
-            // cbreviso
-            // 
-            this.cbreviso.FormattingEnabled = true;
-            this.cbreviso.Location = new System.Drawing.Point(493, 32);
-            this.cbreviso.Name = "cbreviso";
-            this.cbreviso.Size = new System.Drawing.Size(276, 21);
-            this.cbreviso.TabIndex = 10;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(423, 39);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(43, 13);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "Reviso:";
-            // 
-            // cbestatus2
-            // 
-            this.cbestatus2.FormattingEnabled = true;
-            this.cbestatus2.Items.AddRange(new object[] {
-            "BUENO",
-            "REGULAR",
-            "MALO"});
-            this.cbestatus2.Location = new System.Drawing.Point(492, 7);
-            this.cbestatus2.Name = "cbestatus2";
-            this.cbestatus2.Size = new System.Drawing.Size(121, 21);
-            this.cbestatus2.TabIndex = 8;
-            // 
-            // Renglon
-            // 
-            this.Renglon.HeaderText = "#";
-            this.Renglon.Name = "Renglon";
-            this.Renglon.ReadOnly = true;
-            this.Renglon.Width = 30;
-            // 
-            // id_p
-            // 
-            this.id_p.HeaderText = "Id Producto";
-            this.id_p.Name = "id_p";
-            this.id_p.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Descripcion del Producto";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 200;
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            this.cantidad.Width = 75;
-            // 
-            // valor
-            // 
-            this.valor.HeaderText = "Precio";
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            // 
-            // lote
-            // 
-            this.lote.HeaderText = "Lote";
-            this.lote.Name = "lote";
-            this.lote.ReadOnly = true;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            // 
-            // marbete
-            // 
-            this.marbete.HeaderText = "Marbete";
-            this.marbete.Name = "marbete";
-            this.marbete.ReadOnly = true;
-            // 
-            // id_aud
-            // 
-            this.id_aud.HeaderText = "id_aud";
-            this.id_aud.Name = "id_aud";
-            this.id_aud.ReadOnly = true;
-            this.id_aud.Visible = false;
-            // 
-            // auditor
-            // 
-            this.auditor.HeaderText = "Auditor";
-            this.auditor.Name = "auditor";
-            this.auditor.ReadOnly = true;
             // 
             // Det_Inventarios
             // 

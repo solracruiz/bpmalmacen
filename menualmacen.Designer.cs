@@ -666,9 +666,11 @@
             this.ClientSize = new System.Drawing.Size(722, 292);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "menualmacen";
             this.Text = "Sistema de Gestion de Almacen (SIGAL)";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.menualmacen_FormClosed);
             this.Load += new System.EventHandler(this.menualmacen_Load);
             this.panel1.ResumeLayout(false);

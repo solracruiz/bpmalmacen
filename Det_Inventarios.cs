@@ -63,6 +63,10 @@ namespace bpmalmacen
 
         private void Det_Inventarios_Load(object sender, EventArgs e)
         {
+            if (null != this.Tag)
+            {
+                ID_INV = Int64.Parse(this.Tag.ToString());
+            }
             cargar();
         }
 
@@ -201,7 +205,6 @@ namespace bpmalmacen
                 }
                 else
                 {
-                    MessageBox.Show("Grabar Todo en BD");
                     grabar_grid();
                 }
             }
@@ -211,6 +214,7 @@ namespace bpmalmacen
             }
 
         }
+
         void grabar_grid()
         {
             for (int fila = 0; fila < data_det_inv.Rows.Count - 1; fila++)
@@ -237,6 +241,7 @@ namespace bpmalmacen
                     MessageBox.Show(valor);
                 }*/
             }
+            //Inventario.ActiveForm=true;
             this.Close();
         }
    
