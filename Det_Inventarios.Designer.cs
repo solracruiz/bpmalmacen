@@ -58,12 +58,10 @@ namespace bpmalmacen
             this.cbsolicito = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.data_det_inv = new System.Windows.Forms.DataGridView();
-            this.dataSet1 = new System.Data.DataSet();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Articulos)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_det_inv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // Grid_Articulos
@@ -342,10 +340,6 @@ namespace bpmalmacen
             this.data_det_inv.TabIndex = 31;
             this.data_det_inv.DoubleClick += new System.EventHandler(this.data_det_inv_DoubleClick);
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "NewDataSet";
-            // 
             // Det_Inventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,7 +359,6 @@ namespace bpmalmacen
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_det_inv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -399,6 +392,5 @@ namespace bpmalmacen
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbestatus2;
         private System.Windows.Forms.DataGridView data_det_inv;
-        private System.Data.DataSet dataSet1;
     }
 }
