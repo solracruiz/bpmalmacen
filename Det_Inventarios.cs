@@ -17,8 +17,11 @@ namespace bpmalmacen
         Int64 ID_INV;
         Double PRECIO, TOTAL;
         conexion conn = new conexion();
+        conexion conn1 = new conexion();
         conexion conn2 = new conexion();
         conexion conn3 = new conexion();
+        conexion conn4 = new conexion();
+
 
         MySqlDataReader R;
         public Det_Inventarios()
@@ -29,9 +32,18 @@ namespace bpmalmacen
         private void bt_agregar_Click(object sender, EventArgs e)
         {
             if (validar() == 0){ return; }
-            data_det_inv.Rows.Insert(r,r+1, txtid.Text, txtnombre.Text, txtcantidad.Text, PRECIO.ToString(), txtlote.Text, cbestatus2.Text.ToUpper() ,txtmarbete.Text, cbreviso.SelectedValue,cbreviso.Text);
-            r = r + 1;
+            //data_det_inv.Rows.Insert(r,r+1, txtid.Text, txtnombre.Text, txtcantidad.Text, PRECIO.ToString(), txtlote.Text, cbestatus2.Text.ToUpper() ,txtmarbete.Text, cbreviso.SelectedValue,cbreviso.Text);
+            string str = "insert into det_inventarios (idinventario,idarticulo," +
+                    "cantidad,precio,totalprecio,lote,estado,marbete,idauditor) " +
+                    "values(" + ID_INV + "," + txtid.Text + "," + txtcantidad.Text + "," + 
+                    PRECIO.ToString() + "," + TOTAL + ",'" + txtlote.Text + "','" +
+                    cbestatus2.Text.ToUpper() + "','" + txtmarbete.Text + "'," +
+                    cbreviso.SelectedValue +  ")";
+                    
+            //MessageBox.Show(str);
+            conn.Executa(str);
             limpiar();
+            cargar_det();
             txtid.Focus();
         }
 
@@ -62,39 +74,74 @@ namespace bpmalmacen
         }
 
         private void Det_Inventarios_Load(object sender, EventArgs e)
-        {
+        { 
+            cargar();
+            conn.AbrirBD();
+            conn1.AbrirBD();
             if (null != this.Tag)
             {
+                
                 ID_INV = Int64.Parse(this.Tag.ToString());
+                panel1.Visible = true;
+                panel2.Enabled = false;
+                MySqlDataReader R = conn.GetData("SELECT i.fecha,i.tipo,a.nombre as almacen, e.nombre as autorizo" +
+                    " FROM inventarios i, catalmacen a, empleados e " +
+                    " where i.idalmacen=a.id and i.idautorizo=e.id and i.id='" + ID_INV +"';");
+                if (R.HasRows)
+                {
+                    R.Read();
+                    txtfecha.Text = R["fecha"].ToString();
+                    cbtipo.Text = R["tipo"].ToString();
+                    cbalmacen.Text = R["almacen"].ToString();
+                    cbsolicito.Text = R["autorizo"].ToString();
+                }
+                else
+                {
+                    this.Close();
+                }
+                R.Close();
+                cargar_det();
             }
-            cargar();
         }
-
-        void cargar()
+        void cargar_det()
         {
-            conn.AbrirBD();
+            data_det_inv.DataSource = conn.GetTable("select d.id,d.idarticulo as Id_Articulo,a.nombre_corto as Descripcion,cantidad as Cantidad," +
+                "d.precio as Precio,totalprecio as Total,estado as Estado,d.marbete as Marbete,e.nombre as Auditor "+
+                "from det_inventarios d, empleados e, catarticulos a where d.idauditor=e.id and d.idarticulo=a.id and d.idinventario=" + 
+                ID_INV + " order by d.id ");
+            if ((conn.PropertyDataSet.Tables[0].Rows.Count != 0))
+            {
+                data_det_inv.Columns["id"].Visible = false;
+                data_det_inv.AutoResizeColumns();
+            }
+
+        }
+            void cargar()
+        {
+            conn2.AbrirBD();
             cbreviso.DisplayMember = "nombre";
             cbreviso.ValueMember = "id";
-            cbreviso.DataSource = conn.GetTable("select id,nombre from empleados");
-            conn.cerrarBd();
-
-            conn2.AbrirBD();
-            cbsolicito.DisplayMember = "nombre";
-            cbsolicito.ValueMember = "id";
-            cbsolicito.DataSource =  conn2.GetTable("select id,nombre from empleados");
+            cbreviso.DataSource = conn2.GetTable("select id,nombre from empleados");
             conn2.cerrarBd();
 
             conn3.AbrirBD();
+            cbsolicito.DisplayMember = "nombre";
+            cbsolicito.ValueMember = "id";
+            cbsolicito.DataSource =  conn3.GetTable("select id,nombre from empleados");
+            conn3.cerrarBd();
+
+            conn4.AbrirBD();
             txtfecha.Value = DateTime.Now;
             cbalmacen.DisplayMember = "nombre";
             cbalmacen.ValueMember = "id";
-            cbalmacen.DataSource = conn3.GetTable("select id,nombre from catalmacen");
-            conn3.cerrarBd();
+            cbalmacen.DataSource = conn4.GetTable("select id,nombre from catalmacen");
+            conn4.cerrarBd();
 
         }
         private void Det_Inventarios_FormClosing(object sender, FormClosingEventArgs e)
         {
             conn.cerrarBd();
+            conn1.cerrarBd();
         }
 
         private void txtid_TextChanged(object sender, EventArgs e)
@@ -130,14 +177,15 @@ namespace bpmalmacen
             if (txtnombre.TextLength > 3 && txtid.Text=="")
             {
                 Grid_Articulos.Visible = true;
-                conn.AbrirBD();
 
                 //grid1.DataSource = conn.GetTable("select id,nombre_corto,nombre_largo from catarticulos");
-                Grid_Articulos.DataSource = conn.GetTable("select id as Id_Producto,nombre_corto as Nombre,nombre_largo as Descripciion from catarticulos where nombre_corto like '%" + txtnombre.Text + "%' ");
-                conn.cerrarBd();
+                
+                Grid_Articulos.DataSource = conn1.GetTable("select id as Id_Producto,nombre_corto as Nombre," +
+                    " nombre_largo as Descripcion from catarticulos where nombre_corto like '%" + txtnombre.Text + "%'");
                 if (Grid_Articulos.RowCount<2)
                 {
                     Grid_Articulos.Visible = false;
+                    return;
                 }
                 Grid_Articulos.AutoResizeColumns();
             }
@@ -177,11 +225,8 @@ namespace bpmalmacen
             try
             {
                 if (validar_inv() == 0){ return; }
-                if (bt_grabar.Text == "Aceptar")
-                {
                     conn.AbrirBD();
                     panel1.Visible = true;
-                    bt_grabar.Text = "Guardar";
                     conn.Executa("insert into inventarios (tipo,fecha,idalmacen,idautorizo,estatus) values('" + 
                     cbtipo.Text.ToUpper() + "','" + txtfecha.Value.ToString("yyyy-MM-dd") + "'," + cbalmacen.SelectedValue +"," + cbsolicito.SelectedValue + ",'A')");
                     //OBTENER ID INVENTARIO
@@ -193,20 +238,10 @@ namespace bpmalmacen
                         R.Read();
                         ID_INV = Int32.Parse(R[0].ToString());
                      }
-                    else
-                    {
-                        MessageBox.Show("No existe ese numero de articulo¡");
-                        txtid.Focus();
-                    }
                     R.Close();
                     panel2.Enabled = false;
                     panel1.Visible = true;
                     txtid.Focus();
-                }
-                else
-                {
-                    grabar_grid();
-                }
             }
             catch (Exception ex)
             {
@@ -215,6 +250,18 @@ namespace bpmalmacen
 
         }
 
+        private void data_det_inv_DoubleClick(object sender, EventArgs e)
+        {
+            if (data_det_inv.CurrentRow.Cells[1].Value.ToString() == "") { return; }
+            DialogResult res = MessageBox.Show("Deseas eliminar el registro del producto " + 
+                data_det_inv.CurrentRow.Cells[2].Value.ToString(), "Precaucion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+            {
+                conn.Executa("delete from det_inventarios where id=" + data_det_inv.CurrentRow.Cells[0].Value.ToString());
+                cargar_det();
+            }
+            
+        }
         void grabar_grid()
         {
             for (int fila = 0; fila < data_det_inv.Rows.Count - 1; fila++)
