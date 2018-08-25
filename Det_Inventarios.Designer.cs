@@ -45,6 +45,7 @@ namespace bpmalmacen
             this.txtlote = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.bt_agregar = new System.Windows.Forms.Button();
             this.txtcantidad = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
@@ -58,7 +59,6 @@ namespace bpmalmacen
             this.panel2 = new System.Windows.Forms.Panel();
             this.data_det_inv = new System.Windows.Forms.DataGridView();
             this.btsalir = new System.Windows.Forms.Button();
-            this.bt_agregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Articulos)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -70,7 +70,7 @@ namespace bpmalmacen
             this.Grid_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid_Articulos.Location = new System.Drawing.Point(100, 135);
             this.Grid_Articulos.Name = "Grid_Articulos";
-            this.Grid_Articulos.Size = new System.Drawing.Size(800, 181);
+            this.Grid_Articulos.Size = new System.Drawing.Size(800, 173);
             this.Grid_Articulos.TabIndex = 14;
             this.Grid_Articulos.Visible = false;
             this.Grid_Articulos.DoubleClick += new System.EventHandler(this.Grid_Articulos_DoubleClick);
@@ -223,6 +223,22 @@ namespace bpmalmacen
             this.label3.TabIndex = 21;
             this.label3.Text = "Estatus:";
             // 
+            // bt_agregar
+            // 
+            this.bt_agregar.FlatAppearance.BorderSize = 0;
+            this.bt_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_agregar.Image = global::bpmalmacen.Properties.Resources.TaskHH;
+            this.bt_agregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_agregar.Location = new System.Drawing.Point(667, -1);
+            this.bt_agregar.Name = "bt_agregar";
+            this.bt_agregar.Size = new System.Drawing.Size(54, 59);
+            this.bt_agregar.TabIndex = 11;
+            this.bt_agregar.Text = "Agregar";
+            this.bt_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_agregar.UseVisualStyleBackColor = true;
+            this.bt_agregar.Click += new System.EventHandler(this.bt_agregar_Click);
+            this.bt_agregar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.bt_agregar_KeyDown);
+            // 
             // txtcantidad
             // 
             this.txtcantidad.Location = new System.Drawing.Point(211, 7);
@@ -354,22 +370,6 @@ namespace bpmalmacen
             this.btsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btsalir.UseVisualStyleBackColor = true;
             this.btsalir.Click += new System.EventHandler(this.btsalir_Click);
-            // 
-            // bt_agregar
-            // 
-            this.bt_agregar.FlatAppearance.BorderSize = 0;
-            this.bt_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_agregar.Image = global::bpmalmacen.Properties.Resources.TaskHH;
-            this.bt_agregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_agregar.Location = new System.Drawing.Point(667, -1);
-            this.bt_agregar.Name = "bt_agregar";
-            this.bt_agregar.Size = new System.Drawing.Size(54, 59);
-            this.bt_agregar.TabIndex = 11;
-            this.bt_agregar.Text = "Agregar";
-            this.bt_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_agregar.UseVisualStyleBackColor = true;
-            this.bt_agregar.Click += new System.EventHandler(this.bt_agregar_Click);
-            this.bt_agregar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.bt_agregar_KeyDown);
             // 
             // Det_Inventarios
             // 
