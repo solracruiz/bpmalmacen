@@ -31,10 +31,9 @@
             this.grid_inv = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtfiltro = new System.Windows.Forms.TextBox();
-            this.btnuevo = new System.Windows.Forms.Button();
-            this.btsalir = new System.Windows.Forms.Button();
             this.bteditar = new System.Windows.Forms.Button();
-            this.btborrar = new System.Windows.Forms.Button();
+            this.btsalir = new System.Windows.Forms.Button();
+            this.bt_agregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid_inv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +46,7 @@
             this.grid_inv.ReadOnly = true;
             this.grid_inv.Size = new System.Drawing.Size(703, 195);
             this.grid_inv.TabIndex = 0;
+            this.grid_inv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_inv_CellContentClick);
             this.grid_inv.DoubleClick += new System.EventHandler(this.grid_inv_DoubleClick);
             // 
             // label1
@@ -66,26 +66,6 @@
             this.txtfiltro.TabIndex = 2;
             this.txtfiltro.TextChanged += new System.EventHandler(this.txtfiltro_TextChanged);
             // 
-            // btnuevo
-            // 
-            this.btnuevo.Location = new System.Drawing.Point(24, 290);
-            this.btnuevo.Name = "btnuevo";
-            this.btnuevo.Size = new System.Drawing.Size(82, 25);
-            this.btnuevo.TabIndex = 3;
-            this.btnuevo.Text = "Nuevo";
-            this.btnuevo.UseVisualStyleBackColor = true;
-            this.btnuevo.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btsalir
-            // 
-            this.btsalir.Location = new System.Drawing.Point(645, 290);
-            this.btsalir.Name = "btsalir";
-            this.btsalir.Size = new System.Drawing.Size(82, 25);
-            this.btsalir.TabIndex = 4;
-            this.btsalir.Text = "Salir";
-            this.btsalir.UseVisualStyleBackColor = true;
-            this.btsalir.Click += new System.EventHandler(this.button2_Click);
-            // 
             // bteditar
             // 
             this.bteditar.Location = new System.Drawing.Point(150, 290);
@@ -96,25 +76,44 @@
             this.bteditar.UseVisualStyleBackColor = true;
             this.bteditar.Click += new System.EventHandler(this.bteditar_Click);
             // 
-            // btborrar
+            // btsalir
             // 
-            this.btborrar.Location = new System.Drawing.Point(279, 290);
-            this.btborrar.Name = "btborrar";
-            this.btborrar.Size = new System.Drawing.Size(82, 25);
-            this.btborrar.TabIndex = 6;
-            this.btborrar.Text = "Borrar";
-            this.btborrar.UseVisualStyleBackColor = true;
-            this.btborrar.Click += new System.EventHandler(this.btborrar_Click);
+            this.btsalir.FlatAppearance.BorderSize = 0;
+            this.btsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btsalir.Image = global::bpmalmacen.Properties.Resources.ClosePreviewHH;
+            this.btsalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btsalir.Location = new System.Drawing.Point(676, 271);
+            this.btsalir.Name = "btsalir";
+            this.btsalir.Size = new System.Drawing.Size(51, 58);
+            this.btsalir.TabIndex = 33;
+            this.btsalir.Text = "Salir";
+            this.btsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btsalir.UseVisualStyleBackColor = true;
+            this.btsalir.Click += new System.EventHandler(this.btsalir_Click);
+            // 
+            // bt_agregar
+            // 
+            this.bt_agregar.FlatAppearance.BorderSize = 0;
+            this.bt_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_agregar.Image = global::bpmalmacen.Properties.Resources.TaskHH;
+            this.bt_agregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_agregar.Location = new System.Drawing.Point(45, 271);
+            this.bt_agregar.Name = "bt_agregar";
+            this.bt_agregar.Size = new System.Drawing.Size(54, 59);
+            this.bt_agregar.TabIndex = 34;
+            this.bt_agregar.Text = "Agregar";
+            this.bt_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_agregar.UseVisualStyleBackColor = true;
+            this.bt_agregar.Click += new System.EventHandler(this.bt_agregar_Click);
             // 
             // Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 327);
-            this.Controls.Add(this.btborrar);
-            this.Controls.Add(this.bteditar);
+            this.ClientSize = new System.Drawing.Size(751, 334);
+            this.Controls.Add(this.bt_agregar);
             this.Controls.Add(this.btsalir);
-            this.Controls.Add(this.btnuevo);
+            this.Controls.Add(this.bteditar);
             this.Controls.Add(this.txtfiltro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grid_inv);
@@ -132,9 +131,8 @@
         private System.Windows.Forms.DataGridView grid_inv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtfiltro;
-        private System.Windows.Forms.Button btnuevo;
-        private System.Windows.Forms.Button btsalir;
         private System.Windows.Forms.Button bteditar;
-        private System.Windows.Forms.Button btborrar;
+        private System.Windows.Forms.Button btsalir;
+        private System.Windows.Forms.Button bt_agregar;
     }
 }
