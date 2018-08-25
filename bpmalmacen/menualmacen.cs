@@ -26,8 +26,8 @@ namespace bpmalmacen
 
         private void partidasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //catpartidas frm = new catpartidas();
-            //frm.Show();
+            catpartidas frm = new catpartidas();
+            frm.Show();
         }
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -35,18 +35,6 @@ namespace bpmalmacen
             principal frm = new principal();
             frm.Show();
             this.Hide();
-        }
-
-        private void inventariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Inventario frm = new Inventario();
-            frm.Show(this);
-            
-        }
-
-        private void menualmacen_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
