@@ -31,9 +31,9 @@
             this.grid_inv = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtfiltro = new System.Windows.Forms.TextBox();
-            this.bteditar = new System.Windows.Forms.Button();
-            this.btsalir = new System.Windows.Forms.Button();
             this.bt_agregar = new System.Windows.Forms.Button();
+            this.btsalir = new System.Windows.Forms.Button();
+            this.bteditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid_inv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,15 +65,20 @@
             this.txtfiltro.TabIndex = 2;
             this.txtfiltro.TextChanged += new System.EventHandler(this.txtfiltro_TextChanged);
             // 
-            // bteditar
+            // bt_agregar
             // 
-            this.bteditar.Location = new System.Drawing.Point(150, 290);
-            this.bteditar.Name = "bteditar";
-            this.bteditar.Size = new System.Drawing.Size(82, 25);
-            this.bteditar.TabIndex = 5;
-            this.bteditar.Text = "Editar";
-            this.bteditar.UseVisualStyleBackColor = true;
-            this.bteditar.Click += new System.EventHandler(this.bteditar_Click);
+            this.bt_agregar.FlatAppearance.BorderSize = 0;
+            this.bt_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_agregar.Image = global::bpmalmacen.Properties.Resources.TaskHH;
+            this.bt_agregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_agregar.Location = new System.Drawing.Point(45, 271);
+            this.bt_agregar.Name = "bt_agregar";
+            this.bt_agregar.Size = new System.Drawing.Size(54, 58);
+            this.bt_agregar.TabIndex = 34;
+            this.bt_agregar.Text = "Agregar";
+            this.bt_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_agregar.UseVisualStyleBackColor = true;
+            this.bt_agregar.Click += new System.EventHandler(this.bt_agregar_Click);
             // 
             // btsalir
             // 
@@ -90,20 +95,20 @@
             this.btsalir.UseVisualStyleBackColor = true;
             this.btsalir.Click += new System.EventHandler(this.btsalir_Click);
             // 
-            // bt_agregar
+            // bteditar
             // 
-            this.bt_agregar.FlatAppearance.BorderSize = 0;
-            this.bt_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_agregar.Image = global::bpmalmacen.Properties.Resources.TaskHH;
-            this.bt_agregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_agregar.Location = new System.Drawing.Point(45, 271);
-            this.bt_agregar.Name = "bt_agregar";
-            this.bt_agregar.Size = new System.Drawing.Size(54, 59);
-            this.bt_agregar.TabIndex = 34;
-            this.bt_agregar.Text = "Agregar";
-            this.bt_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_agregar.UseVisualStyleBackColor = true;
-            this.bt_agregar.Click += new System.EventHandler(this.bt_agregar_Click);
+            this.bteditar.FlatAppearance.BorderSize = 0;
+            this.bteditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bteditar.Image = global::bpmalmacen.Properties.Resources.WebRefreshHH;
+            this.bteditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bteditar.Location = new System.Drawing.Point(130, 271);
+            this.bteditar.Name = "bteditar";
+            this.bteditar.Size = new System.Drawing.Size(56, 58);
+            this.bteditar.TabIndex = 5;
+            this.bteditar.Text = "Editar";
+            this.bteditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bteditar.UseVisualStyleBackColor = true;
+            this.bteditar.Click += new System.EventHandler(this.bteditar_Click);
             // 
             // Inventario
             // 
