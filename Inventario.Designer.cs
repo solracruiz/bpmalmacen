@@ -46,7 +46,6 @@
             this.grid_inv.ReadOnly = true;
             this.grid_inv.Size = new System.Drawing.Size(703, 195);
             this.grid_inv.TabIndex = 0;
-            this.grid_inv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_inv_CellContentClick);
             this.grid_inv.DoubleClick += new System.EventHandler(this.grid_inv_DoubleClick);
             // 
             // label1
