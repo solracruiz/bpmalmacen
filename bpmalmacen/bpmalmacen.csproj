@@ -71,24 +71,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="catalmacenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="catalmacenes.Designer.cs">
+      <DependentUpon>catalmacenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="catareas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="catareas.Designer.cs">
+      <DependentUpon>catareas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="catpartidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="catpartidas.Designer.cs">
+      <DependentUpon>catpartidas.cs</DependentUpon>
+    </Compile>
     <Compile Include="conexion.cs" />
+    <Compile Include="dbcom.cs" />
     <Compile Include="entrada.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="entrada.Designer.cs">
       <DependentUpon>entrada.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Det_Inventarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Det_Inventarios.Designer.cs">
-      <DependentUpon>Det_Inventarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario.Designer.cs">
-      <DependentUpon>Inventario.cs</DependentUpon>
     </Compile>
     <Compile Include="menualmacen.cs">
       <SubType>Form</SubType>
@@ -105,20 +112,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Requisiciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Requisiciones.Designer.cs">
-      <DependentUpon>Requisiciones.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="catalmacenes.resx">
+      <DependentUpon>catalmacenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="catareas.resx">
+      <DependentUpon>catareas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="catpartidas.resx">
+      <DependentUpon>catpartidas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="entrada.resx">
       <DependentUpon>entrada.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Det_Inventarios.resx">
-      <DependentUpon>Det_Inventarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario.resx">
-      <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menualmacen.resx">
       <DependentUpon>menualmacen.cs</DependentUpon>
@@ -136,9 +140,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Requisiciones.resx">
-      <DependentUpon>Requisiciones.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -153,37 +154,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="ADODB1">
-      <Guid>{B691E011-1797-432E-907A-4D8C69339129}</Guid>
-      <VersionMajor>6</VersionMajor>
-      <VersionMinor>1</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="CRAXDDRT">
-      <Guid>{4FB2D832-C996-4EB1-BE0D-4DE953CF25F0}</Guid>
-      <VersionMajor>11</VersionMajor>
-      <VersionMinor>5</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="CRAXDDT">
       <Guid>{0BAC5750-44C9-11D1-ABEC-00A0C9274B91}</Guid>
       <VersionMajor>8</VersionMajor>
       <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="CRAXDRT">
-      <Guid>{91FDA5AF-C945-4DDC-8C32-29A790CF16F0}</Guid>
-      <VersionMajor>11</VersionMajor>
-      <VersionMinor>5</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
@@ -297,24 +271,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\control-01.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bpm.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ClosePreviewHH.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\FindHH.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SaveHH.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PrintHH.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TaskHH.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
