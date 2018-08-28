@@ -35,6 +35,11 @@
             this.bt_salir = new System.Windows.Forms.Button();
             this.bt_editar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtfecha2 = new System.Windows.Forms.DateTimePicker();
+            this.txtfecha = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.bt_filtrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid_ent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,11 +132,67 @@
             this.label2.TabIndex = 36;
             this.label2.Text = "Filtro de Busqueda:";
             // 
+            // txtfecha2
+            // 
+            this.txtfecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtfecha2.Location = new System.Drawing.Point(794, 31);
+            this.txtfecha2.Name = "txtfecha2";
+            this.txtfecha2.Size = new System.Drawing.Size(111, 20);
+            this.txtfecha2.TabIndex = 38;
+            this.txtfecha2.Value = new System.DateTime(2018, 8, 22, 23, 52, 52, 0);
+            // 
+            // txtfecha
+            // 
+            this.txtfecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtfecha.Location = new System.Drawing.Point(654, 31);
+            this.txtfecha.Name = "txtfecha";
+            this.txtfecha.Size = new System.Drawing.Size(111, 20);
+            this.txtfecha.TabIndex = 37;
+            this.txtfecha.Value = new System.DateTime(2018, 8, 22, 23, 52, 52, 0);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(651, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(24, 13);
+            this.label3.TabIndex = 39;
+            this.label3.Text = "De:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(791, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 13);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Al:";
+            // 
+            // bt_filtrar
+            // 
+            this.bt_filtrar.FlatAppearance.BorderSize = 0;
+            this.bt_filtrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_filtrar.Image = global::bpmalmacen.Properties.Resources.FindHH;
+            this.bt_filtrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_filtrar.Location = new System.Drawing.Point(911, 12);
+            this.bt_filtrar.Name = "bt_filtrar";
+            this.bt_filtrar.Size = new System.Drawing.Size(59, 58);
+            this.bt_filtrar.TabIndex = 41;
+            this.bt_filtrar.Text = "Filtrar";
+            this.bt_filtrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_filtrar.UseVisualStyleBackColor = true;
+            this.bt_filtrar.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Entradas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 431);
+            this.Controls.Add(this.bt_filtrar);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtfecha2);
+            this.Controls.Add(this.txtfecha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.bt_exportar);
             this.Controls.Add(this.bt_agregar);
@@ -161,5 +222,10 @@
         private System.Windows.Forms.Button bt_agregar;
         private System.Windows.Forms.Button bt_exportar;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker txtfecha2;
+        private System.Windows.Forms.DateTimePicker txtfecha;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button bt_filtrar;
     }
 }

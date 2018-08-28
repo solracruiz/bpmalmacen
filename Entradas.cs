@@ -101,6 +101,15 @@ namespace bpmalmacen
             this.Close();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtfecha.Value>txtfecha2.Value)
+            { return; }
+            filtro = " and e.fechaentrada>='" + txtfecha.Value.ToString("yyyy-MM-dd") + 
+                "' and e.fechaentrada<='" + txtfecha2.Value.ToString("yyyy-MM-dd") +"'" ;
+            carga(sql + filtro);
+        }
+
         private void bt_exportar_Click(object sender, EventArgs e)
         {
             conn.AbrirBD();
