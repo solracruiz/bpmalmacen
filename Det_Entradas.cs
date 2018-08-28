@@ -432,9 +432,12 @@ namespace bpmalmacen
         void grabar_grid()
         {
             DateTime fec =DateTime.Now;
+            double nuevo_costo = 0, nueva_exis=0;
             for (int fila = 0; fila < Grid_Det_Ent.Rows.Count - 1; fila++)
             {
                 fec = DateTime.Parse(Grid_Det_Ent.Rows[fila].Cells[8].Value.ToString());
+                nueva_exis = double.Parse(Grid_Det_Ent.Rows[fila].Cells[2].Value.ToString());
+                nuevo_costo = double.Parse(Grid_Det_Ent.Rows[fila].Cells[4].Value.ToString());
                 string str="insert into det_entradas (identrada,idarticulo," +
                     "cantidad,existencia,precio,totalprecio,marca,requisicion,lote,caducidad) " + 
                     "values(" + ID_ENT + "," +
@@ -447,19 +450,25 @@ namespace bpmalmacen
                     Grid_Det_Ent.Rows[fila].Cells[6].Value.ToString() + "','" +
                     Grid_Det_Ent.Rows[fila].Cells[7].Value.ToString() + "','" +
                     fec.ToString("yyyy-MM-dd") + "')";
-                //MessageBox.Show(str);
-                conn.Executa(str);
-
                 
+                conn.Executa(str);
+               //GUARDAR EN LA TABLA KARDEX EL MOV DE ENTRADA
                 str= "insert into kardex (idtabla,idarticulo,entrada,salida,precio,costo,fecha)" +
                    "values(" + ID_ENT + "," +
                     Grid_Det_Ent.Rows[fila].Cells[0].Value.ToString() + "," +
                     Grid_Det_Ent.Rows[fila].Cells[2].Value.ToString() + ",0," +
                     Grid_Det_Ent.Rows[fila].Cells[3].Value.ToString() + "," +
                     Grid_Det_Ent.Rows[fila].Cells[4].Value.ToString() + ",'" +
-                    txtfecha.Value.ToString("yyyy-MM-ddd") + "')";
+                    txtfecha.Value.ToString("yyyy-MM-dd") + "')";
+                MessageBox.Show(str);
+                conn.Executa(str);
+                //CALCULAR PRECIO PROMEDIO 
+                    str = "update catarticulos " +
+                        "set preciopromedio=((existencia*preciopromedio)+" + nuevo_costo + ")/(existencia+" + nueva_exis +
+                        "), existencia=existencia+" + nueva_exis + " where id=" + Grid_Det_Ent.Rows[fila].Cells[0].Value.ToString();
+                    conn.Executa(str);
+                
 
-                //conn.Executa("update catarticulos set existencia=existencia+" + Grid_Det_Ent.Rows[fila].Cells[2].Value.ToString());
                 /*for (int col = 0; col < data_det_inv.Rows[fila].Cells.Count; col++)
                 {
                     string valor = data_det_inv.Rows[fila].Cells[col].Value.ToString();
