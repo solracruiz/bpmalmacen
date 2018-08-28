@@ -10,16 +10,17 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Net;
 using System.Net.NetworkInformation;
-
-
+using bpmalmacen.Clases;
 
 namespace bpmalmacen
 {
-    public partial class entrada : Form
+    public partial class acceso : Form
     {
         public static string fotousuarioruta, fotousuario, rutadefotos;
         public static string nombreusario, tituloventana,clave,clave2;
         public static string usuario,passwordusuario, claveusuario;
+        public static string clavempleado1, localIP, mostrarfoto;
+        conexion conn = new conexion();
 
         private void password_KeyDown(object sender, KeyEventArgs e)
         {
@@ -37,19 +38,14 @@ namespace bpmalmacen
             }
         }
 
-       
-
-        public static string clavempleado1,localIP, mostrarfoto;
-        conexion conn = new conexion();
-        public entrada()
+        
+        public acceso()
         {
             InitializeComponent();
         }
 
         private void entrada_Load(object sender, EventArgs e)
         {
-            conn.AbrirBD();
-            conn.cerrarBd();
             rutadefotos = "c:/bpmalmacen/fotos/";
             fotousuarioruta = rutadefotos + "foto.jpg";
             //C:\bpmalmacen\fotosd
@@ -88,10 +84,18 @@ namespace bpmalmacen
                 MySqlDataReader R = conn.GetData("SELECT usuario, nombre, idalmacen,permisos FROM usuarios where usuario='" + Nombre.Text.ToUpper() + "' and password='" + password.Text.ToUpper() + "';");
                 if (R.HasRows)
                 {
+                    //VARIABLES GLOBALES
+                    R.Read();
+                    configuracion.ID_ALMACEN = Int32.Parse(R["idalmacen"].ToString());
+                    configuracion.USER = R["usuario"].ToString();
+                    configuracion.PERMISOS = R["permisos"].ToString();
+                    
                     //principal frm = new principal();
-
                     menualmacen frm = new menualmacen();
                     frm.Show();
+                    R.Close();
+                    conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla) values('"
+                        + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + configuracion.USER + "','ACCESO','ACCESO')");
                     conn.cerrarBd();
                     this.Hide();
                 }
@@ -99,8 +103,6 @@ namespace bpmalmacen
                 {
                     MessageBox.Show("Revisar Usuario y Password por favor");
                 }
-
-                R.Close();
             }
             catch (Exception) 
             {

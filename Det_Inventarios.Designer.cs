@@ -57,8 +57,9 @@ namespace bpmalmacen
             this.label6 = new System.Windows.Forms.Label();
             this.cbsolicito = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
             this.data_det_inv = new System.Windows.Forms.DataGridView();
-            this.btsalir = new System.Windows.Forms.Button();
+            this.bt_salir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Articulos)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,7 +69,7 @@ namespace bpmalmacen
             // Grid_Articulos
             // 
             this.Grid_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grid_Articulos.Location = new System.Drawing.Point(100, 135);
+            this.Grid_Articulos.Location = new System.Drawing.Point(100, 157);
             this.Grid_Articulos.Name = "Grid_Articulos";
             this.Grid_Articulos.Size = new System.Drawing.Size(800, 173);
             this.Grid_Articulos.TabIndex = 14;
@@ -78,7 +79,7 @@ namespace bpmalmacen
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 24);
+            this.label7.Location = new System.Drawing.Point(2, 44);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 13);
             this.label7.TabIndex = 18;
@@ -87,7 +88,7 @@ namespace bpmalmacen
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 46);
+            this.label8.Location = new System.Drawing.Point(2, 66);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(105, 13);
             this.label8.TabIndex = 20;
@@ -96,7 +97,7 @@ namespace bpmalmacen
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(252, 24);
+            this.label9.Location = new System.Drawing.Point(248, 44);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 13);
             this.label9.TabIndex = 22;
@@ -104,16 +105,17 @@ namespace bpmalmacen
             // 
             // bt_grabar
             // 
+            this.bt_grabar.BackColor = System.Drawing.Color.Transparent;
             this.bt_grabar.FlatAppearance.BorderSize = 0;
             this.bt_grabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_grabar.Image = global::bpmalmacen.Properties.Resources.SaveHH;
-            this.bt_grabar.Location = new System.Drawing.Point(796, 3);
+            this.bt_grabar.Location = new System.Drawing.Point(789, 23);
             this.bt_grabar.Name = "bt_grabar";
             this.bt_grabar.Size = new System.Drawing.Size(51, 66);
             this.bt_grabar.TabIndex = 4;
             this.bt_grabar.Text = "Grabar";
             this.bt_grabar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_grabar.UseVisualStyleBackColor = true;
+            this.bt_grabar.UseVisualStyleBackColor = false;
             this.bt_grabar.Click += new System.EventHandler(this.bt_grabar_Click);
             // 
             // panel1
@@ -134,7 +136,7 @@ namespace bpmalmacen
             this.panel1.Controls.Add(this.txtnombre);
             this.panel1.Controls.Add(this.txtid);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(31, 314);
+            this.panel1.Location = new System.Drawing.Point(31, 336);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(737, 59);
             this.panel1.TabIndex = 24;
@@ -247,6 +249,7 @@ namespace bpmalmacen
             this.txtcantidad.TabIndex = 6;
             this.txtcantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcantidad_KeyDown);
             this.txtcantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantidad_KeyPress);
+            this.txtcantidad.Leave += new System.EventHandler(this.txtcantidad_Leave);
             // 
             // label2
             // 
@@ -273,6 +276,7 @@ namespace bpmalmacen
             this.txtid.TabIndex = 5;
             this.txtid.TextChanged += new System.EventHandler(this.txtid_TextChanged);
             this.txtid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtid_KeyDown);
+            this.txtid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtid_KeyPress);
             this.txtid.Leave += new System.EventHandler(this.txtid_Leave);
             // 
             // label1
@@ -291,32 +295,32 @@ namespace bpmalmacen
             "ESPECIFICO",
             "PARCIAL",
             "TOTAL"});
-            this.cbtipo.Location = new System.Drawing.Point(117, 16);
+            this.cbtipo.Location = new System.Drawing.Point(113, 36);
             this.cbtipo.Name = "cbtipo";
-            this.cbtipo.Size = new System.Drawing.Size(121, 21);
+            this.cbtipo.Size = new System.Drawing.Size(113, 21);
             this.cbtipo.TabIndex = 0;
             // 
             // txtfecha
             // 
             this.txtfecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtfecha.Location = new System.Drawing.Point(117, 45);
+            this.txtfecha.Location = new System.Drawing.Point(113, 65);
             this.txtfecha.Name = "txtfecha";
-            this.txtfecha.Size = new System.Drawing.Size(121, 20);
+            this.txtfecha.Size = new System.Drawing.Size(113, 20);
             this.txtfecha.TabIndex = 1;
             this.txtfecha.Value = new System.DateTime(2018, 8, 22, 23, 52, 52, 0);
             // 
             // cbalmacen
             // 
             this.cbalmacen.FormattingEnabled = true;
-            this.cbalmacen.Location = new System.Drawing.Point(306, 16);
+            this.cbalmacen.Location = new System.Drawing.Point(302, 36);
             this.cbalmacen.Name = "cbalmacen";
-            this.cbalmacen.Size = new System.Drawing.Size(446, 21);
+            this.cbalmacen.Size = new System.Drawing.Size(470, 21);
             this.cbalmacen.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(252, 46);
+            this.label6.Location = new System.Drawing.Point(248, 66);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 28;
@@ -325,62 +329,78 @@ namespace bpmalmacen
             // cbsolicito
             // 
             this.cbsolicito.FormattingEnabled = true;
-            this.cbsolicito.Location = new System.Drawing.Point(306, 43);
+            this.cbsolicito.Location = new System.Drawing.Point(302, 63);
             this.cbsolicito.Name = "cbsolicito";
-            this.cbsolicito.Size = new System.Drawing.Size(446, 21);
+            this.cbsolicito.Size = new System.Drawing.Size(470, 21);
             this.cbsolicito.TabIndex = 3;
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.bt_grabar);
             this.panel2.Controls.Add(this.cbtipo);
             this.panel2.Controls.Add(this.cbsolicito);
             this.panel2.Controls.Add(this.txtfecha);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.bt_grabar);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.cbalmacen);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Location = new System.Drawing.Point(31, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(865, 74);
+            this.panel2.Size = new System.Drawing.Size(865, 96);
             this.panel2.TabIndex = 30;
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(288, -1);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(298, 37);
+            this.label16.TabIndex = 36;
+            this.label16.Text = "I N V E N T A R I O   #";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label16.Visible = false;
             // 
             // data_det_inv
             // 
             this.data_det_inv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.data_det_inv.Location = new System.Drawing.Point(31, 92);
+            this.data_det_inv.Location = new System.Drawing.Point(31, 114);
             this.data_det_inv.Name = "data_det_inv";
             this.data_det_inv.Size = new System.Drawing.Size(869, 216);
             this.data_det_inv.TabIndex = 31;
             this.data_det_inv.DoubleClick += new System.EventHandler(this.data_det_inv_DoubleClick);
             // 
-            // btsalir
+            // bt_salir
             // 
-            this.btsalir.FlatAppearance.BorderSize = 0;
-            this.btsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btsalir.Image = global::bpmalmacen.Properties.Resources.ClosePreviewHH;
-            this.btsalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btsalir.Location = new System.Drawing.Point(849, 325);
-            this.btsalir.Name = "btsalir";
-            this.btsalir.Size = new System.Drawing.Size(51, 58);
-            this.btsalir.TabIndex = 32;
-            this.btsalir.Text = "Salir";
-            this.btsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btsalir.UseVisualStyleBackColor = true;
-            this.btsalir.Click += new System.EventHandler(this.btsalir_Click);
+            this.bt_salir.FlatAppearance.BorderSize = 0;
+            this.bt_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_salir.Image = global::bpmalmacen.Properties.Resources.ClosePreviewHH;
+            this.bt_salir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_salir.Location = new System.Drawing.Point(849, 336);
+            this.bt_salir.Name = "bt_salir";
+            this.bt_salir.Size = new System.Drawing.Size(51, 58);
+            this.bt_salir.TabIndex = 32;
+            this.bt_salir.Text = "Salir";
+            this.bt_salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_salir.UseVisualStyleBackColor = true;
+            this.bt_salir.Click += new System.EventHandler(this.btsalir_Click);
             // 
             // Det_Inventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 387);
-            this.Controls.Add(this.btsalir);
+            this.ClientSize = new System.Drawing.Size(928, 411);
+            this.Controls.Add(this.bt_salir);
             this.Controls.Add(this.Grid_Articulos);
             this.Controls.Add(this.data_det_inv);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Det_Inventarios";
             this.Text = "Det_Inventarios";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Det_Inventarios_FormClosing);
@@ -424,6 +444,7 @@ namespace bpmalmacen
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbestatus2;
         private System.Windows.Forms.DataGridView data_det_inv;
-        private System.Windows.Forms.Button btsalir;
+        private System.Windows.Forms.Button bt_salir;
+        private System.Windows.Forms.Label label16;
     }
 }

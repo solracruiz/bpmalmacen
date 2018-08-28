@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using bpmalmacen.Clases;
 
 namespace bpmalmacen
 {
@@ -20,8 +20,9 @@ namespace bpmalmacen
 
         private void menualmacen_Load(object sender, EventArgs e)
         {
-            foto.Image = Image.FromFile(entrada.fotousuarioruta);
-            usuario1.Text = " " + entrada.nombreusario;
+            foto.Image = Image.FromFile(acceso.fotousuarioruta);
+            usuario1.Text = " " + acceso.nombreusario;
+            Barra_Usuario.Text = configuracion.USER;
         }
 
         private void partidasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -47,6 +48,22 @@ namespace bpmalmacen
         private void menualmacen_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void entradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Entradas frm = new Entradas();
+            frm.Show(this);
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

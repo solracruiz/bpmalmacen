@@ -16,7 +16,7 @@ namespace bpmalmacen
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new entrada());
+            Application.Run(new acceso());
         }
     }
 }

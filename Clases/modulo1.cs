@@ -31,6 +31,60 @@ namespace bpmalmacen
          * 
          */
 
+        public static bool IsNumeric(object Expression)
+
+        {
+
+            bool isNum;
+
+            double retNum;
+
+            isNum = Double.TryParse(Convert.ToString(Expression), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum);
+
+            return isNum;
+
+        }
+        public static void Exportar_Excel(DataTable dt, string archivo)
+        {
+
+            //open file
+            StreamWriter wr = new StreamWriter(@"c:\\bpm\exportaciones\" + archivo + ".xls");
+
+            try
+            {
+
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    wr.Write(dt.Columns[i].ToString().ToUpper() + "\t");
+                }
+
+                wr.WriteLine();
+
+                //write rows to excel file
+                for (int i = 0; i < (dt.Rows.Count); i++)
+                {
+                    for (int j = 0; j < dt.Columns.Count; j++)
+                    {
+                        if (dt.Rows[i][j] != null)
+                        {
+                            wr.Write(Convert.ToString(dt.Rows[i][j]) + "\t");
+                        }
+                        else
+                        {
+                            wr.Write("\t");
+                        }
+                    }
+                    //go to next line
+                    wr.WriteLine();
+                }
+                //close file
+                wr.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+    }
 
         public static string Desencriptar(string textoEncriptado)
         {

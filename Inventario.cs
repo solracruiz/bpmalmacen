@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using bpmalmacen.Clases;
 
 namespace bpmalmacen
 {
@@ -14,7 +16,7 @@ namespace bpmalmacen
     public partial class Inventario : Form
     {
         conexion conn = new conexion();
-        string  filtro;
+        string  filtro="", filtro2="";
         public string sql = "";
         public Inventario()
         {
@@ -40,10 +42,11 @@ namespace bpmalmacen
 
         private void Inventario_Load(object sender, EventArgs e)
         {
-
+            if (configuracion.ID_ALMACEN != 0)
+            { filtro2 = " and i.idalmacen=" + configuracion.ID_ALMACEN.ToString(); }
             sql="select i.id as Identificador, i.tipo as Tipo,i.fecha as Fecha,i.estatus as Estado, " +
                 " a.nombre as Almacen, e.nombre as Auditor from inventarios i, catalmacen a, empleados e " +
-                "where i.idalmacen=a.id and i.idautorizo=e.id";
+                "where i.idalmacen=a.id and i.idautorizo=e.id " + filtro2;
             carga(sql);
         }
 
@@ -92,6 +95,13 @@ namespace bpmalmacen
             carga(sql);
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            conn.AbrirBD();
+            string nombre_archivo = "Listado de Inventarios";
+            modulo1.Exportar_Excel(conn.PropertyTable, nombre_archivo);
+            conn.cerrarBd();
+            MessageBox.Show("Proceso Realizado con Exito");
+        }
     }
 }

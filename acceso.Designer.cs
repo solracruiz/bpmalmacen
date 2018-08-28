@@ -1,6 +1,6 @@
 ﻿namespace bpmalmacen
 {
-    partial class entrada
+    partial class acceso
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -28,27 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(entrada));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(acceso));
             this.label4 = new System.Windows.Forms.Label();
             this.usuario1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.foto2 = new System.Windows.Forms.PictureBox();
             this.password = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Salir = new System.Windows.Forms.Button();
             this.Entrar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.foto2 = new System.Windows.Forms.PictureBox();
             this.foto = new System.Windows.Forms.PictureBox();
-            this.logotipo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foto2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logotipo)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -81,93 +77,8 @@
             this.panel1.Controls.Add(this.foto2);
             this.panel1.Location = new System.Drawing.Point(-3, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(488, 28);
+            this.panel1.Size = new System.Drawing.Size(448, 28);
             this.panel1.TabIndex = 59;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 42);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(120, 182);
-            this.dataGridView1.TabIndex = 50;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // password
-            // 
-            this.password.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(137, 182);
-            this.password.Name = "password";
-            this.password.PasswordChar = '*';
-            this.password.Size = new System.Drawing.Size(163, 20);
-            this.password.TabIndex = 55;
-            // 
-            // Nombre
-            // 
-            this.Nombre.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Nombre.Enabled = false;
-            this.Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.ForeColor = System.Drawing.Color.Black;
-            this.Nombre.Location = new System.Drawing.Point(137, 143);
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(163, 20);
-            this.Nombre.TabIndex = 54;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(134, 166);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 53;
-            this.label3.Text = "PassWord:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(133, 127);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 52;
-            this.label2.Text = " Nombre:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // Salir
-            // 
-            this.Salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Salir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Salir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Salir.Location = new System.Drawing.Point(242, 203);
-            this.Salir.Name = "Salir";
-            this.Salir.Size = new System.Drawing.Size(58, 21);
-            this.Salir.TabIndex = 58;
-            this.Salir.Text = "Salir";
-            this.Salir.UseVisualStyleBackColor = false;
-            this.Salir.Click += new System.EventHandler(this.Salir_Click);
-            // 
-            // Entrar
-            // 
-            this.Entrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Entrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Entrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Entrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Entrar.Location = new System.Drawing.Point(137, 204);
-            this.Entrar.Name = "Entrar";
-            this.Entrar.Size = new System.Drawing.Size(61, 20);
-            this.Entrar.TabIndex = 57;
-            this.Entrar.Text = "Aceptar";
-            this.Entrar.UseVisualStyleBackColor = false;
-            this.Entrar.Click += new System.EventHandler(this.Entrar_Click);
             // 
             // pictureBox1
             // 
@@ -191,6 +102,79 @@
             this.foto2.TabIndex = 49;
             this.foto2.TabStop = false;
             // 
+            // password
+            // 
+            this.password.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.Location = new System.Drawing.Point(137, 182);
+            this.password.Name = "password";
+            this.password.PasswordChar = '*';
+            this.password.Size = new System.Drawing.Size(163, 20);
+            this.password.TabIndex = 55;
+            this.password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.password_KeyDown);
+            // 
+            // Nombre
+            // 
+            this.Nombre.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombre.ForeColor = System.Drawing.Color.Black;
+            this.Nombre.Location = new System.Drawing.Point(137, 143);
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Size = new System.Drawing.Size(163, 20);
+            this.Nombre.TabIndex = 54;
+            this.Nombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Nombre_KeyDown);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(134, 166);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 53;
+            this.label3.Text = "PassWord:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Location = new System.Drawing.Point(133, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 52;
+            this.label2.Text = "Usuario:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Salir
+            // 
+            this.Salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Salir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Salir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Salir.Location = new System.Drawing.Point(242, 203);
+            this.Salir.Name = "Salir";
+            this.Salir.Size = new System.Drawing.Size(58, 23);
+            this.Salir.TabIndex = 58;
+            this.Salir.Text = "Salir";
+            this.Salir.UseVisualStyleBackColor = false;
+            this.Salir.Click += new System.EventHandler(this.Salir_Click);
+            // 
+            // Entrar
+            // 
+            this.Entrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Entrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Entrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Entrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Entrar.Location = new System.Drawing.Point(137, 204);
+            this.Entrar.Name = "Entrar";
+            this.Entrar.Size = new System.Drawing.Size(61, 22);
+            this.Entrar.TabIndex = 57;
+            this.Entrar.Text = "Aceptar";
+            this.Entrar.UseVisualStyleBackColor = false;
+            this.Entrar.Click += new System.EventHandler(this.Entrar_Click);
+            // 
             // foto
             // 
             this.foto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -203,23 +187,12 @@
             this.foto.TabIndex = 51;
             this.foto.TabStop = false;
             // 
-            // logotipo
-            // 
-            this.logotipo.Image = global::bpmalmacen.Properties.Resources.logoempresa;
-            this.logotipo.Location = new System.Drawing.Point(306, 42);
-            this.logotipo.Name = "logotipo";
-            this.logotipo.Size = new System.Drawing.Size(128, 181);
-            this.logotipo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logotipo.TabIndex = 56;
-            this.logotipo.TabStop = false;
-            // 
-            // entrada
+            // acceso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 261);
+            this.ClientSize = new System.Drawing.Size(438, 261);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.password);
             this.Controls.Add(this.Nombre);
             this.Controls.Add(this.label3);
@@ -227,17 +200,14 @@
             this.Controls.Add(this.foto);
             this.Controls.Add(this.Salir);
             this.Controls.Add(this.Entrar);
-            this.Controls.Add(this.logotipo);
-            this.Name = "entrada";
+            this.Name = "acceso";
             this.Text = "Sistema de Gestion de Almacen (SIGAL)";
             this.Load += new System.EventHandler(this.entrada_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foto2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logotipo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,7 +220,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox foto2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.TextBox Nombre;
         private System.Windows.Forms.Label label3;
@@ -258,7 +227,6 @@
         private System.Windows.Forms.PictureBox foto;
         private System.Windows.Forms.Button Salir;
         private System.Windows.Forms.Button Entrar;
-        private System.Windows.Forms.PictureBox logotipo;
     }
 }
 

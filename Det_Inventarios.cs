@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using bpmalmacen.Clases;
 
 namespace bpmalmacen
 {
@@ -94,6 +95,8 @@ namespace bpmalmacen
                     cbtipo.Text = R["tipo"].ToString();
                     cbalmacen.Text = R["almacen"].ToString();
                     cbsolicito.Text = R["autorizo"].ToString();
+                    label16.Visible = true;
+                    label16.Text = "I N V E N T A R I O   #" + ID_INV.ToString(); 
                 }
                 else
                 {
@@ -118,6 +121,7 @@ namespace bpmalmacen
         }
             void cargar()
         {
+            txtfecha.Value = DateTime.Now;
             conn2.AbrirBD();
             cbreviso.DisplayMember = "nombre";
             cbreviso.ValueMember = "id";
@@ -131,10 +135,14 @@ namespace bpmalmacen
             conn3.cerrarBd();
 
             conn4.AbrirBD();
-            txtfecha.Value = DateTime.Now;
             cbalmacen.DisplayMember = "nombre";
             cbalmacen.ValueMember = "id";
-            cbalmacen.DataSource = conn4.GetTable("select id,nombre from catalmacen");
+            if (configuracion.ID_ALMACEN != 0)
+            {
+                cbalmacen.DataSource = conn4.GetTable("select id,nombre from catalmacen where id=" + configuracion.ID_ALMACEN);
+                cbalmacen.Enabled = false;
+            }
+            else { cbalmacen.DataSource = conn4.GetTable("select id,nombre from catalmacen"); }
             conn4.cerrarBd();
 
         }
@@ -160,7 +168,9 @@ namespace bpmalmacen
                 {e.Handled = false; }
             else if (Char.IsSeparator(e.KeyChar))
             { e.Handled = false; }
-            else{ e.Handled = true;}
+            else if (e.KeyChar==46)
+            { e.Handled = false; }
+            else { e.Handled = true;}
         }
         void limpiar()
         {
@@ -228,8 +238,8 @@ namespace bpmalmacen
                     panel1.Visible = true;
                     conn.Executa("insert into inventarios (tipo,fecha,idalmacen,idautorizo,estatus) values('" + 
                     cbtipo.Text.ToUpper() + "','" + txtfecha.Value.ToString("yyyy-MM-dd") + "'," + cbalmacen.SelectedValue +"," + cbsolicito.SelectedValue + ",'A')");
-                    //OBTENER ID INVENTARIO
-                    R = conn.GetData("SELECT id FROM inventarios where tipo='" + cbtipo.Text.ToUpper() 
+                //OBTENER ID INVENTARIO
+                R = conn.GetData("SELECT id FROM inventarios where tipo='" + cbtipo.Text.ToUpper() 
                         + "' and fecha='" + txtfecha.Value.ToString("yyyy-MM-dd")
                         + "' and idalmacen=" + cbalmacen.SelectedValue + ";");
                     if (R.HasRows)
@@ -238,6 +248,9 @@ namespace bpmalmacen
                         ID_INV = Int32.Parse(R[0].ToString());
                      }
                     R.Close();
+                    conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
+                            + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + configuracion.USER + 
+                            "','ALTA','INVENTARIOS'," + ID_INV + ")");
                     panel2.Enabled = false;
                     panel1.Visible = true;
                     txtid.Focus();
@@ -318,6 +331,25 @@ namespace bpmalmacen
         {
             if (e.KeyCode == Keys.Enter)
             { txtid.Focus(); }
+        }
+
+        private void txtid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            { e.Handled = false; }
+            else if (Char.IsControl(e.KeyChar))
+            { e.Handled = false; }
+            else if (Char.IsSeparator(e.KeyChar))
+            { e.Handled = false; }
+            else { e.Handled = true; }
+        }
+
+        private void txtcantidad_Leave(object sender, EventArgs e)
+        {
+            if (txtcantidad.Text.ToString() != "")
+            {
+                txtcantidad.Text = "0";
+            }
         }
 
         void grabar_grid()

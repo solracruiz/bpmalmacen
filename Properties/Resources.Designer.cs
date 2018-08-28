@@ -63,6 +63,16 @@ namespace bpmalmacen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _157_GetPermission_32x42_72 {
+            get {
+                object obj = ResourceManager.GetObject("157_GetPermission_32x42_72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap adquisiciones {
             get {
                 object obj = ResourceManager.GetObject("adquisiciones", resourceCulture);
@@ -113,6 +123,16 @@ namespace bpmalmacen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FindHH {
             get {
                 object obj = ResourceManager.GetObject("FindHH", resourceCulture);
@@ -136,6 +156,16 @@ namespace bpmalmacen.Properties {
         internal static System.Drawing.Bitmap logoempresa {
             get {
                 object obj = ResourceManager.GetObject("logoempresa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Office_Excel_Application_32xMD {
+            get {
+                object obj = ResourceManager.GetObject("Office_Excel_Application_32xMD", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
