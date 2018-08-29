@@ -33,7 +33,7 @@ namespace bpmalmacen
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            if (validar() == 0){ return; }
+            if (validar() == 0 && validar_sal()==0){ return; }
             panel2.Enabled = false;
             Grid_Det_Sal.Rows.Insert(r, txtid.Text, txtnombre.Text, txtcantidad.Text, txtprecio.Text, txtcosto.Text, txtmarca.Text, txtrequisicion.Text,txtcaducidad.Text);
             r = r + 1;
@@ -198,7 +198,7 @@ namespace bpmalmacen
             { return 1; }
             return 0;
         }
-        int validar_ent()
+        int validar_sal()
         {
             string P = suma_costos();
             if (txtfecha.Text != "" && cbtipo.Text != "" && cbalmacen.Text != "" && cbentrego.Text != "" && txtimporte.Text == P.ToString())
@@ -210,13 +210,13 @@ namespace bpmalmacen
         {
             try
             {
-                if (validar_ent() == 0){ return; }
+                if (validar_sal() == 0){ return; }
                     conn.AbrirBD();
-                    conn.Executa("insert into salidas (tipo,fechasalida,importe," +
-                        "identrego,idarea,idalmacen,estatus) values('" + 
-                    cbtipo.Text.ToUpper() + "','" + txtfecha.Value.ToString("yyyy-MM-dd") + "'," +
-                    txtimporte.Text.ToUpper() + "," + cbentrego.SelectedValue + "," + cbarea.SelectedValue + "," +
-                    cbalmacen.SelectedValue +",'A')");
+                    conn.Executa("insert into salidas (tipo,fechasalida,importe,idrequisicion," +
+                        "identrego,idarea,idalmacen,estatus) values('" + cbtipo.Text.ToUpper() + 
+                        "','" + txtfecha.Value.ToString("yyyy-MM-dd") + "'," + txtimporte.Text.ToUpper() + 
+                        ",'" + txtrequisicion.Text.ToUpper() + "'," + cbentrego.SelectedValue + "," + 
+                        cbarea.SelectedValue + "," + cbalmacen.SelectedValue +",'A')");
                 //OBTENER ID INVENTARIO
                 R = conn.GetData("SELECT id FROM salidas where tipo='" + cbtipo.Text.ToUpper()
                     + "' and fechasalida='" + txtfecha.Value.ToString("yyyy-MM-dd")
@@ -246,15 +246,14 @@ namespace bpmalmacen
 
         private void Grid_Det_Sal_DoubleClick(object sender, EventArgs e)
         {
-            if (Grid_Det_Sal.CurrentRow.Cells[1].Value.ToString() == "") { return; }
-            DialogResult res = MessageBox.Show("Deseas eliminar el registro del producto " + 
-                Grid_Det_Sal.CurrentRow.Cells[2].Value.ToString(), "Precaucion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (res == DialogResult.Yes)
+            if (Grid_Det_Sal.CurrentRow.Index != -1)
             {
-                conn.Executa("delete from det_inventarios where id=" + Grid_Det_Sal.CurrentRow.Cells[0].Value.ToString());
-                cargar_det();
+                TOTAL = double.Parse(txtimporte.Text) - double.Parse(Grid_Det_Sal.CurrentRow.Cells[4].Value.ToString());
+                txtimporte.Text = TOTAL.ToString();
+                Grid_Det_Sal.Rows.RemoveAt(Grid_Det_Sal.CurrentRow.Index);
+
             }
-            
+           
         }
 
         private void btsalir_Click(object sender, EventArgs e)
@@ -382,11 +381,11 @@ namespace bpmalmacen
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
             {
-                bt_agregar.Focus();
+                cbentrego.Focus();
             }
             else if (e.KeyCode == Keys.Up)
             {
-                txtcaducidad.Focus();
+                txtfecha.Focus();
             }
         }
 
@@ -403,6 +402,62 @@ namespace bpmalmacen
             return resp;
         }
 
+        private void cbtipo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                txtfecha.Focus();
+            }
+            
+        }
+
+        private void txtfecha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                txtrequisicion.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                cbtipo.Focus();
+            }
+        }
+
+        private void cbentrego_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                cbarea.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                txtrequisicion.Focus();
+            }
+        }
+
+        private void cbarea_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                cbalmacen.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                cbentrego.Focus();
+            }
+        }
+
+        private void cbalmacen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                txtid.Focus();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                cbarea.Focus();
+            }
+        }
 
         void grabar_grid()
         {
@@ -410,7 +465,7 @@ namespace bpmalmacen
             double nuevo_costo = 0, nueva_exis=0, sal=0, precio=0;
             Int64 ID_ART = 0;
             DateTime caducidad;
-            string f = " order by de.identrada asc";
+            string f = " order by de.identrada asc", marca="";
             if (configuracion.METODO == "PE")
             { f = " order by de.identrada desc"; }
 
@@ -422,7 +477,7 @@ namespace bpmalmacen
                 precio = double.Parse(Grid_Det_Sal.Rows[fila].Cells[3].Value.ToString());
                 nuevo_costo = double.Parse(Grid_Det_Sal.Rows[fila].Cells[4].Value.ToString());
 
-                llena_grid("select de.existencia as existencia, de.precio as precio, de.caducidad as caducidad, de.id as id from det_entradas de, entradas e " + 
+                llena_grid("select de.existencia as existencia, de.precio as precio, de.caducidad as caducidad, de.marca, de.id as id from det_entradas de, entradas e " + 
                     " where de.identrada=e.id and de.existencia>0 and de.idarticulo=" +ID_ART + " and e.idalmacen="+cbalmacen.SelectedValue + f.ToString());
 
                 for (int fila2 = 0; (fila2 < Grid_Articulos.Rows.Count - 1 && nueva_exis>0) ; fila2++)
@@ -433,6 +488,7 @@ namespace bpmalmacen
                     {sal = Int64.Parse(Grid_Articulos.Rows[fila2].Cells["existencia"].Value.ToString()); }
 
                     caducidad = DateTime.Parse(Grid_Articulos.Rows[fila2].Cells["caducidad"].Value.ToString());
+                    marca = Grid_Articulos.Rows[fila2].Cells["marca"].Value.ToString();
                     nueva_exis = nueva_exis - sal;
 
                     if (configuracion.METODO != "PP")
@@ -445,10 +501,8 @@ namespace bpmalmacen
 
                         string str = "insert into det_salidas (idsalida,idarticulo," +
                         "cantidad,precio,totalprecio,marca,caducidad) " +
-                        "values(" + ID_SAL + "," + ID_ART + "," + sal + "," +
-                        precio + "," + nuevo_costo + ",'" +
-                        Grid_Det_Sal.Rows[fila].Cells[6].Value.ToString() + "','" +
-                        caducidad.ToString("yyyy-MM-dd") + "')";
+                        "values(" + ID_SAL + "," + ID_ART + "," + sal + "," + precio + "," + nuevo_costo + ",'" +
+                        marca.ToString() + "','" + caducidad.ToString("yyyy-MM-dd") + "')";
 
                         conn.Executa(str);
                         //GUARDAR EN LA TABLA KARDEX EL MOV DE ENTRADA

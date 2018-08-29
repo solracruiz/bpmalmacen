@@ -36,14 +36,8 @@ namespace bpmalmacen
             this.label9 = new System.Windows.Forms.Label();
             this.bt_grabar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtrequisicion = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtmarca = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtcaducidad = new System.Windows.Forms.DateTimePicker();
             this.txtprecio = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.bt_agregar = new System.Windows.Forms.Button();
             this.txtcantidad = new System.Windows.Forms.TextBox();
@@ -51,10 +45,15 @@ namespace bpmalmacen
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.txtid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtrequisicion = new System.Windows.Forms.TextBox();
+            this.txtmarca = new System.Windows.Forms.TextBox();
+            this.txtcaducidad = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
             this.cbtipo = new System.Windows.Forms.ComboBox();
             this.txtfecha = new System.Windows.Forms.DateTimePicker();
             this.cbalmacen = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtimporte = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -94,7 +93,7 @@ namespace bpmalmacen
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 51);
+            this.label7.Location = new System.Drawing.Point(6, 23);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 13);
             this.label7.TabIndex = 18;
@@ -103,7 +102,7 @@ namespace bpmalmacen
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 78);
+            this.label8.Location = new System.Drawing.Point(6, 50);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(95, 13);
             this.label8.TabIndex = 20;
@@ -127,7 +126,7 @@ namespace bpmalmacen
             this.bt_grabar.Location = new System.Drawing.Point(672, 384);
             this.bt_grabar.Name = "bt_grabar";
             this.bt_grabar.Size = new System.Drawing.Size(55, 54);
-            this.bt_grabar.TabIndex = 9;
+            this.bt_grabar.TabIndex = 13;
             this.bt_grabar.Text = "Aceptar";
             this.bt_grabar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_grabar.UseVisualStyleBackColor = true;
@@ -150,54 +149,6 @@ namespace bpmalmacen
             this.panel1.Size = new System.Drawing.Size(514, 67);
             this.panel1.TabIndex = 24;
             // 
-            // txtrequisicion
-            // 
-            this.txtrequisicion.Location = new System.Drawing.Point(702, 214);
-            this.txtrequisicion.Name = "txtrequisicion";
-            this.txtrequisicion.Size = new System.Drawing.Size(67, 20);
-            this.txtrequisicion.TabIndex = 14;
-            this.txtrequisicion.Visible = false;
-            this.txtrequisicion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtrequisicion_KeyDown_1);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(640, 219);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 13);
-            this.label11.TabIndex = 40;
-            this.label11.Text = "Requisicion:";
-            this.label11.Visible = false;
-            // 
-            // txtmarca
-            // 
-            this.txtmarca.Location = new System.Drawing.Point(702, 309);
-            this.txtmarca.Name = "txtmarca";
-            this.txtmarca.Size = new System.Drawing.Size(67, 20);
-            this.txtmarca.TabIndex = 12;
-            this.txtmarca.Visible = false;
-            this.txtmarca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtmarca_KeyDown_1);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(640, 314);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Marca:";
-            this.label3.Visible = false;
-            // 
-            // txtcaducidad
-            // 
-            this.txtcaducidad.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtcaducidad.Location = new System.Drawing.Point(702, 238);
-            this.txtcaducidad.Name = "txtcaducidad";
-            this.txtcaducidad.Size = new System.Drawing.Size(73, 20);
-            this.txtcaducidad.TabIndex = 15;
-            this.txtcaducidad.Value = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
-            this.txtcaducidad.Visible = false;
-            // 
             // txtprecio
             // 
             this.txtprecio.Location = new System.Drawing.Point(335, 7);
@@ -217,16 +168,6 @@ namespace bpmalmacen
             this.label18.TabIndex = 32;
             this.label18.Text = "Precio:";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(635, 244);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 13);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Caducidad:";
-            this.label10.Visible = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -245,7 +186,7 @@ namespace bpmalmacen
             this.bt_agregar.Location = new System.Drawing.Point(446, 3);
             this.bt_agregar.Name = "bt_agregar";
             this.bt_agregar.Size = new System.Drawing.Size(54, 59);
-            this.bt_agregar.TabIndex = 16;
+            this.bt_agregar.TabIndex = 12;
             this.bt_agregar.Text = "Agregar";
             this.bt_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_agregar.UseVisualStyleBackColor = true;
@@ -300,6 +241,43 @@ namespace bpmalmacen
             this.label1.TabIndex = 15;
             this.label1.Text = "Producto:";
             // 
+            // txtrequisicion
+            // 
+            this.txtrequisicion.Location = new System.Drawing.Point(117, 72);
+            this.txtrequisicion.Name = "txtrequisicion";
+            this.txtrequisicion.Size = new System.Drawing.Size(111, 20);
+            this.txtrequisicion.TabIndex = 14;
+            this.txtrequisicion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtrequisicion_KeyDown_1);
+            // 
+            // txtmarca
+            // 
+            this.txtmarca.Location = new System.Drawing.Point(702, 309);
+            this.txtmarca.Name = "txtmarca";
+            this.txtmarca.Size = new System.Drawing.Size(67, 20);
+            this.txtmarca.TabIndex = 12;
+            this.txtmarca.Visible = false;
+            this.txtmarca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtmarca_KeyDown_1);
+            // 
+            // txtcaducidad
+            // 
+            this.txtcaducidad.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtcaducidad.Location = new System.Drawing.Point(702, 238);
+            this.txtcaducidad.Name = "txtcaducidad";
+            this.txtcaducidad.Size = new System.Drawing.Size(73, 20);
+            this.txtcaducidad.TabIndex = 15;
+            this.txtcaducidad.Value = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
+            this.txtcaducidad.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(635, 244);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 13);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Caducidad:";
+            this.label10.Visible = false;
+            // 
             // cbtipo
             // 
             this.cbtipo.FormattingEnabled = true;
@@ -309,19 +287,21 @@ namespace bpmalmacen
             "TRASLADO",
             "AJUSTE",
             "DEVOLUCION"});
-            this.cbtipo.Location = new System.Drawing.Point(117, 43);
+            this.cbtipo.Location = new System.Drawing.Point(117, 15);
             this.cbtipo.Name = "cbtipo";
             this.cbtipo.Size = new System.Drawing.Size(111, 21);
             this.cbtipo.TabIndex = 0;
+            this.cbtipo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbtipo_KeyDown);
             // 
             // txtfecha
             // 
             this.txtfecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtfecha.Location = new System.Drawing.Point(117, 71);
+            this.txtfecha.Location = new System.Drawing.Point(117, 43);
             this.txtfecha.Name = "txtfecha";
             this.txtfecha.Size = new System.Drawing.Size(111, 20);
             this.txtfecha.TabIndex = 1;
             this.txtfecha.Value = new System.DateTime(2018, 8, 22, 23, 52, 52, 0);
+            this.txtfecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtfecha_KeyDown);
             // 
             // cbalmacen
             // 
@@ -329,11 +309,14 @@ namespace bpmalmacen
             this.cbalmacen.Location = new System.Drawing.Point(311, 100);
             this.cbalmacen.Name = "cbalmacen";
             this.cbalmacen.Size = new System.Drawing.Size(442, 21);
-            this.cbalmacen.TabIndex = 8;
+            this.cbalmacen.TabIndex = 5;
+            this.cbalmacen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbalmacen_KeyDown);
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtrequisicion);
+            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtimporte);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.label16);
@@ -350,32 +333,41 @@ namespace bpmalmacen
             this.panel2.Location = new System.Drawing.Point(31, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(771, 133);
-            this.panel2.TabIndex = 23;
+            this.panel2.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 79);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "Requisicion:";
             // 
             // txtimporte
             // 
             this.txtimporte.Enabled = false;
-            this.txtimporte.Location = new System.Drawing.Point(117, 100);
+            this.txtimporte.Location = new System.Drawing.Point(117, 101);
             this.txtimporte.Name = "txtimporte";
             this.txtimporte.Size = new System.Drawing.Size(111, 20);
-            this.txtimporte.TabIndex = 4;
+            this.txtimporte.TabIndex = 2;
             this.txtimporte.Text = "0";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 107);
+            this.label17.Location = new System.Drawing.Point(6, 108);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(45, 13);
+            this.label17.Size = new System.Drawing.Size(72, 13);
             this.label17.TabIndex = 37;
-            this.label17.Text = "Importe:";
+            this.label17.Text = "Importe Total:";
             // 
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(199, 0);
+            this.label16.Location = new System.Drawing.Point(234, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(419, 40);
+            this.label16.Size = new System.Drawing.Size(350, 40);
             this.label16.TabIndex = 35;
             this.label16.Text = "S A L I D A    #";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -387,7 +379,8 @@ namespace bpmalmacen
             this.cbentrego.Location = new System.Drawing.Point(311, 43);
             this.cbentrego.Name = "cbentrego";
             this.cbentrego.Size = new System.Drawing.Size(442, 21);
-            this.cbentrego.TabIndex = 5;
+            this.cbentrego.TabIndex = 3;
+            this.cbentrego.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbentrego_KeyDown);
             // 
             // label14
             // 
@@ -404,7 +397,8 @@ namespace bpmalmacen
             this.cbarea.Location = new System.Drawing.Point(311, 71);
             this.cbarea.Name = "cbarea";
             this.cbarea.Size = new System.Drawing.Size(442, 21);
-            this.cbarea.TabIndex = 6;
+            this.cbarea.TabIndex = 4;
+            this.cbarea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbarea_KeyDown);
             // 
             // label15
             // 
@@ -501,7 +495,7 @@ namespace bpmalmacen
             this.bt_salir.Location = new System.Drawing.Point(751, 380);
             this.bt_salir.Name = "bt_salir";
             this.bt_salir.Size = new System.Drawing.Size(51, 58);
-            this.bt_salir.TabIndex = 32;
+            this.bt_salir.TabIndex = 14;
             this.bt_salir.Text = "Salir";
             this.bt_salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_salir.UseVisualStyleBackColor = true;
@@ -528,12 +522,9 @@ namespace bpmalmacen
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(846, 448);
-            this.Controls.Add(this.txtrequisicion);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.bt_salir);
             this.Controls.Add(this.txtmarca);
             this.Controls.Add(this.txtiva);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtcosto);
             this.Controls.Add(this.txtcaducidad);
             this.Controls.Add(this.Grid_Articulos);
@@ -586,12 +577,10 @@ namespace bpmalmacen
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtprecio;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker txtcaducidad;
         private System.Windows.Forms.TextBox txtcosto;
         private System.Windows.Forms.TextBox txtmarca;
         private System.Windows.Forms.TextBox txtrequisicion;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtiva;
         private System.Windows.Forms.DataGridViewTextBoxColumn Articulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
@@ -603,5 +592,6 @@ namespace bpmalmacen
         private System.Windows.Forms.DataGridViewTextBoxColumn lote;
         private System.Windows.Forms.DataGridViewTextBoxColumn caducidad;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label4;
     }
 }

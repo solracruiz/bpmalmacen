@@ -34,7 +34,8 @@ namespace bpmalmacen
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            if (validar() == 0){ return; }
+            if (validar() == 0 && validar_ent()==0){ return; }
+            panel2.Enabled = false;
            Grid_Det_Ent.Rows.Insert(r, txtid.Text, txtnombre.Text, txtcantidad.Text, txtprecio.Text, txtcosto.Text, txtmarca.Text,txtlote.Text, txtrequisicion.Text,txtcaducidad.Text);
             r = r + 1;
 
@@ -248,15 +249,10 @@ namespace bpmalmacen
 
         private void Grid_Det_Ent_DoubleClick(object sender, EventArgs e)
         {
-            if (Grid_Det_Ent.CurrentRow.Cells[1].Value.ToString() == "") { return; }
-            DialogResult res = MessageBox.Show("Deseas eliminar el registro del producto " + 
-                Grid_Det_Ent.CurrentRow.Cells[2].Value.ToString(), "Precaucion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (res == DialogResult.Yes)
+            if (Grid_Det_Ent.CurrentRow.Index != -1)
             {
-                conn.Executa("delete from det_inventarios where id=" + Grid_Det_Ent.CurrentRow.Cells[0].Value.ToString());
-                cargar_det();
+                Grid_Det_Ent.Rows.RemoveAt(Grid_Det_Ent.CurrentRow.Index);
             }
-            
         }
 
         private void btsalir_Click(object sender, EventArgs e)

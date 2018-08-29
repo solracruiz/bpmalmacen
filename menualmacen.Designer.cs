@@ -180,6 +180,7 @@
             this.areasToolStripMenuItem.Name = "areasToolStripMenuItem";
             this.areasToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.areasToolStripMenuItem.Text = "Areas";
+            this.areasToolStripMenuItem.Click += new System.EventHandler(this.areasToolStripMenuItem_Click);
             // 
             // artículosToolStripMenuItem
             // 

@@ -71,5 +71,11 @@ namespace bpmalmacen
             Salidas frm = new Salidas();
             frm.Show(this);
         }
+
+        private void areasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //catareas frm = new catareas();
+            //frm.Show(this);
+        }
     }
 }

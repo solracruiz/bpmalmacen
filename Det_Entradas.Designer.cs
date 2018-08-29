@@ -131,9 +131,10 @@ namespace bpmalmacen
             this.bt_grabar.FlatAppearance.BorderSize = 0;
             this.bt_grabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_grabar.Image = global::bpmalmacen.Properties.Resources.SaveHH;
-            this.bt_grabar.Location = new System.Drawing.Point(794, 51);
+            this.bt_grabar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_grabar.Location = new System.Drawing.Point(799, 406);
             this.bt_grabar.Name = "bt_grabar";
-            this.bt_grabar.Size = new System.Drawing.Size(55, 66);
+            this.bt_grabar.Size = new System.Drawing.Size(55, 57);
             this.bt_grabar.TabIndex = 9;
             this.bt_grabar.Text = "Aceptar";
             this.bt_grabar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -162,14 +163,14 @@ namespace bpmalmacen
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(31, 397);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(789, 67);
+            this.panel1.Size = new System.Drawing.Size(762, 67);
             this.panel1.TabIndex = 24;
             // 
             // txtrequisicion
             // 
             this.txtrequisicion.Location = new System.Drawing.Point(488, 33);
             this.txtrequisicion.Name = "txtrequisicion";
-            this.txtrequisicion.Size = new System.Drawing.Size(67, 20);
+            this.txtrequisicion.Size = new System.Drawing.Size(55, 20);
             this.txtrequisicion.TabIndex = 14;
             this.txtrequisicion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtrequisicion_KeyDown_1);
             // 
@@ -186,7 +187,7 @@ namespace bpmalmacen
             // 
             this.txtmarca.Location = new System.Drawing.Point(488, 9);
             this.txtmarca.Name = "txtmarca";
-            this.txtmarca.Size = new System.Drawing.Size(67, 20);
+            this.txtmarca.Size = new System.Drawing.Size(55, 20);
             this.txtmarca.TabIndex = 12;
             this.txtmarca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtmarca_KeyDown_1);
             // 
@@ -202,7 +203,7 @@ namespace bpmalmacen
             // txtcaducidad
             // 
             this.txtcaducidad.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtcaducidad.Location = new System.Drawing.Point(634, 33);
+            this.txtcaducidad.Location = new System.Drawing.Point(623, 32);
             this.txtcaducidad.Name = "txtcaducidad";
             this.txtcaducidad.Size = new System.Drawing.Size(73, 20);
             this.txtcaducidad.TabIndex = 15;
@@ -230,7 +231,7 @@ namespace bpmalmacen
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(567, 39);
+            this.label10.Location = new System.Drawing.Point(558, 39);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(61, 13);
             this.label10.TabIndex = 26;
@@ -247,7 +248,7 @@ namespace bpmalmacen
             // 
             // txtlote
             // 
-            this.txtlote.Location = new System.Drawing.Point(634, 7);
+            this.txtlote.Location = new System.Drawing.Point(623, 6);
             this.txtlote.Name = "txtlote";
             this.txtlote.Size = new System.Drawing.Size(73, 20);
             this.txtlote.TabIndex = 13;
@@ -256,7 +257,7 @@ namespace bpmalmacen
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(587, 14);
+            this.label4.Location = new System.Drawing.Point(558, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 22;
@@ -268,7 +269,7 @@ namespace bpmalmacen
             this.bt_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_agregar.Image = global::bpmalmacen.Properties.Resources.TaskHH;
             this.bt_agregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_agregar.Location = new System.Drawing.Point(730, 3);
+            this.bt_agregar.Location = new System.Drawing.Point(702, 6);
             this.bt_agregar.Name = "bt_agregar";
             this.bt_agregar.Size = new System.Drawing.Size(54, 59);
             this.bt_agregar.TabIndex = 16;
@@ -352,7 +353,7 @@ namespace bpmalmacen
             this.cbalmacen.FormattingEnabled = true;
             this.cbalmacen.Location = new System.Drawing.Point(311, 131);
             this.cbalmacen.Name = "cbalmacen";
-            this.cbalmacen.Size = new System.Drawing.Size(442, 21);
+            this.cbalmacen.Size = new System.Drawing.Size(534, 21);
             this.cbalmacen.TabIndex = 8;
             // 
             // label6
@@ -369,7 +370,7 @@ namespace bpmalmacen
             this.cbrecibio.FormattingEnabled = true;
             this.cbrecibio.Location = new System.Drawing.Point(311, 99);
             this.cbrecibio.Name = "cbrecibio";
-            this.cbrecibio.Size = new System.Drawing.Size(442, 21);
+            this.cbrecibio.Size = new System.Drawing.Size(534, 21);
             this.cbrecibio.TabIndex = 7;
             // 
             // panel2
@@ -390,7 +391,6 @@ namespace bpmalmacen
             this.panel2.Controls.Add(this.cbrecibio);
             this.panel2.Controls.Add(this.txtfecha);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.bt_grabar);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.cbalmacen);
             this.panel2.Controls.Add(this.label8);
@@ -398,7 +398,7 @@ namespace bpmalmacen
             this.panel2.Location = new System.Drawing.Point(31, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(879, 164);
-            this.panel2.TabIndex = 23;
+            this.panel2.TabIndex = 0;
             // 
             // txtimporte
             // 
@@ -432,7 +432,7 @@ namespace bpmalmacen
             this.cbproveedor.FormattingEnabled = true;
             this.cbproveedor.Location = new System.Drawing.Point(311, 43);
             this.cbproveedor.Name = "cbproveedor";
-            this.cbproveedor.Size = new System.Drawing.Size(442, 21);
+            this.cbproveedor.Size = new System.Drawing.Size(534, 21);
             this.cbproveedor.TabIndex = 5;
             // 
             // label14
@@ -449,7 +449,7 @@ namespace bpmalmacen
             this.cbarea.FormattingEnabled = true;
             this.cbarea.Location = new System.Drawing.Point(311, 71);
             this.cbarea.Name = "cbarea";
-            this.cbarea.Size = new System.Drawing.Size(442, 21);
+            this.cbarea.Size = new System.Drawing.Size(534, 21);
             this.cbarea.TabIndex = 6;
             // 
             // label15
@@ -615,6 +615,7 @@ namespace bpmalmacen
             this.Controls.Add(this.Grid_Det_Ent);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.bt_grabar);
             this.Name = "Det_Entradas";
             this.Text = "Detalles de Entrada";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Det_Entradas_FormClosing);
