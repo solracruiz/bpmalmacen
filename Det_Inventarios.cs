@@ -142,7 +142,7 @@ namespace bpmalmacen
                 cbalmacen.DataSource = conn4.GetTable("select id,nombre from catalmacen where id=" + configuracion.ID_ALMACEN);
                 cbalmacen.Enabled = false;
             }
-            else { cbalmacen.DataSource = conn4.GetTable("select id,nombre from catalmacen"); }
+            else { cbalmacen.DataSource = conn4.GetTable("select id,nombre from catalmacen where id>0"); }
             conn4.cerrarBd();
 
         }
