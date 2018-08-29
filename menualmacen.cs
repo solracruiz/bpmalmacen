@@ -65,5 +65,11 @@ namespace bpmalmacen
         {
 
         }
+
+        private void salidasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Salidas frm = new Salidas();
+            frm.Show(this);
+        }
     }
 }

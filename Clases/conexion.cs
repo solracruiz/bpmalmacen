@@ -13,6 +13,7 @@ namespace bpmalmacen
     public class conexion
     {
         MySqlConnection MysqlConexion = new MySqlConnection();
+        MySqlTransaction tr = null;
         MySqlDataAdapter Adapter = new MySqlDataAdapter();
         MySqlCommand Command = new MySqlCommand();
         DataSet Data = new DataSet();
@@ -31,6 +32,21 @@ namespace bpmalmacen
             password = "c1r7g4s";
             nombreBD = "bpmalmacen";
         }
+        public void inicio()
+            {
+            tr = this.MysqlConexion.BeginTransaction();
+        }
+
+        public void exito()
+        {
+            tr.Commit();
+        }
+
+        public void fallo()
+        {
+            tr.Rollback();
+        }
+
         public MySqlConnection AbrirBD()
         {
             try

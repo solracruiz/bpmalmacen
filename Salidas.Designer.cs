@@ -1,6 +1,6 @@
 ﻿namespace bpmalmacen
 {
-    partial class Entradas
+    partial class Salidas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grid_ent = new System.Windows.Forms.DataGridView();
+            this.grid_sal = new System.Windows.Forms.DataGridView();
             this.txtfiltro = new System.Windows.Forms.TextBox();
             this.bt_exportar = new System.Windows.Forms.Button();
             this.bt_agregar = new System.Windows.Forms.Button();
@@ -40,19 +40,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.bt_filtrar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_ent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_sal)).BeginInit();
             this.SuspendLayout();
             // 
-            // grid_ent
+            // grid_sal
             // 
-            this.grid_ent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_ent.Location = new System.Drawing.Point(24, 70);
-            this.grid_ent.MultiSelect = false;
-            this.grid_ent.Name = "grid_ent";
-            this.grid_ent.ReadOnly = true;
-            this.grid_ent.Size = new System.Drawing.Size(946, 288);
-            this.grid_ent.TabIndex = 0;
-            this.grid_ent.DoubleClick += new System.EventHandler(this.grid_inv_DoubleClick);
+            this.grid_sal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_sal.Location = new System.Drawing.Point(24, 70);
+            this.grid_sal.MultiSelect = false;
+            this.grid_sal.Name = "grid_sal";
+            this.grid_sal.ReadOnly = true;
+            this.grid_sal.Size = new System.Drawing.Size(946, 288);
+            this.grid_sal.TabIndex = 0;
+            this.grid_sal.DoubleClick += new System.EventHandler(this.grid_inv_DoubleClick);
             // 
             // txtfiltro
             // 
@@ -183,7 +183,7 @@
             this.bt_filtrar.UseVisualStyleBackColor = true;
             this.bt_filtrar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Entradas
+            // Salidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -199,14 +199,14 @@
             this.Controls.Add(this.bt_salir);
             this.Controls.Add(this.bt_editar);
             this.Controls.Add(this.txtfiltro);
-            this.Controls.Add(this.grid_ent);
+            this.Controls.Add(this.grid_sal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Entradas";
-            this.Text = "Entradas de Almacen";
-            this.Load += new System.EventHandler(this.Entradas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.grid_ent)).EndInit();
+            this.Name = "Salidas";
+            this.Text = "Salidas de Almacen";
+            this.Load += new System.EventHandler(this.Salidas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grid_sal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,7 +214,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView grid_ent;
+        private System.Windows.Forms.DataGridView grid_sal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtfiltro;
         private System.Windows.Forms.Button bt_editar;
