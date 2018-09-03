@@ -200,6 +200,8 @@
             this.Controls.Add(this.foto);
             this.Controls.Add(this.Salir);
             this.Controls.Add(this.Entrar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "acceso";
             this.Text = "Sistema de Gestion de Almacen (SIGAL)";
             this.Load += new System.EventHandler(this.entrada_Load);

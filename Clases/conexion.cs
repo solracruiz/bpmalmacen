@@ -24,13 +24,13 @@ namespace bpmalmacen
         String nombreBD = "";
         String usuario = "";
         String password = "";
-        String puerto = "3306";
+
         public void Nuevo()
         {
-            servidor = "localhost";
-            usuario = "root";
-            password = "c1r7g4s";
-            nombreBD = "bpmalmacen";
+            servidor = "bpmservicio.com.mx";
+            usuario = "bpmservi_system";
+            password = "BpmS3rv1c10";
+            nombreBD = "bpmservi_bpmalmacen";
         }
         public void inicio()
             {

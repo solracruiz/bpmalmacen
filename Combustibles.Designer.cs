@@ -1,6 +1,6 @@
 ﻿namespace bpmalmacen
 {
-    partial class Entradas
+    partial class Combustibles
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Entradas));
-            this.grid_ent = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Combustibles));
+            this.grid_comb = new System.Windows.Forms.DataGridView();
             this.txtfiltro = new System.Windows.Forms.TextBox();
             this.bt_exportar = new System.Windows.Forms.Button();
             this.bt_agregar = new System.Windows.Forms.Button();
@@ -41,19 +41,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.bt_filtrar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_ent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_comb)).BeginInit();
             this.SuspendLayout();
             // 
-            // grid_ent
+            // grid_comb
             // 
-            this.grid_ent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_ent.Location = new System.Drawing.Point(24, 70);
-            this.grid_ent.MultiSelect = false;
-            this.grid_ent.Name = "grid_ent";
-            this.grid_ent.ReadOnly = true;
-            this.grid_ent.Size = new System.Drawing.Size(946, 288);
-            this.grid_ent.TabIndex = 0;
-            this.grid_ent.DoubleClick += new System.EventHandler(this.grid_inv_DoubleClick);
+            this.grid_comb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_comb.Location = new System.Drawing.Point(24, 70);
+            this.grid_comb.MultiSelect = false;
+            this.grid_comb.Name = "grid_comb";
+            this.grid_comb.ReadOnly = true;
+            this.grid_comb.Size = new System.Drawing.Size(946, 288);
+            this.grid_comb.TabIndex = 0;
+            this.grid_comb.DoubleClick += new System.EventHandler(this.grid_comb_DoubleClick);
             // 
             // txtfiltro
             // 
@@ -184,7 +184,7 @@
             this.bt_filtrar.UseVisualStyleBackColor = true;
             this.bt_filtrar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Entradas
+            // Combustibles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -200,14 +200,14 @@
             this.Controls.Add(this.bt_salir);
             this.Controls.Add(this.bt_editar);
             this.Controls.Add(this.txtfiltro);
-            this.Controls.Add(this.grid_ent);
+            this.Controls.Add(this.grid_comb);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Entradas";
+            this.Name = "Combustibles";
             this.Text = resources.GetString("$this.Text");
-            this.Load += new System.EventHandler(this.Entradas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.grid_ent)).EndInit();
+            this.Load += new System.EventHandler(this.Combustibles_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grid_comb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,7 +215,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView grid_ent;
+        private System.Windows.Forms.DataGridView grid_comb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtfiltro;
         private System.Windows.Forms.Button bt_editar;

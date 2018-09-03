@@ -10,6 +10,6 @@ namespace bpmalmacen.Clases
     {
         public static Int32 ID_ALMACEN;
         public static float IVA = float.Parse("0.16");
-        public static string USER, PERFIL,PERMISOS,METODO="PP";
+        public static string USER, PERFIL,PERMISOS,METODO="PP",ACCION="";
     }
 }

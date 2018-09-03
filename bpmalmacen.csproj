@@ -85,6 +85,12 @@
   <ItemGroup>
     <Compile Include="Clases\conexion.cs" />
     <Compile Include="Clases\configuracion.cs" />
+    <Compile Include="Combustibles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Combustibles.Designer.cs">
+      <DependentUpon>Combustibles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Det_Entradas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,12 @@
     <Compile Include="Entradas.Designer.cs">
       <DependentUpon>Entradas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Det_Combustibles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Det_Combustibles.Designer.cs">
+      <DependentUpon>Det_Combustibles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +155,9 @@
       <DependentUpon>Salidas.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Combustibles.resx">
+      <DependentUpon>Combustibles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Det_Entradas.resx">
       <DependentUpon>Det_Entradas.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Entradas.resx">
       <DependentUpon>Entradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Det_Combustibles.resx">
+      <DependentUpon>Det_Combustibles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
