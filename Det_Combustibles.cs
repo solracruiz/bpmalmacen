@@ -27,8 +27,8 @@ namespace bpmalmacen
 
         private void Det_Combustibles_Load(object sender, EventArgs e)
         {
-            txtfecha.Value = DateTime.Now;
             conn.AbrirBD();
+            txtfecha.Value = DateTime.Now;
             cbvehiculos.DisplayMember = "unidad";
             cbvehiculos.ValueMember = "id";
             cbvehiculos.DataSource = conn.GetTable("select id,unidad from catvehiculos");
@@ -39,17 +39,23 @@ namespace bpmalmacen
             if (validar())
             {
                 conn.AbrirBD();
-                conn.Executa("insert into combustibles (idvehiculo,fecha,tipo_combustible,km,kmanterior,cantidad,costo,rendimiento)" +
+                conn.inicio();
+                Boolean resp;
+                resp = conn.Executa("insert into combustibles (idvehiculo,fecha,tipo_combustible,km,kmanterior,cantidad,costo,rendimiento)" +
                    " values (" + cbvehiculos.SelectedValue.ToString() + ",'" + txtfecha.Value.ToString("yyyy-MM-dd") + "','" +
                    cbtipo.Text + "'," + txtkm.Text + "," + txtkmanterior.Text + "," +
                    txtcantidad.Text + "," + txtcosto.Text + "," + txtrendimiento.Text + ")");
-
-                conn.Executa("update catvehiculos set km=" + txtkm.Text + " where id=" + cbvehiculos.ValueMember);
-
-                conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
+                if (!resp) { conn.fallo(); return; }
+                resp = conn.Executa("update catvehiculos set km=" + txtkm.Text + " where id=" + cbvehiculos.ValueMember);
+                if (!resp) { conn.fallo(); return; }
+                resp = conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
                        + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + configuracion.USER +
                        "','ALTA','COMBUSTIBLES'," + cbvehiculos.SelectedValue + ")");
+                if (!resp) { conn.fallo(); return; }
                 limpiar();
+                conn.exito();
+                conn.cerrarBd();
+                MessageBox.Show("Proceso Realizado con Exito");
             }
         }
 

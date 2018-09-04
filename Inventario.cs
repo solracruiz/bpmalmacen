@@ -16,6 +16,7 @@ namespace bpmalmacen
     public partial class Inventario : Form
     {
         conexion conn = new conexion();
+        Boolean resp;
         string  filtro="", filtro2="";
         public string sql = "";
         public Inventario()
@@ -32,8 +33,9 @@ namespace bpmalmacen
                 if (result == DialogResult.Yes)
                 {
                     conn.AbrirBD();
-                    conn.Executa("delete from inventarios where id=" + grid_inv.CurrentRow.Cells[0].Value.ToString());
-                    conn.Executa("delete from det_inventarios where idinventario=" + grid_inv.CurrentRow.Cells[0].Value.ToString());
+                    resp=conn.Executa("delete from inventarios where id=" + grid_inv.CurrentRow.Cells[0].Value.ToString());
+                    
+                    resp =conn.Executa("delete from det_inventarios where idinventario=" + grid_inv.CurrentRow.Cells[0].Value.ToString());
                     carga(sql);
                     conn.cerrarBd();
                 }

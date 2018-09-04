@@ -212,15 +212,18 @@ namespace bpmalmacen
             try
             {
                 if (validar_ent() == 0){ return; }
-                    conn.AbrirBD();
-                    conn.Executa("insert into entradas (tipo,fechaentrada,numfactura,fechafactura,costofactura," +
+                Boolean resp;
+                   conn.AbrirBD();
+                conn.inicio();
+                    resp=conn.Executa("insert into entradas (tipo,fechaentrada,numfactura,fechafactura,costofactura," +
                         "idproveedor,idarea,idalmacen,idrecibio,estatus) values('" + 
                     cbtipo.Text.ToUpper() + "','" + txtfecha.Value.ToString("yyyy-MM-dd") + "','" +
                     txtnumero_factura.Text.ToUpper() + "','" + txtfecha_factura.Value.ToString("yyyy-MM-dd") + "'," +
                     txtimporte.Text.ToUpper() + "," + cbproveedor.SelectedValue + "," + cbarea.SelectedValue + "," +
                     cbalmacen.SelectedValue +"," + cbrecibio.SelectedValue + ",'A')");
-                    //OBTENER ID INVENTARIO
-                    R = conn.GetData("SELECT id FROM entradas where tipo='" + cbtipo.Text.ToUpper() 
+                //OBTENER ID INVENTARIO
+                if (!resp) { conn.fallo(); return; }
+                R = conn.GetData("SELECT id FROM entradas where tipo='" + cbtipo.Text.ToUpper() 
                         + "' and fechaentrada='" + txtfecha.Value.ToString("yyyy-MM-dd")
                         + "' and fechafactura='" + txtfecha_factura.Value.ToString("yyyy-MM-dd")
                         + "' and numfactura='" + txtnumero_factura.Text.ToString()
@@ -233,10 +236,14 @@ namespace bpmalmacen
                         label16.Text = "E N T R A D A   #" + ID_ENT.ToString();
                     }
                     R.Close();
-                grabar_grid();
-                conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
+                resp= grabar_grid();
+                if (!resp) { return; }
+                resp = conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
                        + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + configuracion.USER +
                        "','ALTA','ENTRADAS'," + ID_ENT + ")");
+                if (!resp) { conn.fallo(); return; }
+                conn.exito();
+                conn.cerrarBd();
                 MessageBox.Show("Alta de Entrada al Almacen " + ID_ENT+ " Realizada con Exito¡");
                 this.Close();
             }
@@ -401,9 +408,8 @@ namespace bpmalmacen
 
 
 
-        void grabar_grid()
+        Boolean grabar_grid()
         {
-            conn.inicio();
             
             DateTime fec =DateTime.Now;
             double nuevo_costo = 0, nueva_exis=0;
@@ -427,7 +433,7 @@ namespace bpmalmacen
 
                 if (!conn.Executa(str)){
                     conn.fallo();
-                    return;
+                    return false;
                 }
                //GUARDAR EN LA TABLA KARDEX EL MOV DE ENTRADA
                 str= "insert into kardex (idtabla,idarticulo,entrada,salida,precio,costo,fecha)" +
@@ -441,7 +447,7 @@ namespace bpmalmacen
                 if (!conn.Executa(str))
                 {
                     conn.fallo();
-                    return;
+                    return false;
                 }
                 //CALCULAR PRECIO PROMEDIO 
                 str = "update catarticulos " +
@@ -450,12 +456,12 @@ namespace bpmalmacen
                 if (!conn.Executa(str))
                 {
                     conn.fallo();
-                    return;
+                    return false;
                 }
 
             }
             //Inventario.ActiveForm=true;
-            conn.exito();
+            return true;
         }
    
     }

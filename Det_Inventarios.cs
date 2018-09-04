@@ -17,6 +17,7 @@ namespace bpmalmacen
         int r = 0;
         Int64 ID_INV;
         Double PRECIO, TOTAL;
+        Boolean resp;
         conexion conn = new conexion();
         conexion conn1 = new conexion();
         conexion conn2 = new conexion();
@@ -33,6 +34,7 @@ namespace bpmalmacen
         private void bt_agregar_Click(object sender, EventArgs e)
         {
             if (validar() == 0){ return; }
+
             //data_det_inv.Rows.Insert(r,r+1, txtid.Text, txtnombre.Text, txtcantidad.Text, PRECIO.ToString(), txtlote.Text, cbestatus2.Text.ToUpper() ,txtmarbete.Text, cbreviso.SelectedValue,cbreviso.Text);
             string str = "insert into det_inventarios (idinventario,idarticulo," +
                     "cantidad,precio,totalprecio,lote,estado,marbete,idauditor) " +
@@ -236,8 +238,9 @@ namespace bpmalmacen
                 if (validar_inv() == 0){ return; }
                     conn.AbrirBD();
                     panel1.Visible = true;
-                    conn.Executa("insert into inventarios (tipo,fecha,idalmacen,idautorizo,estatus) values('" + 
+                    resp=conn.Executa("insert into inventarios (tipo,fecha,idalmacen,idautorizo,estatus) values('" + 
                     cbtipo.Text.ToUpper() + "','" + txtfecha.Value.ToString("yyyy-MM-dd") + "'," + cbalmacen.SelectedValue +"," + cbsolicito.SelectedValue + ",'A')");
+                if (!resp) { conn.fallo(); return false; }
                 //OBTENER ID INVENTARIO
                 R = conn.GetData("SELECT id FROM inventarios where tipo='" + cbtipo.Text.ToUpper() 
                         + "' and fecha='" + txtfecha.Value.ToString("yyyy-MM-dd")
@@ -248,10 +251,11 @@ namespace bpmalmacen
                         ID_INV = Int32.Parse(R[0].ToString());
                      }
                     R.Close();
-                    conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
+                    resp=conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
                             + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + configuracion.USER + 
                             "','ALTA','INVENTARIOS'," + ID_INV + ")");
-                    panel2.Enabled = false;
+                if (!resp) { conn.fallo(); return false; }
+                panel2.Enabled = false;
                     panel1.Visible = true;
                     txtid.Focus();
             }
@@ -350,36 +354,6 @@ namespace bpmalmacen
             {
                 txtcantidad.Text = "0";
             }
-        }
-
-        void grabar_grid()
-        {
-            for (int fila = 0; fila < data_det_inv.Rows.Count - 1; fila++)
-            {
-                TOTAL = double.Parse(data_det_inv.Rows[fila].Cells[3].Value.ToString()) * double.Parse(data_det_inv.Rows[fila].Cells[4].Value.ToString());
-                string str="insert into det_inventarios (idinventario,idarticulo," +
-                    "cantidad,precio,totalprecio,lote,estado,marbete,idauditor) " + 
-                    "values(" + ID_INV + "," +
-                    data_det_inv.Rows[fila].Cells[1].Value.ToString() + "," +
-                    data_det_inv.Rows[fila].Cells[3].Value.ToString() + "," +
-                    data_det_inv.Rows[fila].Cells[4].Value.ToString() + "," +
-                    TOTAL + ",'" +
-                    data_det_inv.Rows[fila].Cells[5].Value.ToString() + "','" +
-                    data_det_inv.Rows[fila].Cells[6].Value.ToString() + "','" +
-                    data_det_inv.Rows[fila].Cells[7].Value.ToString() + "'," +
-                    data_det_inv.Rows[fila].Cells[8].Value.ToString() + ")";
-                //MessageBox.Show(str);
-                conn.Executa(str);
-                
-                
-                /*for (int col = 0; col < data_det_inv.Rows[fila].Cells.Count; col++)
-                {
-                    string valor = data_det_inv.Rows[fila].Cells[col].Value.ToString();
-                    MessageBox.Show(valor);
-                }*/
-            }
-            //Inventario.ActiveForm=true;
-            this.Close();
         }
    
     }

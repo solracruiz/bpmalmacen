@@ -32,8 +32,14 @@ namespace bpmalmacen
                 if (result == DialogResult.Yes)
                 {
                     conn.AbrirBD();
-                    conn.Executa("delete from combustibles where id=" + grid_comb.CurrentRow.Cells[0].Value.ToString());
+                    conn.inicio();
+                    Boolean resp=conn.Executa("delete from combustibles where id=" + grid_comb.CurrentRow.Cells[0].Value.ToString());
+                    if (!resp) { conn.fallo(); return; }
+                    resp =conn.Executa("update catvehiculos set km=" + grid_comb.CurrentRow.Cells[4].Value.ToString() +
+                        " where id=" + grid_comb.CurrentRow.Cells[0].Value.ToString()) ;
+                    if (!resp) { conn.fallo(); return; }
                     carga(sql);
+                    conn.exito();
                     conn.cerrarBd();
                 }
             }
@@ -41,8 +47,6 @@ namespace bpmalmacen
 
         private void Combustibles_Load(object sender, EventArgs e)
         {
-            
-            
             sql =" select c.id, v.unidad as Vehiculo, c.fecha as Fecha, c.kmanterior as Km_Anterior, " +
                 " c.km as Kilometraje, c.cantidad as Litros, c.rendimiento as Rendimiento " +
                 " from catvehiculos v, combustibles c " +
@@ -52,7 +56,7 @@ namespace bpmalmacen
 
         void carga(string sql2)
         {
-              conn.AbrirBD();
+            conn.AbrirBD();
             grid_comb.DataSource = conn.GetTable(sql2);
             grid_comb.AutoResizeColumns();
             conn.cerrarBd();
@@ -113,5 +117,6 @@ namespace bpmalmacen
             conn.cerrarBd();
             MessageBox.Show("Proceso Realizado con Exito");
         }
+
     }
 }

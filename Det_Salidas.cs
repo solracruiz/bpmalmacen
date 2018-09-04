@@ -17,6 +17,7 @@ namespace bpmalmacen
         int r = 0;
         Int64 ID_SAL;
         Double PRECIO, TOTAL=0;
+        Boolean resp;
         conexion conn = new conexion();
         conexion conn1 = new conexion();
         conexion conn2 = new conexion();
@@ -212,11 +213,13 @@ namespace bpmalmacen
             {
                 if (validar_sal() == 0){ return; }
                     conn.AbrirBD();
-                    conn.Executa("insert into salidas (tipo,fechasalida,importe,idrequisicion," +
+                conn.inicio();
+                resp=conn.Executa("insert into salidas (tipo,fechasalida,importe,idrequisicion," +
                         "identrego,idarea,idalmacen,estatus) values('" + cbtipo.Text.ToUpper() + 
                         "','" + txtfecha.Value.ToString("yyyy-MM-dd") + "'," + txtimporte.Text.ToUpper() + 
                         ",'" + txtrequisicion.Text.ToUpper() + "'," + cbentrego.SelectedValue + "," + 
                         cbarea.SelectedValue + "," + cbalmacen.SelectedValue +",'A')");
+                if (!resp) { conn.fallo(); return; }
                 //OBTENER ID INVENTARIO
                 R = conn.GetData("SELECT id FROM salidas where tipo='" + cbtipo.Text.ToUpper()
                     + "' and fechasalida='" + txtfecha.Value.ToString("yyyy-MM-dd")
@@ -230,10 +233,13 @@ namespace bpmalmacen
                         label16.Text = "S A L I D A   #" + ID_SAL.ToString();
                     }
                     R.Close();
-                grabar_grid();
-                conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
+                resp=grabar_grid();
+                if (!resp) { conn.fallo(); return; }
+                resp=conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
                        + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + configuracion.USER +
                        "','ALTA','SALIDAS'," + ID_SAL + ")");
+                if (!resp) { conn.fallo(); return; }
+                conn.exito();
                 MessageBox.Show("Alta de Entrada al Almacen " + ID_SAL+ " Realizada con Exito¡");
                 this.Close();
             }
@@ -459,7 +465,7 @@ namespace bpmalmacen
             }
         }
 
-        void grabar_grid()
+        Boolean grabar_grid()
         {
             DateTime fec =DateTime.Now;
             double nuevo_costo = 0, nueva_exis=0, sal=0, precio=0;
@@ -504,24 +510,30 @@ namespace bpmalmacen
                         "values(" + ID_SAL + "," + ID_ART + "," + sal + "," + precio + "," + nuevo_costo + ",'" +
                         marca.ToString() + "','" + caducidad.ToString("yyyy-MM-dd") + "')";
 
-                        conn.Executa(str);
-                        //GUARDAR EN LA TABLA KARDEX EL MOV DE ENTRADA
-                        str = "insert into kardex (idtabla,idarticulo,entrada,salida,precio,costo,fecha)" +
+                        resp=conn.Executa(str);
+                    if (!resp) { conn.fallo(); return false; }
+                    //GUARDAR EN LA TABLA KARDEX EL MOV DE ENTRADA
+                    str = "insert into kardex (idtabla,idarticulo,entrada,salida,precio,costo,fecha)" +
                        "values(" + ID_SAL + "," + ID_ART + ",0," + sal + "," + precio + "," +
                         nuevo_costo + ",'" + caducidad.ToString("yyyy-MM-dd") + "')";
                         //MessageBox.Show(str);
-                        conn.Executa(str);
-                        //CALCULAR PRECIO PROMEDIO 
-                        str = "update catarticulos set existencia=existencia-" + sal + " where id=" + ID_ART;
-                        conn.Executa(str);
-                        str = "update det_entradas set existencia=existencia-" 
+                       resp= conn.Executa(str);
+                    if (!resp) { conn.fallo(); return false; }
+                    //CALCULAR PRECIO PROMEDIO 
+                    str = "update catarticulos set existencia=existencia-" + sal + " where id=" + ID_ART;
+                    resp= conn.Executa(str);
+                    if (!resp) { conn.fallo(); return false; }
+
+                    str = "update det_entradas set existencia=existencia-" 
                             + sal + " where id="+ Grid_Articulos.Rows[fila2].Cells["id"].Value.ToString();
-                        conn.Executa(str);
-                    
+                    resp= conn.Executa(str);
+                    if (!resp) { conn.fallo(); return false; }
+
                 }//segundo for
 
             }//primer for
             //Inventario.ActiveForm=true;
+            return true;
         }
    
     }
