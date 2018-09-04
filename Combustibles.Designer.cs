@@ -51,7 +51,7 @@
             this.grid_comb.MultiSelect = false;
             this.grid_comb.Name = "grid_comb";
             this.grid_comb.ReadOnly = true;
-            this.grid_comb.Size = new System.Drawing.Size(946, 288);
+            this.grid_comb.Size = new System.Drawing.Size(651, 288);
             this.grid_comb.TabIndex = 0;
             this.grid_comb.DoubleClick += new System.EventHandler(this.grid_comb_DoubleClick);
             // 
@@ -59,7 +59,7 @@
             // 
             this.txtfiltro.Location = new System.Drawing.Point(24, 34);
             this.txtfiltro.Name = "txtfiltro";
-            this.txtfiltro.Size = new System.Drawing.Size(402, 20);
+            this.txtfiltro.Size = new System.Drawing.Size(261, 20);
             this.txtfiltro.TabIndex = 2;
             this.txtfiltro.TextChanged += new System.EventHandler(this.txtfiltro_TextChanged);
             // 
@@ -99,7 +99,7 @@
             this.bt_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_salir.Image = global::bpmalmacen.Properties.Resources.ClosePreviewHH;
             this.bt_salir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_salir.Location = new System.Drawing.Point(919, 364);
+            this.bt_salir.Location = new System.Drawing.Point(624, 364);
             this.bt_salir.Name = "bt_salir";
             this.bt_salir.Size = new System.Drawing.Size(51, 58);
             this.bt_salir.TabIndex = 33;
@@ -136,7 +136,7 @@
             // txtfecha2
             // 
             this.txtfecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtfecha2.Location = new System.Drawing.Point(794, 31);
+            this.txtfecha2.Location = new System.Drawing.Point(496, 34);
             this.txtfecha2.Name = "txtfecha2";
             this.txtfecha2.Size = new System.Drawing.Size(111, 20);
             this.txtfecha2.TabIndex = 38;
@@ -145,7 +145,7 @@
             // txtfecha
             // 
             this.txtfecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtfecha.Location = new System.Drawing.Point(654, 31);
+            this.txtfecha.Location = new System.Drawing.Point(356, 34);
             this.txtfecha.Name = "txtfecha";
             this.txtfecha.Size = new System.Drawing.Size(111, 20);
             this.txtfecha.TabIndex = 37;
@@ -154,7 +154,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(651, 15);
+            this.label3.Location = new System.Drawing.Point(353, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 39;
@@ -163,7 +163,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(791, 15);
+            this.label4.Location = new System.Drawing.Point(493, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(19, 13);
             this.label4.TabIndex = 40;
@@ -175,7 +175,7 @@
             this.bt_filtrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_filtrar.Image = global::bpmalmacen.Properties.Resources.FindHH;
             this.bt_filtrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_filtrar.Location = new System.Drawing.Point(911, 12);
+            this.bt_filtrar.Location = new System.Drawing.Point(613, 6);
             this.bt_filtrar.Name = "bt_filtrar";
             this.bt_filtrar.Size = new System.Drawing.Size(59, 58);
             this.bt_filtrar.TabIndex = 41;
@@ -188,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 431);
+            this.ClientSize = new System.Drawing.Size(704, 431);
             this.Controls.Add(this.bt_filtrar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

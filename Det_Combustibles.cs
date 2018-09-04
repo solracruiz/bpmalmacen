@@ -1,4 +1,6 @@
-﻿using System;
+﻿using bpmalmacen.Clases;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,25 +32,85 @@ namespace bpmalmacen
             cbvehiculos.DisplayMember = "unidad";
             cbvehiculos.ValueMember = "id";
             cbvehiculos.DataSource = conn.GetTable("select id,unidad from catvehiculos");
-            conn.cerrarBd();
         }
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            conn.Executa("insert into combustibles (idvehiculo,fecha,tipo_combustible,km,kmanterior,cantidad,costo)" +
-               " values (" + cbvehiculos.SelectedValue + ",'" + txtfecha.Value.ToString("yyyy-MM-dd") + "','" +
-               cbtipo.Text + "'," + txtkm.Text + "," + txtkmanterior.Text + "," + 
-               txtcantidad.Text + "," + txtcosto.Text + ")");
+            if (validar())
+            {
+                conn.AbrirBD();
+                conn.Executa("insert into combustibles (idvehiculo,fecha,tipo_combustible,km,kmanterior,cantidad,costo,rendimiento)" +
+                   " values (" + cbvehiculos.SelectedValue.ToString() + ",'" + txtfecha.Value.ToString("yyyy-MM-dd") + "','" +
+                   cbtipo.Text + "'," + txtkm.Text + "," + txtkmanterior.Text + "," +
+                   txtcantidad.Text + "," + txtcosto.Text + "," + txtrendimiento.Text + ")");
+
+                conn.Executa("update catvehiculos set km=" + txtkm.Text + " where id=" + cbvehiculos.ValueMember);
+
+                conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
+                       + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + configuracion.USER +
+                       "','ALTA','COMBUSTIBLES'," + cbvehiculos.SelectedValue + ")");
+                limpiar();
+            }
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        void limpiar()
         {
-
+            txtcantidad.Text = "";
+            txtcosto.Text = "0";
+            txtfecha.Value = DateTime.Now;
+            txtkm.Text = "";
+            txtkmanterior.Text = "";
+            txtrendimiento.Text = "";
         }
 
         private void cbvehiculos_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show("sacar el valor de km anterior");
+            
+            //MessageBox.Show("sacar el valor de km anterior");
+            MySqlDataReader R = conn.GetData("SELECT km FROM catvehiculos where id=" + cbvehiculos.SelectedValue );
+            if (R.HasRows)
+            {
+                //VARIABLES GLOBALES
+                R.Read();
+                txtkmanterior.Text = R[0].ToString();
+                R.Close();
+            }
+            else
+            {
+                MessageBox.Show("Favor de elegir una Unidad valida¡");
+            }
+        }
+
+        private void Det_Combustibles_FormClosed(object sender, FormClosedEventArgs e)
+        {
+             conn.cerrarBd();
+        }
+        Boolean validar()
+        {
+            if (txtrendimiento.Text == "" || txtcantidad.Text == "" || txtcosto.Text == "" || txtkm.Text == "")
+            { return false; }
+            return true;
+        }
+        void calcular()
+        {
+            if (modulo1.IsNumeric(txtcantidad.Text) && modulo1.IsNumeric(txtkm.Text) && modulo1.IsNumeric(txtkmanterior.Text))
+            {//SI NO SON NUMEROS O EL KILOMETRAJE ACTUAL ES MENOR QUE EL ANTERIOR NO HACE NADA Y VACIA EL CAMPO RENDIMIENTO
+                if ((float.Parse(txtcantidad.Text) <= 0) || (float.Parse(txtkm.Text)<=float.Parse(txtkmanterior.Text))) { return; }
+                float rend = (float.Parse(txtkm.Text) - float.Parse(txtkmanterior.Text)) / float.Parse(txtcantidad.Text);
+                txtrendimiento.Text = rend.ToString();
+            }
+            else {
+                txtrendimiento.Text = "";
+            }
+        }
+        private void txtkm_Leave(object sender, EventArgs e)
+        {
+            calcular();
+        }
+
+        private void txtcantidad_Leave(object sender, EventArgs e)
+        {
+            calcular();
         }
     }
 }

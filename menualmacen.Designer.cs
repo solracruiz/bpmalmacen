@@ -56,7 +56,7 @@
             this.maxMinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resguardosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salidasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.valeDeSalidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CombustiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.artículosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.comprometidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -266,7 +266,7 @@
             this.maxMinToolStripMenuItem,
             this.resguardosToolStripMenuItem,
             this.salidasToolStripMenuItem1,
-            this.valeDeSalidaToolStripMenuItem});
+            this.CombustiblesToolStripMenuItem});
             this.procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
             this.procesosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.procesosToolStripMenuItem.Text = "Procesos";
@@ -274,59 +274,60 @@
             // bajasToolStripMenuItem
             // 
             this.bajasToolStripMenuItem.Name = "bajasToolStripMenuItem";
-            this.bajasToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.bajasToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.bajasToolStripMenuItem.Text = "Bajas";
             // 
             // comprometerArtículosToolStripMenuItem
             // 
             this.comprometerArtículosToolStripMenuItem.Name = "comprometerArtículosToolStripMenuItem";
-            this.comprometerArtículosToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.comprometerArtículosToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.comprometerArtículosToolStripMenuItem.Text = "Comprometer Artículos";
             // 
             // devolucionesToolStripMenuItem1
             // 
             this.devolucionesToolStripMenuItem1.Name = "devolucionesToolStripMenuItem1";
-            this.devolucionesToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
+            this.devolucionesToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
             this.devolucionesToolStripMenuItem1.Text = "Devoluciones";
             // 
             // entradasToolStripMenuItem
             // 
             this.entradasToolStripMenuItem.Name = "entradasToolStripMenuItem";
-            this.entradasToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.entradasToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.entradasToolStripMenuItem.Text = "Entradas";
             this.entradasToolStripMenuItem.Click += new System.EventHandler(this.entradasToolStripMenuItem_Click);
             // 
             // inventariosToolStripMenuItem
             // 
             this.inventariosToolStripMenuItem.Name = "inventariosToolStripMenuItem";
-            this.inventariosToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.inventariosToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.inventariosToolStripMenuItem.Text = "Inventarios";
             this.inventariosToolStripMenuItem.Click += new System.EventHandler(this.inventariosToolStripMenuItem_Click);
             // 
             // maxMinToolStripMenuItem
             // 
             this.maxMinToolStripMenuItem.Name = "maxMinToolStripMenuItem";
-            this.maxMinToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.maxMinToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.maxMinToolStripMenuItem.Text = "Max. Min.";
             // 
             // resguardosToolStripMenuItem
             // 
             this.resguardosToolStripMenuItem.Name = "resguardosToolStripMenuItem";
-            this.resguardosToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.resguardosToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.resguardosToolStripMenuItem.Text = "Resguardos";
             // 
             // salidasToolStripMenuItem1
             // 
             this.salidasToolStripMenuItem1.Name = "salidasToolStripMenuItem1";
-            this.salidasToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
+            this.salidasToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
             this.salidasToolStripMenuItem1.Text = "Salidas";
             this.salidasToolStripMenuItem1.Click += new System.EventHandler(this.salidasToolStripMenuItem1_Click);
             // 
-            // valeDeSalidaToolStripMenuItem
+            // CombustiblesToolStripMenuItem
             // 
-            this.valeDeSalidaToolStripMenuItem.Name = "valeDeSalidaToolStripMenuItem";
-            this.valeDeSalidaToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.valeDeSalidaToolStripMenuItem.Text = "Vale de Salida";
+            this.CombustiblesToolStripMenuItem.Name = "CombustiblesToolStripMenuItem";
+            this.CombustiblesToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.CombustiblesToolStripMenuItem.Text = "Consumo de Combustibles";
+            this.CombustiblesToolStripMenuItem.Click += new System.EventHandler(this.CombustiblesToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -736,7 +737,7 @@
         private System.Windows.Forms.ToolStripMenuItem maxMinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resguardosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salidasToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem valeDeSalidaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CombustiblesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem artículosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem comprometidosToolStripMenuItem;

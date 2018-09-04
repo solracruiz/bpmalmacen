@@ -54,6 +54,7 @@
             this.txtkm.Name = "txtkm";
             this.txtkm.Size = new System.Drawing.Size(100, 20);
             this.txtkm.TabIndex = 4;
+            this.txtkm.Leave += new System.EventHandler(this.txtkm_Leave);
             // 
             // label1
             // 
@@ -114,6 +115,7 @@
             this.txtcantidad.Name = "txtcantidad";
             this.txtcantidad.Size = new System.Drawing.Size(100, 20);
             this.txtcantidad.TabIndex = 5;
+            this.txtcantidad.Leave += new System.EventHandler(this.txtcantidad_Leave);
             // 
             // txtrendimiento
             // 
@@ -187,7 +189,6 @@
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "Costo:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtcosto
             // 
@@ -241,8 +242,10 @@
             this.Controls.Add(this.txtfecha);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtkm);
+            this.Location = new System.Drawing.Point(440, 300);
             this.Name = "Det_Combustibles";
             this.Text = "Alta de Consumo de Combustible";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Det_Combustibles_FormClosed);
             this.Load += new System.EventHandler(this.Det_Combustibles_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

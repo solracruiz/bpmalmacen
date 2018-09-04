@@ -41,11 +41,11 @@ namespace bpmalmacen
 
         private void Combustibles_Load(object sender, EventArgs e)
         {
-            if (configuracion.ID_ALMACEN != 0)
+            
             
             sql =" select c.id, v.unidad as Vehiculo, c.fecha as Fecha, c.kmanterior as Km_Anterior, " +
                 " c.km as Kilometraje, c.cantidad as Litros, c.rendimiento as Rendimiento " +
-                " from vehiculos v, combustibles c " +
+                " from catvehiculos v, combustibles c " +
                 " where v.id=c.idvehiculo " + filtro.ToString();
             carga(sql + " limit 20");
         }
@@ -86,7 +86,7 @@ namespace bpmalmacen
 
         private void bt_agregar_Click_1(object sender, EventArgs e)
         {
-            Det_Entradas frm = new Det_Entradas();
+            Det_Combustibles frm = new Det_Combustibles();
             frm.ShowDialog();
             carga(sql);
         }
