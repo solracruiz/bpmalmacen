@@ -502,7 +502,7 @@ namespace bpmalmacen
                         //cambiar precio y costo
                         precio = double.Parse(Grid_Articulos.Rows[fila2].Cells["precio"].Value.ToString());
                         nuevo_costo = precio * sal;
-                        MessageBox.Show("cambiar precio y costo");
+                        //MessageBox.Show("cambiar precio y costo");
                     }
 
                         string str = "insert into det_salidas (idsalida,idarticulo," +

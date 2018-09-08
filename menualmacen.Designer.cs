@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menualmacen));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.foto = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.catalogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.almacenesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +47,7 @@
             this.tiposDeArtículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeMovimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bajasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RequisicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprometerArtículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolucionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.entradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,10 +105,11 @@
             this.usuario1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.Barra_Usuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.foto = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.foto)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.foto)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -120,17 +120,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(189, 28);
             this.panel1.TabIndex = 62;
-            // 
-            // foto
-            // 
-            this.foto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.foto.ErrorImage = ((System.Drawing.Image)(resources.GetObject("foto.ErrorImage")));
-            this.foto.Location = new System.Drawing.Point(837, 3);
-            this.foto.Name = "foto";
-            this.foto.Size = new System.Drawing.Size(24, 25);
-            this.foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.foto.TabIndex = 62;
-            this.foto.TabStop = false;
             // 
             // menuStrip1
             // 
@@ -258,7 +247,7 @@
             // procesosToolStripMenuItem
             // 
             this.procesosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bajasToolStripMenuItem,
+            this.RequisicionesToolStripMenuItem,
             this.comprometerArtículosToolStripMenuItem,
             this.devolucionesToolStripMenuItem1,
             this.entradasToolStripMenuItem,
@@ -271,11 +260,12 @@
             this.procesosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.procesosToolStripMenuItem.Text = "Procesos";
             // 
-            // bajasToolStripMenuItem
+            // RequisicionesToolStripMenuItem
             // 
-            this.bajasToolStripMenuItem.Name = "bajasToolStripMenuItem";
-            this.bajasToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.bajasToolStripMenuItem.Text = "Bajas";
+            this.RequisicionesToolStripMenuItem.Name = "RequisicionesToolStripMenuItem";
+            this.RequisicionesToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.RequisicionesToolStripMenuItem.Text = "Requisiciones";
+            this.RequisicionesToolStripMenuItem.Click += new System.EventHandler(this.RequisicionesToolStripMenuItem_Click);
             // 
             // comprometerArtículosToolStripMenuItem
             // 
@@ -681,6 +671,17 @@
             this.Barra_Usuario.Size = new System.Drawing.Size(50, 17);
             this.Barra_Usuario.Text = "Usuario:";
             // 
+            // foto
+            // 
+            this.foto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.foto.ErrorImage = ((System.Drawing.Image)(resources.GetObject("foto.ErrorImage")));
+            this.foto.Location = new System.Drawing.Point(837, 3);
+            this.foto.Name = "foto";
+            this.foto.Size = new System.Drawing.Size(24, 25);
+            this.foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.foto.TabIndex = 62;
+            this.foto.TabStop = false;
+            // 
             // menualmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -698,11 +699,11 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.menualmacen_FormClosed);
             this.Load += new System.EventHandler(this.menualmacen_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.foto)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.foto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -729,7 +730,7 @@
         private System.Windows.Forms.ToolStripMenuItem tiposDeArtículosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeMovimientosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem procesosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bajasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RequisicionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comprometerArtículosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devolucionesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem entradasToolStripMenuItem;

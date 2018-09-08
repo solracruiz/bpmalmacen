@@ -109,23 +109,29 @@
     <Compile Include="acceso.Designer.cs">
       <DependentUpon>acceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Det_Requisiciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Det_Requisiciones.Designer.cs">
+      <DependentUpon>Det_Requisiciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Det_Salidas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Det_Salidas.Designer.cs">
       <DependentUpon>Det_Salidas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entradas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Entradas.Designer.cs">
-      <DependentUpon>Entradas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Det_Combustibles.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Det_Combustibles.Designer.cs">
       <DependentUpon>Det_Combustibles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entradas.Designer.cs">
+      <DependentUpon>Entradas.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario.cs">
       <SubType>Form</SubType>
@@ -148,6 +154,12 @@
     </Compile>
     <Compile Include="Clases\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requisiciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Requisiciones.Designer.cs">
+      <DependentUpon>Requisiciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Salidas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,14 +179,17 @@
     <EmbeddedResource Include="acceso.resx">
       <DependentUpon>acceso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Det_Requisiciones.resx">
+      <DependentUpon>Det_Requisiciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Det_Salidas.resx">
       <DependentUpon>Det_Salidas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Entradas.resx">
-      <DependentUpon>Entradas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Det_Combustibles.resx">
       <DependentUpon>Det_Combustibles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entradas.resx">
+      <DependentUpon>Entradas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
@@ -195,6 +210,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Requisiciones.resx">
+      <DependentUpon>Requisiciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Salidas.resx">
       <DependentUpon>Salidas.cs</DependentUpon>
     </EmbeddedResource>

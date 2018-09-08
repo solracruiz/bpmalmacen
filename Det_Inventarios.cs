@@ -24,7 +24,6 @@ namespace bpmalmacen
         conexion conn3 = new conexion();
         conexion conn4 = new conexion();
 
-
         MySqlDataReader R;
         public Det_Inventarios()
         {
@@ -240,7 +239,7 @@ namespace bpmalmacen
                     panel1.Visible = true;
                     resp=conn.Executa("insert into inventarios (tipo,fecha,idalmacen,idautorizo,estatus) values('" + 
                     cbtipo.Text.ToUpper() + "','" + txtfecha.Value.ToString("yyyy-MM-dd") + "'," + cbalmacen.SelectedValue +"," + cbsolicito.SelectedValue + ",'A')");
-                if (!resp) { conn.fallo(); return false; }
+                if (!resp) { conn.fallo(); return ; }
                 //OBTENER ID INVENTARIO
                 R = conn.GetData("SELECT id FROM inventarios where tipo='" + cbtipo.Text.ToUpper() 
                         + "' and fecha='" + txtfecha.Value.ToString("yyyy-MM-dd")
@@ -254,7 +253,7 @@ namespace bpmalmacen
                     resp=conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
                             + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + configuracion.USER + 
                             "','ALTA','INVENTARIOS'," + ID_INV + ")");
-                if (!resp) { conn.fallo(); return false; }
+                if (!resp) { conn.fallo(); return ; }
                 panel2.Enabled = false;
                     panel1.Visible = true;
                     txtid.Focus();

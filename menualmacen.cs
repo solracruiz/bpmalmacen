@@ -83,5 +83,11 @@ namespace bpmalmacen
             Combustibles frm = new Combustibles();
             frm.Show(this);
         }
+
+        private void RequisicionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Requisiciones frm = new Requisiciones();
+            frm.Show(this);
+        }
     }
 }
