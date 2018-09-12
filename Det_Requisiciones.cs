@@ -15,7 +15,7 @@ namespace bpmalmacen
     public partial class Det_Requisiciones : Form
     {
         int r = 0;
-        Int64 ID_ENT;
+        Int64 ID_REQ;
         Double PRECIO, TOTAL;
         string filtro2 = "";
         conexion conn = new conexion();
@@ -36,11 +36,11 @@ namespace bpmalmacen
         {
             if (validar() == 0 && validar_ent()==0){ return; }
             panel2.Enabled = false;
-           Grid.Rows.Insert(r, txtid.Text, txtnombre.Text, txtcantidad.Text, txtprecio.Text, txtcosto.Text, txtmarca.Text,txtlote.Text, txtrequisicion.Text,txtcaducidad.Text);
+           Grid.Rows.Insert(r, txtid.Text, txtnombre.Text, txtcantidad.Text, txtespecificaciones.Text);
             r = r + 1;
 
             limpiar();
-            cargar_det();
+            //cargar_det();
             txtid.Focus();
         }
 
@@ -68,7 +68,7 @@ namespace bpmalmacen
             }
         }
 
-        private void Det_Entradas_Load(object sender, EventArgs e)
+        private void Det_Requisiciones_Load(object sender, EventArgs e)
         {
             cargar();
             conn.AbrirBD();
@@ -77,10 +77,11 @@ namespace bpmalmacen
         }
         void cargar_det()
         {
+            return;
             Grid.DataSource = conn.GetTable("select d.id,d.idarticulo as Id_Articulo,a.nombre_corto as Descripcion,cantidad as Cantidad," +
-                "d.precio as Precio,totalprecio as Total,estado as Estado,d.marbete as Marbete,e.nombre as Auditor "+
-                "from det_inventarios d, empleados e, catarticulos a where d.idauditor=e.id and d.idarticulo=a.id and d.idinventario=" + 
-                ID_ENT + " order by d.id");
+                ",d.especificaciones as Especificaciones " +
+                "from det_requisiciones d, catarticulos a where d.idarticulo=a.id and d.idrequisicion=" + 
+                ID_REQ + " order by d.id");
             if ((conn.PropertyDataSet.Tables[0].Rows.Count != 0))
             {
                 Grid.Columns["id"].Visible = false;
@@ -90,12 +91,12 @@ namespace bpmalmacen
         }
             void cargar()
         {
-            txtfecha_factura.Value = DateTime.Now;
+            //txtfecha_factura.Value = DateTime.Now;
             txtfecha.Value = DateTime.Now;
             conn2.AbrirBD();
             cbfuente.DisplayMember = "nombre";
             cbfuente.ValueMember = "id";
-            cbfuente.DataSource = conn2.GetTable("select id,nombre from catproveedores");
+            cbfuente.DataSource = conn2.GetTable("select id,nombre from catfuentes");
             conn2.cerrarBd();
 
             conn3.AbrirBD();
@@ -107,11 +108,7 @@ namespace bpmalmacen
             conn4.AbrirBD();
             cbproyecto.DisplayMember = "nombre";
             cbproyecto.ValueMember = "id";
-            if (configuracion.ID_ALMACEN != 0)
-            { cbproyecto.DataSource = conn4.GetTable("select id,nombre from catalmacen where id=" + configuracion.ID_ALMACEN);
-                cbproyecto.Enabled = false;
-            }
-            else { cbproyecto.DataSource = conn4.GetTable("select id,nombre from catalmacen  where id>0"); }
+            cbproyecto.DataSource = conn4.GetTable("select id,nombre from catproyectos"); 
             conn4.cerrarBd();
 
             conn5.AbrirBD();
@@ -150,11 +147,7 @@ namespace bpmalmacen
             txtid.Text = "";
             txtnombre.Text = "";
             txtcantidad.Text = "";
-            txtprecio.Text = "";
-            txtcosto.Text = "";
-            txtmarca.Text = "";
-            txtrequisicion.Text = "";
-            txtlote.Text = "";
+            
  
         }
 
@@ -187,7 +180,7 @@ namespace bpmalmacen
         }
 
         private void txtid_KeyDown(object sender, KeyEventArgs e)
-        {
+            {
             if (e.KeyCode == Keys.Enter)
             {txtcantidad.Focus();}
             else if (e.KeyCode == Keys.Down){ txtnombre.Focus(); }
@@ -195,14 +188,13 @@ namespace bpmalmacen
         int validar()
         {
             
-            if (txtid.Text != "" && txtcantidad.Text != "" && txtprecio.Text != "" && txtmarca.Text != "" && txtlote.Text != "")
+            if (txtid.Text != "" && txtcantidad.Text != "" )
             { return 1; }
             return 0;
         }
         int validar_ent()
         {
-            string P = suma_costos();
-            if (txtfecha.Text != "" && cbtipo.Text != "" && cbproyecto.Text != "" && cbsolicito.Text != "" && cbfuente.Text != "" && txtimporte.Text == P.ToString())
+            if (txtfecha.Text != "" && cbtipo.Text != "" && cbproyecto.Text != "" && cbsolicito.Text != "" && cbfuente.Text != "" )
             { return 1; }
             return 0;
         }
@@ -215,36 +207,35 @@ namespace bpmalmacen
                 Boolean resp;
                 conn.AbrirBD();
                 conn.inicio();
-                    resp=conn.Executa("insert into entradas (tipo,fechaentrada,numfactura,fechafactura,costofactura," +
-                        "idproveedor,idarea,idalmacen,idrecibio,estatus) values('" + 
+                    resp=conn.Executa("insert into requisiciones (tipo,fecha,fechacaptura,lugar_entrega," +
+                    "justificacion,idarea,idsolicito,idfuente,idproyecto,estado) values('" + 
                     cbtipo.Text.ToUpper() + "','" + txtfecha.Value.ToString("yyyy-MM-dd") + "','" +
-                    txtnumero_factura.Text.ToUpper() + "','" + txtfecha_factura.Value.ToString("yyyy-MM-dd") + "'," +
-                    txtimporte.Text.ToUpper() + "," + cbfuente.SelectedValue + "," + cbarea.SelectedValue + "," +
-                    cbproyecto.SelectedValue +"," + cbsolicito.SelectedValue + ",'A')");
+                    DateTime.Now.ToString("yyyy-MM-dd") + "','" + cbentregar.SelectedValue + "','" + 
+                    txtjustificacion.Text + "'," + cbarea.SelectedValue + "," + cbsolicito.SelectedValue + "," +
+                    cbfuente.SelectedValue + "," + cbproyecto.SelectedValue + ",'A')");
                 //OBTENER ID INVENTARIO
                 if (!resp) { conn.fallo(); return; }
-                R = conn.GetData("SELECT id FROM entradas where tipo='" + cbtipo.Text.ToUpper() 
-                        + "' and fechaentrada='" + txtfecha.Value.ToString("yyyy-MM-dd")
-                        + "' and fechafactura='" + txtfecha_factura.Value.ToString("yyyy-MM-dd")
-                        + "' and numfactura='" + txtnumero_factura.Text.ToString()
-                        + "' and idproveedor=" + cbfuente.SelectedValue + ";");
+                R = conn.GetData("SELECT id FROM requisiciones where tipo='" + cbtipo.Text.ToUpper() 
+                        + "' and fecha='" + txtfecha.Value.ToString("yyyy-MM-dd")
+                        + "' and idsolicito='" + cbsolicito.SelectedValue
+                        + "' and idfuente=" + cbfuente.SelectedValue + ";");
                     if (R.HasRows)
                     {
                         R.Read();
-                        ID_ENT = Int32.Parse(R[0].ToString());
+                        ID_REQ = Int32.Parse(R[0].ToString());
                         label16.Visible = true;
-                        label16.Text = "E N T R A D A   #" + ID_ENT.ToString();
+                        label16.Text = "R E Q U I S I C I O N E S   #" + ID_REQ.ToString();
                     }
-                    R.Close();
+                R.Close();
                 resp= grabar_grid();
                 if (!resp) { return; }
                 resp = conn.Executa("insert into bitacora (fechasis,usuario,motivo,tabla,idtabla) values('"
                        + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "','" + configuracion.USER +
-                       "','ALTA','ENTRADAS'," + ID_ENT + ")");
+                       "','ALTA','REQUISICIONES'," + ID_REQ + ")");
                 if (!resp) { conn.fallo(); return; }
                 conn.exito();
                 conn.cerrarBd();
-                MessageBox.Show("Alta de Entrada al Almacen " + ID_ENT+ " Realizada con Exito¡");
+                MessageBox.Show("Alta de Requisicion " + ID_REQ + " Realizada con Exito¡");
                 this.Close();
             }
             catch (Exception ex)
@@ -267,24 +258,11 @@ namespace bpmalmacen
             this.Close();
         }
 
-        private void txtprecio_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
-            {
-                txtmarca.Focus();
-            }
-            else if (e.KeyCode == Keys.Up)
-                {
-                    txtcantidad.Focus();
-                }
-          
-        }
-
         private void txtcantidad_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
             {
-                txtprecio.Focus();
+                txtespecificaciones.Focus();
             }
             else if (e.KeyCode == Keys.Up )
             {
@@ -292,14 +270,11 @@ namespace bpmalmacen
             }
         }
 
-
         private void bt_agregar_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             { txtid.Focus(); }
         }
-
-
 
         private void txtid_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -312,76 +287,17 @@ namespace bpmalmacen
             else { e.Handled = true; }
         }
 
-        private void txtprecio_Leave(object sender, EventArgs e)
-        {
-            if (modulo1.IsNumeric(txtcantidad.Text.ToString()) && modulo1.IsNumeric(txtprecio.Text.ToString()))
-            {
-                costo();
-            }
-        }
-
-        private void txtprecio_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsDigit(e.KeyChar))
-            { e.Handled = false; }
-            else if (Char.IsControl(e.KeyChar))
-            { e.Handled = false; }
-            else if (Char.IsSeparator(e.KeyChar))
-            { e.Handled = false; }
-            else if (e.KeyChar == 46)
-            { e.Handled = false; }
-            else { e.Handled = true; }
-        }
-
        
         private void txtcantidad_Leave(object sender, EventArgs e)
         {
-            if (modulo1.IsNumeric(txtcantidad.Text.ToString()) && modulo1.IsNumeric(txtprecio.Text.ToString()))
+           /* if (modulo1.IsNumeric(txtcantidad.Text.ToString()) && modulo1.IsNumeric(txtprecio.Text.ToString()))
             {
                 costo();
-            }
+            }*/
             
         }
 
-        void costo()
-        {
-            if (txtcantidad.Text != "" && txtprecio.Text != "")
-            {
-                float costo= float.Parse(txtcantidad.Text) * float.Parse(txtprecio.Text);
-                float iva1= float.Parse(costo.ToString()) /configuracion.IVA;
-                txtcosto.Text = costo.ToString();
-                txtiva.Text = iva1.ToString();
-            }
-        }
-
-
-        private void txtlote_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
-            {
-                txtrequisicion.Focus();
-            }
-            else if (e.KeyCode == Keys.Up)
-            {
-                txtmarca.Focus();
-            }
-        }
-
-
-        private void txtmarca_KeyDown_1(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
-            {
-                txtlote.Focus();
-            }
-            else if (e.KeyCode == Keys.Up)
-            {
-                txtprecio.Focus();
-            }
-        }
-
-       
-        private void txtrequisicion_KeyDown_1(object sender, KeyEventArgs e)
+        private void txtespecificaciones_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
             {
@@ -389,81 +305,26 @@ namespace bpmalmacen
             }
             else if (e.KeyCode == Keys.Up)
             {
-                txtlote.Focus();
+                txtcantidad.Focus();
             }
-        }
-
-
-        public string suma_costos()
-        {
-            string resp = "";
-            TOTAL = 0;
-            for (int fila = 0; fila < Grid.Rows.Count - 1; fila++)
-            {
-                TOTAL = TOTAL + double.Parse(Grid.Rows[fila].Cells[4].Value.ToString());
-            }
-            resp = TOTAL.ToString();
-            return resp;
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
 
         Boolean grabar_grid()
         {
-            
-            DateTime fec =DateTime.Now;
-            double nuevo_costo = 0, nueva_exis=0;
             for (int fila = 0; fila < Grid.Rows.Count - 1; fila++)
             {
-                fec = DateTime.Parse(Grid.Rows[fila].Cells[8].Value.ToString());
-                nueva_exis = double.Parse(Grid.Rows[fila].Cells[2].Value.ToString());
-                nuevo_costo = double.Parse(Grid.Rows[fila].Cells[4].Value.ToString());
-                string str="insert into det_entradas (identrada,idarticulo," +
-                    "cantidad,existencia,precio,totalprecio,marca,requisicion,lote,caducidad) " + 
-                    "values(" + ID_ENT + "," +
+                string str="insert into det_requisiciones (idrequisicion,idarticulo," +
+                    "cantidad,precio,costo,especificaciones) " + 
+                    "values(" + ID_REQ + "," +
                     Grid.Rows[fila].Cells[0].Value.ToString() + "," +
                     Grid.Rows[fila].Cells[2].Value.ToString() + "," +
-                    Grid.Rows[fila].Cells[2].Value.ToString() + "," +
-                    Grid.Rows[fila].Cells[3].Value.ToString() + "," +
-                    Grid.Rows[fila].Cells[4].Value.ToString() + ",'" +
-                    Grid.Rows[fila].Cells[5].Value.ToString() + "','" +
-                    Grid.Rows[fila].Cells[6].Value.ToString() + "','" +
-                    Grid.Rows[fila].Cells[7].Value.ToString() + "','" +
-                    fec.ToString("yyyy-MM-dd") + "')";
-
+                    "0,0,'" +
+                    txtespecificaciones.Text + "')";
                 if (!conn.Executa(str)){
                     conn.fallo();
                     return false;
                 }
-               //GUARDAR EN LA TABLA KARDEX EL MOV DE ENTRADA
-                str= "insert into kardex (idtabla,idarticulo,entrada,salida,precio,costo,fecha)" +
-                   "values(" + ID_ENT + "," +
-                    Grid.Rows[fila].Cells[0].Value.ToString() + "," +
-                    Grid.Rows[fila].Cells[2].Value.ToString() + ",0," +
-                    Grid.Rows[fila].Cells[3].Value.ToString() + "," +
-                    Grid.Rows[fila].Cells[4].Value.ToString() + ",'" +
-                    txtfecha.Value.ToString("yyyy-MM-dd") + "')";
-                //MessageBox.Show(str);
-                if (!conn.Executa(str))
-                {
-                    conn.fallo();
-                    return false;
-                }
-                //CALCULAR PRECIO PROMEDIO 
-                str = "update catarticulos " +
-                        "set preciopromedio=((existencia*preciopromedio)+" + nuevo_costo + ")/(existencia+" + nueva_exis +
-                        "), existencia=existencia+" + nueva_exis + " where id=" + Grid.Rows[fila].Cells[0].Value.ToString();
-                if (!conn.Executa(str))
-                {
-                    conn.fallo();
-                    return false;
-                }
-
-            }
-            //Inventario.ActiveForm=true;
+            }  
             return true;
         }
    

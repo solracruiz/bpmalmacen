@@ -104,9 +104,9 @@ namespace bpmalmacen
                     MessageBox.Show("Revisar Usuario y Password por favor");
                 }
             }
-            catch (Exception) 
+            catch (Exception ex) 
             {
-                MessageBox.Show("No existen usuarios...");
+                MessageBox.Show("No existen usuarios..." + ex.GetType().ToString());
             }
             
         }

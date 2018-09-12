@@ -36,6 +36,8 @@ namespace bpmalmacen
             this.label9 = new System.Windows.Forms.Label();
             this.bt_grabar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtespecificaciones = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.bt_agregar = new System.Windows.Forms.Button();
             this.txtcantidad = new System.Windows.Forms.TextBox();
@@ -49,6 +51,10 @@ namespace bpmalmacen
             this.label6 = new System.Windows.Forms.Label();
             this.cbsolicito = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtjustificacion = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbentregar = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.cbfuente = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -58,21 +64,10 @@ namespace bpmalmacen
             this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_u = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo_u = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requisicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caducidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.especificaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bt_salir = new System.Windows.Forms.Button();
             this.txtcosto = new System.Windows.Forms.TextBox();
             this.txtiva = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtespecificaciones = new System.Windows.Forms.TextBox();
-            this.cbentregar = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtjustificacion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Articulos)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -97,7 +92,6 @@ namespace bpmalmacen
             this.label7.Size = new System.Drawing.Size(31, 13);
             this.label7.TabIndex = 18;
             this.label7.Text = "Tipo:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -149,6 +143,24 @@ namespace bpmalmacen
             this.panel1.Size = new System.Drawing.Size(762, 67);
             this.panel1.TabIndex = 24;
             // 
+            // txtespecificaciones
+            // 
+            this.txtespecificaciones.Location = new System.Drawing.Point(343, 9);
+            this.txtespecificaciones.Multiline = true;
+            this.txtespecificaciones.Name = "txtespecificaciones";
+            this.txtespecificaciones.Size = new System.Drawing.Size(353, 44);
+            this.txtespecificaciones.TabIndex = 11;
+            this.txtespecificaciones.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtespecificaciones_KeyDown);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(247, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 13);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "Especificaciones:";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -176,9 +188,9 @@ namespace bpmalmacen
             // 
             // txtcantidad
             // 
-            this.txtcantidad.Location = new System.Drawing.Point(202, 7);
+            this.txtcantidad.Location = new System.Drawing.Point(193, 8);
             this.txtcantidad.Name = "txtcantidad";
-            this.txtcantidad.Size = new System.Drawing.Size(73, 20);
+            this.txtcantidad.Size = new System.Drawing.Size(47, 20);
             this.txtcantidad.TabIndex = 10;
             this.txtcantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcantidad_KeyDown);
             this.txtcantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantidad_KeyPress);
@@ -187,7 +199,7 @@ namespace bpmalmacen
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 14);
+            this.label2.Location = new System.Drawing.Point(135, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 19;
@@ -289,8 +301,45 @@ namespace bpmalmacen
             this.panel2.Controls.Add(this.label9);
             this.panel2.Location = new System.Drawing.Point(31, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(879, 164);
+            this.panel2.Size = new System.Drawing.Size(879, 170);
             this.panel2.TabIndex = 0;
+            // 
+            // txtjustificacion
+            // 
+            this.txtjustificacion.Location = new System.Drawing.Point(515, 131);
+            this.txtjustificacion.Multiline = true;
+            this.txtjustificacion.Name = "txtjustificacion";
+            this.txtjustificacion.Size = new System.Drawing.Size(336, 32);
+            this.txtjustificacion.TabIndex = 39;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(444, 139);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 13);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "Justificacion:";
+            // 
+            // cbentregar
+            // 
+            this.cbentregar.FormattingEnabled = true;
+            this.cbentregar.Items.AddRange(new object[] {
+            "ALMACEN",
+            "AREA SOLICITANTE"});
+            this.cbentregar.Location = new System.Drawing.Point(83, 131);
+            this.cbentregar.Name = "cbentregar";
+            this.cbentregar.Size = new System.Drawing.Size(337, 21);
+            this.cbentregar.TabIndex = 36;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 139);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Entregar en:";
             // 
             // label16
             // 
@@ -344,12 +393,7 @@ namespace bpmalmacen
             this.Articulo,
             this.Descripcion,
             this.cantidad,
-            this.precio_u,
-            this.costo_u,
-            this.marca,
-            this.requisicion,
-            this.lote,
-            this.caducidad});
+            this.especificaciones});
             this.Grid.Location = new System.Drawing.Point(31, 192);
             this.Grid.Name = "Grid";
             this.Grid.ReadOnly = true;
@@ -370,7 +414,7 @@ namespace bpmalmacen
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 150;
+            this.Descripcion.Width = 250;
             // 
             // cantidad
             // 
@@ -378,41 +422,12 @@ namespace bpmalmacen
             this.cantidad.Name = "cantidad";
             this.cantidad.ReadOnly = true;
             // 
-            // precio_u
+            // especificaciones
             // 
-            this.precio_u.HeaderText = "Precio";
-            this.precio_u.Name = "precio_u";
-            this.precio_u.ReadOnly = true;
-            // 
-            // costo_u
-            // 
-            this.costo_u.HeaderText = "Costo";
-            this.costo_u.Name = "costo_u";
-            this.costo_u.ReadOnly = true;
-            // 
-            // marca
-            // 
-            this.marca.HeaderText = "Marca";
-            this.marca.Name = "marca";
-            this.marca.ReadOnly = true;
-            // 
-            // requisicion
-            // 
-            this.requisicion.HeaderText = "Requisicion";
-            this.requisicion.Name = "requisicion";
-            this.requisicion.ReadOnly = true;
-            // 
-            // lote
-            // 
-            this.lote.HeaderText = "Lote";
-            this.lote.Name = "lote";
-            this.lote.ReadOnly = true;
-            // 
-            // caducidad
-            // 
-            this.caducidad.HeaderText = "Caducidad";
-            this.caducidad.Name = "caducidad";
-            this.caducidad.ReadOnly = true;
+            this.especificaciones.HeaderText = "Especificaciones";
+            this.especificaciones.Name = "especificaciones";
+            this.especificaciones.ReadOnly = true;
+            this.especificaciones.Width = 350;
             // 
             // bt_salir
             // 
@@ -445,59 +460,6 @@ namespace bpmalmacen
             this.txtiva.TabIndex = 39;
             this.txtiva.Visible = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(293, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 13);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Especificaciones:";
-            // 
-            // txtespecificaciones
-            // 
-            this.txtespecificaciones.Location = new System.Drawing.Point(389, 9);
-            this.txtespecificaciones.Multiline = true;
-            this.txtespecificaciones.Name = "txtespecificaciones";
-            this.txtespecificaciones.Size = new System.Drawing.Size(292, 44);
-            this.txtespecificaciones.TabIndex = 11;
-            // 
-            // cbentregar
-            // 
-            this.cbentregar.FormattingEnabled = true;
-            this.cbentregar.Items.AddRange(new object[] {
-            "ALMACEN",
-            "AREA SOLICITANTE"});
-            this.cbentregar.Location = new System.Drawing.Point(83, 131);
-            this.cbentregar.Name = "cbentregar";
-            this.cbentregar.Size = new System.Drawing.Size(337, 21);
-            this.cbentregar.TabIndex = 36;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 139);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Entregar en:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(444, 139);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 13);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "Justificacion:";
-            // 
-            // txtjustificacion
-            // 
-            this.txtjustificacion.Location = new System.Drawing.Point(515, 131);
-            this.txtjustificacion.Name = "txtjustificacion";
-            this.txtjustificacion.Size = new System.Drawing.Size(336, 20);
-            this.txtjustificacion.TabIndex = 39;
-            // 
             // Det_Requisiciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -514,7 +476,7 @@ namespace bpmalmacen
             this.Name = "Det_Requisiciones";
             this.Text = "Detalle de Requisicion";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Det_Entradas_FormClosing);
-            this.Load += new System.EventHandler(this.Det_Entradas_Load);
+            this.Load += new System.EventHandler(this.Det_Requisiciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Articulos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -555,20 +517,15 @@ namespace bpmalmacen
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtcosto;
         private System.Windows.Forms.TextBox txtiva;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Articulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio_u;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costo_u;
-        private System.Windows.Forms.DataGridViewTextBoxColumn marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn requisicion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lote;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caducidad;
         private System.Windows.Forms.TextBox txtespecificaciones;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbentregar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtjustificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Articulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn especificaciones;
     }
 }
