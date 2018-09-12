@@ -93,25 +93,25 @@ namespace bpmalmacen
             txtfecha_factura.Value = DateTime.Now;
             txtfecha.Value = DateTime.Now;
             conn2.AbrirBD();
-            cbproveedor.DisplayMember = "nombre";
-            cbproveedor.ValueMember = "id";
-            cbproveedor.DataSource = conn2.GetTable("select id,nombre from catproveedores");
+            cbfuente.DisplayMember = "nombre";
+            cbfuente.ValueMember = "id";
+            cbfuente.DataSource = conn2.GetTable("select id,nombre from catproveedores");
             conn2.cerrarBd();
 
             conn3.AbrirBD();
-            cbrecibio.DisplayMember = "nombre";
-            cbrecibio.ValueMember = "id";
-            cbrecibio.DataSource =  conn3.GetTable("select id,nombre from empleados");
+            cbsolicito.DisplayMember = "nombre";
+            cbsolicito.ValueMember = "id";
+            cbsolicito.DataSource =  conn3.GetTable("select id,nombre from empleados");
             conn3.cerrarBd();
 
             conn4.AbrirBD();
-            cbalmacen.DisplayMember = "nombre";
-            cbalmacen.ValueMember = "id";
+            cbproyecto.DisplayMember = "nombre";
+            cbproyecto.ValueMember = "id";
             if (configuracion.ID_ALMACEN != 0)
-            { cbalmacen.DataSource = conn4.GetTable("select id,nombre from catalmacen where id=" + configuracion.ID_ALMACEN);
-                cbalmacen.Enabled = false;
+            { cbproyecto.DataSource = conn4.GetTable("select id,nombre from catalmacen where id=" + configuracion.ID_ALMACEN);
+                cbproyecto.Enabled = false;
             }
-            else { cbalmacen.DataSource = conn4.GetTable("select id,nombre from catalmacen  where id>0"); }
+            else { cbproyecto.DataSource = conn4.GetTable("select id,nombre from catalmacen  where id>0"); }
             conn4.cerrarBd();
 
             conn5.AbrirBD();
@@ -202,7 +202,7 @@ namespace bpmalmacen
         int validar_ent()
         {
             string P = suma_costos();
-            if (txtfecha.Text != "" && cbtipo.Text != "" && cbalmacen.Text != "" && cbrecibio.Text != "" && cbproveedor.Text != "" && txtimporte.Text == P.ToString())
+            if (txtfecha.Text != "" && cbtipo.Text != "" && cbproyecto.Text != "" && cbsolicito.Text != "" && cbfuente.Text != "" && txtimporte.Text == P.ToString())
             { return 1; }
             return 0;
         }
@@ -219,15 +219,15 @@ namespace bpmalmacen
                         "idproveedor,idarea,idalmacen,idrecibio,estatus) values('" + 
                     cbtipo.Text.ToUpper() + "','" + txtfecha.Value.ToString("yyyy-MM-dd") + "','" +
                     txtnumero_factura.Text.ToUpper() + "','" + txtfecha_factura.Value.ToString("yyyy-MM-dd") + "'," +
-                    txtimporte.Text.ToUpper() + "," + cbproveedor.SelectedValue + "," + cbarea.SelectedValue + "," +
-                    cbalmacen.SelectedValue +"," + cbrecibio.SelectedValue + ",'A')");
+                    txtimporte.Text.ToUpper() + "," + cbfuente.SelectedValue + "," + cbarea.SelectedValue + "," +
+                    cbproyecto.SelectedValue +"," + cbsolicito.SelectedValue + ",'A')");
                 //OBTENER ID INVENTARIO
                 if (!resp) { conn.fallo(); return; }
                 R = conn.GetData("SELECT id FROM entradas where tipo='" + cbtipo.Text.ToUpper() 
                         + "' and fechaentrada='" + txtfecha.Value.ToString("yyyy-MM-dd")
                         + "' and fechafactura='" + txtfecha_factura.Value.ToString("yyyy-MM-dd")
                         + "' and numfactura='" + txtnumero_factura.Text.ToString()
-                        + "' and idproveedor=" + cbproveedor.SelectedValue + ";");
+                        + "' and idproveedor=" + cbfuente.SelectedValue + ";");
                     if (R.HasRows)
                     {
                         R.Read();
@@ -406,7 +406,10 @@ namespace bpmalmacen
             return resp;
         }
 
+        private void label7_Click(object sender, EventArgs e)
+        {
 
+        }
 
         Boolean grabar_grid()
         {
