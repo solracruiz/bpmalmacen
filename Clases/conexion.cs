@@ -15,10 +15,14 @@ namespace bpmalmacen
         MySqlConnection MysqlConexion = new MySqlConnection();
         MySqlTransaction tr = null;
         MySqlDataAdapter Adapter = new MySqlDataAdapter();
+        MySqlDataAdapter Adapter2 = new MySqlDataAdapter();
         MySqlCommand Command = new MySqlCommand();
+        MySqlCommand Command2 = new MySqlCommand();
         DataSet Data = new DataSet();
+        DataSet Data2 = new DataSet();
         DataTable Table = new DataTable();
-        MySqlDataReader Reader;
+        DataTable Table2 = new DataTable();
+        MySqlDataReader Reader, Reader2;
 
         public String servidor = "";
         String nombreBD = "";
@@ -93,6 +97,35 @@ namespace bpmalmacen
             }
         }
         public DataTable GetTable(string consulta)
+        {
+            try
+            {
+                Command2.Connection = MysqlConexion;
+                Command2.CommandText = consulta;
+                Data2.Clear();
+                Adapter2 = new MySqlDataAdapter(Command2); //'se crea instancia del adaptador del objeto                           //'se crea instancia del dataset del objeto
+                Adapter2.Fill(Data2);                  //'se llena el adaptador del objeto
+                Table2.Clear();
+                if (Data2.Tables[0].Rows.Count != 0)
+                { //'valida registros                 
+                    Reader2 = Command2.ExecuteReader();  //      'se inicializa el MysqlDataReader del objeto
+                    Table2.Load(Reader2);//
+                                       //      MysqlConexion.Close();//                 'cierra base de datos   
+                    return Table2;//
+                }// 'Retorna DataTable del Objeto    
+                else
+                {
+                    return null;         //                                  'Retorna Nulo    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio el siguiente problema: " + ex.Message);
+                return null;
+            }
+        }
+
+        public DataTable GetTable2(string consulta)
         {
             try
             {

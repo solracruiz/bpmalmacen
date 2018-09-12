@@ -118,5 +118,11 @@ namespace bpmalmacen
             MessageBox.Show("Proceso Realizado con Exito");
         }
 
+        private void bt_imprimir_Click(object sender, EventArgs e)
+        {
+            Reporteador Rep = new Reporteador();
+            Rep.crear_reporte(sql + filtro, "consumocombustible","Listado de Consumo de Combustible");
+
+        }
     }
 }

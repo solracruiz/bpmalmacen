@@ -27,8 +27,8 @@ namespace bpmalmacen
 
         private void partidasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //catpartidas frm = new catpartidas();
-            //frm.Show();
+            cat_partidas frm = new cat_partidas();
+            frm.Show();
         }
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -88,6 +88,12 @@ namespace bpmalmacen
         {
             Requisiciones frm = new Requisiciones();
             frm.Show(this);
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cat_proveedores frm = new cat_proveedores();
+            frm.Show();
         }
     }
 }

@@ -147,7 +147,7 @@ namespace bpmalmacen
             txtid.Text = "";
             txtnombre.Text = "";
             txtcantidad.Text = "";
-            
+            txtespecificaciones.Text ="";
  
         }
 

@@ -35,6 +35,22 @@
     <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\CrystalDecisions.CrystalReports.Engine\13.0.3500.0__692fbea5521e1304\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\CrystalDecisions.ReportSource\13.0.3500.0__692fbea5521e1304\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\CrystalDecisions.Shared\13.0.3500.0__692fbea5521e1304\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\CrystalDecisions.Windows.Forms\13.0.3500.0__692fbea5521e1304\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp">
       <HintPath>..\..\bpmpuntual\contoladores\itextsharp.dll</HintPath>
     </Reference>
@@ -56,10 +72,6 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=6.3.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -80,24 +92,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalogos\cat_partidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\cat_partidas.designer.cs">
+      <DependentUpon>cat_partidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\cat_proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\cat_proveedores.designer.cs">
+      <DependentUpon>cat_proveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Reporteador.cs" />
     <Compile Include="Clases\conexion.cs" />
     <Compile Include="Clases\configuracion.cs" />
-    <Compile Include="Combustibles.cs">
+    <Compile Include="Procesos\Combustibles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Combustibles.Designer.cs">
+    <Compile Include="Procesos\Combustibles.Designer.cs">
       <DependentUpon>Combustibles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Det_Entradas.cs">
+    <Compile Include="Procesos\Det_Entradas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Det_Entradas.Designer.cs">
+    <Compile Include="Procesos\Det_Entradas.Designer.cs">
       <DependentUpon>Det_Entradas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Det_Inventarios.cs">
+    <Compile Include="Procesos\Det_Inventarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Det_Inventarios.Designer.cs">
+    <Compile Include="Procesos\Det_Inventarios.Designer.cs">
       <DependentUpon>Det_Inventarios.cs</DependentUpon>
     </Compile>
     <Compile Include="acceso.cs">
@@ -106,34 +131,34 @@
     <Compile Include="acceso.Designer.cs">
       <DependentUpon>acceso.cs</DependentUpon>
     </Compile>
-    <Compile Include="Det_Requisiciones.cs">
+    <Compile Include="Procesos\Det_Requisiciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Det_Requisiciones.Designer.cs">
+    <Compile Include="Procesos\Det_Requisiciones.Designer.cs">
       <DependentUpon>Det_Requisiciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Det_Salidas.cs">
+    <Compile Include="Procesos\Det_Salidas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Det_Salidas.Designer.cs">
+    <Compile Include="Procesos\Det_Salidas.Designer.cs">
       <DependentUpon>Det_Salidas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Det_Combustibles.cs">
+    <Compile Include="Procesos\Det_Combustibles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Det_Combustibles.Designer.cs">
+    <Compile Include="Procesos\Det_Combustibles.Designer.cs">
       <DependentUpon>Det_Combustibles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entradas.cs">
+    <Compile Include="Procesos\Entradas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Entradas.Designer.cs">
+    <Compile Include="Procesos\Entradas.Designer.cs">
       <DependentUpon>Entradas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario.cs">
+    <Compile Include="Procesos\Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventario.Designer.cs">
+    <Compile Include="Procesos\Inventario.Designer.cs">
       <DependentUpon>Inventario.cs</DependentUpon>
     </Compile>
     <Compile Include="menualmacen.cs">
@@ -151,44 +176,50 @@
     </Compile>
     <Compile Include="Clases\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Requisiciones.cs">
+    <Compile Include="Procesos\Requisiciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Requisiciones.Designer.cs">
+    <Compile Include="Procesos\Requisiciones.Designer.cs">
       <DependentUpon>Requisiciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Salidas.cs">
+    <Compile Include="Procesos\Salidas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Salidas.Designer.cs">
+    <Compile Include="Procesos\Salidas.Designer.cs">
       <DependentUpon>Salidas.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="Combustibles.resx">
+    <EmbeddedResource Include="Catalogos\cat_partidas.resx">
+      <DependentUpon>cat_partidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\cat_proveedores.resx">
+      <DependentUpon>cat_proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\Combustibles.resx">
       <DependentUpon>Combustibles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Det_Entradas.resx">
+    <EmbeddedResource Include="Procesos\Det_Entradas.resx">
       <DependentUpon>Det_Entradas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Det_Inventarios.resx">
+    <EmbeddedResource Include="Procesos\Det_Inventarios.resx">
       <DependentUpon>Det_Inventarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="acceso.resx">
       <DependentUpon>acceso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Det_Requisiciones.resx">
+    <EmbeddedResource Include="Procesos\Det_Requisiciones.resx">
       <DependentUpon>Det_Requisiciones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Det_Salidas.resx">
+    <EmbeddedResource Include="Procesos\Det_Salidas.resx">
       <DependentUpon>Det_Salidas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Det_Combustibles.resx">
+    <EmbeddedResource Include="Procesos\Det_Combustibles.resx">
       <DependentUpon>Det_Combustibles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Entradas.resx">
+    <EmbeddedResource Include="Procesos\Entradas.resx">
       <DependentUpon>Entradas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventario.resx">
+    <EmbeddedResource Include="Procesos\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menualmacen.resx">
@@ -207,10 +238,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Requisiciones.resx">
+    <EmbeddedResource Include="Procesos\Requisiciones.resx">
       <DependentUpon>Requisiciones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Salidas.resx">
+    <EmbeddedResource Include="Procesos\Salidas.resx">
       <DependentUpon>Salidas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -257,6 +288,15 @@
     </COMReference>
     <COMReference Include="CRDESIGNERLib">
       <Guid>{BD4B4E53-F7B8-11D0-964D-00A0C9273C2A}</Guid>
+      <VersionMajor>11</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalActiveXReportViewerLib11_5">
+      <Guid>{F62B9FA4-455F-4FE3-8A2D-205E4F0BCAFB}</Guid>
       <VersionMajor>11</VersionMajor>
       <VersionMinor>5</VersionMinor>
       <Lcid>0</Lcid>
@@ -335,6 +375,7 @@
     <None Include="Resources\Office_Excel_Application_32xMD.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Arrow_UndoRevertRestore_16xLG.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

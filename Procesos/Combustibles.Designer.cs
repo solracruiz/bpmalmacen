@@ -41,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.bt_filtrar = new System.Windows.Forms.Button();
+            this.bt_imprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid_comb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -184,11 +185,27 @@
             this.bt_filtrar.UseVisualStyleBackColor = true;
             this.bt_filtrar.Click += new System.EventHandler(this.button1_Click);
             // 
+            // bt_imprimir
+            // 
+            this.bt_imprimir.FlatAppearance.BorderSize = 0;
+            this.bt_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_imprimir.Image = global::bpmalmacen.Properties.Resources.PrintHH;
+            this.bt_imprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_imprimir.Location = new System.Drawing.Point(254, 364);
+            this.bt_imprimir.Name = "bt_imprimir";
+            this.bt_imprimir.Size = new System.Drawing.Size(59, 58);
+            this.bt_imprimir.TabIndex = 42;
+            this.bt_imprimir.Text = "Imprimir";
+            this.bt_imprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_imprimir.UseVisualStyleBackColor = true;
+            this.bt_imprimir.Click += new System.EventHandler(this.bt_imprimir_Click);
+            // 
             // Combustibles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 431);
+            this.Controls.Add(this.bt_imprimir);
             this.Controls.Add(this.bt_filtrar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -228,5 +245,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button bt_filtrar;
+        private System.Windows.Forms.Button bt_imprimir;
     }
 }
